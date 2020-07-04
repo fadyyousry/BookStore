@@ -1,3 +1,12 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  get 'google_books/index'
+  post 'google_books/add'
+
+  resources :categories
+  resources :books
+  resources :publishers
+  resources :authors
+
+
+  root 'google_books#index'
 end
