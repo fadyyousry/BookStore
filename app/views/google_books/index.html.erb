@@ -1,0 +1,40 @@
+<%if params[:s]%>
+    <h1><%=params[:s].upcase%></h1>
+<%else%>
+    <h1>Search</h1>
+<%end%>
+<%= form_tag(google_books_index_path, method: 'get') do %>
+    <%= text_field_tag(:s, params[:s]) %>
+    <%= submit_tag("Search", name: nil) %>
+<% end %>
+<%if params[:s]%>
+  <% unless @books.empty? %>
+    <table border="1">
+      <tr>
+      	<th>title</th>
+      	<th>image</th>
+        <th>authors</th>
+        <th>publishedDate</th> 
+        <th>description</th>
+        <th></th>
+      </tr>
+      <%@books.each do |book|%>
+        <tr>
+          <% if book["volumeInfo"] %>
+          	<td><%=book["volumeInfo"]["title"]%></td>
+          	<td><%=image_tag book["volumeInfo"]["imageLinks"]["smallThumbnail"] if book["volumeInfo"]["imageLinks"] %></td>
+            <td><%=book["volumeInfo"]["authors"]%></td>
+            <td><%=book["volumeInfo"]["publishedDate"]%></td> 
+            <td><%=truncate  book["volumeInfo"]["description"], length: 200 %></td>
+            <td>
+                <%= form_tag google_books_add_path(:book => book), method: :post do %>
+                    <%= submit_tag 'Add Book', class: "btn btn-primary"%>
+                <% end %>
+            </td>
+          <%end%>
+        </tr>
+      <%end%>
+    </table>
+    <%will_paginate @books%>
+  <%end%>
+<%end%>
