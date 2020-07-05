@@ -52,6 +52,16 @@
   </div>
 
   <div class="field">
+    <%= form.label :is_pdf %>
+    <%= form.check_box :is_pdf %>
+  </div>
+
+  <div class="field">
+    <%= form.label :quantity %>
+    <%= form.number_field :quantity %>
+  </div>
+
+  <div class="field">
     <%= form.label :price %>
     <%= form.text_field :price %>
   </div>
