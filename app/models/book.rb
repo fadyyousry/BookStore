@@ -5,6 +5,7 @@ class Book < ApplicationRecord
   
   validates :title, presence: true
   validates :price, presence: true
+  validates :image_link, presence: true
   validate :check_length
 
   def check_length
