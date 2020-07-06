@@ -1,0 +1,25 @@
+
+<section class="static about-sec">
+  <div class="container">
+    <h1><%= I18n.t("login.title") %></h1>
+    <div class="form">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="row">
+          <div class="col-md-5">
+            <%= f.email_field :email, placeholder: I18n.t("login.placeholder.email"), autofocus: true, autocomplete: "email" %>
+          </div>
+          <div class="col-md-5">
+            <%= f.password_field :password, placeholder: I18n.t("login.placeholder.password"), autocomplete: "current-password" %>
+          </div>
+          <div class="col-lg-8 col-md-12">
+            <%= f.submit I18n.t("login.login_button"), class: "btn black" %>
+
+            <h5>
+              <%= render "devise/shared/links" %>
+            </h5>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
