@@ -1,4 +1,4 @@
-$(function() {
+$(document).on ("turbolinks:load", function() {
     var mybook;
 
     document.addEventListener("click", function(e) {
@@ -34,7 +34,7 @@ $(function() {
     $('#search_google_book_submit').on('click', function() {
         autofillBookData(mybook.volumeInfo);
     });
-    
+
     function autofillBookData(bookDataObject) {
         $('#book_title').val(bookDataObject.title);
         $('#book_description').val(bookDataObject.description);
@@ -60,4 +60,8 @@ $(function() {
             searchResults.appendChild(bookResultsDiv);
         });
     }
+
+    $('div.removable_field input.delete_item').on('click', function() {
+        $(this).parent().remove();
+    });
 });

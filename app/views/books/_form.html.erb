@@ -17,9 +17,39 @@
   </div>
 
   <div class="field">
-    <%= form.label :publisher_id %>
-    <%= form.text_field :publisher_id %>
+    <%= label :publisher, :name, "Publisher"%>
+    <% if book.publisher %>
+      <%= text_field :publisher, :name, value: book.publisher.name %>
+    <% else %>
+      <%= text_field :publisher, :name %>
+    <% end %>
   </div>
+
+  <div id="authors_field" class="field">
+    <%= label :authors, :name, "Authors"%>
+    <% if book.authors %>
+      <% book.authors.each do |value| %>
+        <div class="removable_field">
+            <%= text_field "auther", "name", value:"#{value[:name]}", name: "authors[][name]" %>
+            <input type="button" value="X" class="delete_item" />
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <%= link_to 'New Author', new_author_path, remote: true %>
+
+  <div id="categories_field" class="field">
+    <%= label :categories, :name, "Categories"%>
+    <% if book.categories %>
+      <% book.categories.each do |value| %>
+        <div class="removable_field">
+            <%= text_field "category", "name", value:"#{value[:name]}", name: "categories[][name]" %>
+            <input type="button" value="X" class="delete_item" />
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <%= link_to 'New Category', new_category_path, remote: true %>
 
   <div class="field">
     <%= form.label :published_date %>
