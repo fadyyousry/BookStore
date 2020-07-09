@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= label :publisher, :name, "Publisher"%>
-    <% if book.publisher %>
+    <% if book.publisher.present? %>
       <%= text_field :publisher, :name, value: book.publisher.name %>
     <% else %>
       <%= text_field :publisher, :name %>
@@ -26,30 +26,38 @@
   </div>
 
   <div id="authors_field" class="field">
+    <template id="author_field_template">
+      <div class="removable_field">
+        <input type="text" name="authors[][name]" id="author_name"/>
+        <input type="button" value="X" class="delete_item" />
+      </div>
+    </template>
     <%= label :authors, :name, "Authors"%>
-    <% if book.authors %>
       <% book.authors.each do |value| %>
         <div class="removable_field">
-            <%= text_field "auther", "name", value:"#{value[:name]}", name: "authors[][name]" %>
-            <input type="button" value="X" class="delete_item" />
+          <%= text_field "author", "name", value:"#{value[:name]}", name: "authors[][name]" %>
+          <input type="button" value="X" class="delete_item" />
         </div>
       <% end %>
-    <% end %>
   </div>
-  <%= link_to 'New Author', new_author_path, remote: true %>
+  <input type="button" value="New Author" id="add_author" />
 
   <div id="categories_field" class="field">
+    <template id="category_field_template">
+      <div class="removable_field">
+        <input type="text" name="categories[][name]" id="category_name"/>
+        <input type="button" value="X" class="delete_item" />
+      </div>
+    </template>
     <%= label :categories, :name, "Categories"%>
-    <% if book.categories %>
       <% book.categories.each do |value| %>
         <div class="removable_field">
-            <%= text_field "category", "name", value:"#{value[:name]}", name: "categories[][name]" %>
-            <input type="button" value="X" class="delete_item" />
+          <%= text_field "category", "name", value:"#{value[:name]}", name: "categories[][name]" %>
+          <input type="button" value="X" class="delete_item" />
         </div>
       <% end %>
-    <% end %>
   </div>
-  <%= link_to 'New Category', new_category_path, remote: true %>
+  <input type="button" value="New Category" id="add_category" />
 
   <div class="field">
     <%= form.label :published_date %>
