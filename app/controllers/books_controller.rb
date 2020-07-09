@@ -17,25 +17,9 @@ class BooksController < ApplicationController
 
   def create
     @book = Book.new(book_params)
-
-    @publisher = Publisher.where(name: publisher_params[:name]).first ||
-                  Publisher.new(publisher_params)
-    @book.publisher = @publisher
-
-    author_params.each do |values|
-      author = Author.where(name: values[:name]).first || Author.new(values)
-      if author.save
-        @book.authors.append(author)
-      end
-    end
-
-    category_params.each do |values|
-      category = Category.where(name: values[:name]).first ||
-                  Category.new(values)
-      if category.save
-        @book.categories.append(category)
-      end
-    end
+    create_publisher
+    create_authors
+    create_categories
 
     respond_to do |format|
       if @book.save
@@ -47,26 +31,11 @@ class BooksController < ApplicationController
   end
 
   def update
-    @publisher = Publisher.where(name: publisher_params[:name]).first ||
-                  Publisher.new(publisher_params)
-    @book.publisher = @publisher
-
+    create_publisher
     @book.authors.clear
-    author_params.each do |values|
-      author = Author.where(name: values[:name]).first || Author.new(values)
-      if author.save
-        @book.authors.append(author)
-      end
-    end
-
+    create_authors
     @book.categories.clear
-    category_params.each do |values|
-      category = Category.where(name: values[:name]).first ||
-              Category.new(values)
-      if category.save
-        @book.categories.append(category)
-      end
-    end
+    create_categories
 
     respond_to do |format|
       if @book.update(book_params)
@@ -100,10 +69,43 @@ class BooksController < ApplicationController
     end
 
     def author_params
-      params.permit(authors:[:name]).require(:authors)
+      params.permit(authors:[:name])
     end
 
     def category_params
-      params.permit(categories:[:name]).require(:categories)
+      params.permit(categories:[:name])
+    end
+
+    def authors_list
+      author_params[:authors] || []
+    end
+
+    def categories_list
+      category_params[:categories] || []
+    end
+
+    def create_publisher
+      @publisher = Publisher.find_or_initialize_by(publisher_params)
+      if @publisher.save
+          @book.publisher = @publisher
+      end
+    end
+
+    def create_authors
+      authors_list.each do |values|
+        author = Author.find_or_initialize_by(values)
+        if author.save
+          @book.authors.append(author)
+        end
+      end
+    end
+
+    def create_categories
+      categories_list.each do |values|
+        category = Category.find_or_initialize_by(values)
+        if category.save
+          @book.categories.append(category)
+        end
+      end
     end
 end

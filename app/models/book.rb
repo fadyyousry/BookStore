@@ -1,8 +1,8 @@
 class Book < ApplicationRecord
   belongs_to :publisher, optional: true
-  has_and_belongs_to_many :authors
-  has_and_belongs_to_many :categories
-  
+  has_and_belongs_to_many :authors, -> { distinct }
+  has_and_belongs_to_many :categories, -> { distinct }
+
   validates :title, presence: true
   validates :price, presence: true
   validates :image_link, presence: true
