@@ -5,13 +5,19 @@ class Book < ApplicationRecord
 
   validates :title, presence: true
   validates :price, presence: true
-  validates :image_link, presence: true
+  validates :isbn, uniqueness:  true
+  validates :image_link, presence: true ,:format => URI::regexp(%w(http https))
+
   validate :check_length
 
   def check_length
     unless isbn.size == 10 or isbn.size == 13
-      errors.add(:isbn, "length must be 10 or 13") 
+      errors.add(:isbn, "length must be 10 or 13")
     end
+  end
+
+  def publisher_name
+    publisher.name if publisher
   end
 
 end
