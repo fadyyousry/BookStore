@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {sessions: 'sessions', registrations: 'registrations'}
 
   resources :books, :constraints => { :format => 'html' }
-  resources :authors, only: [:index], :constraints => { :format => 'html' }
-  resources :categories, only: [:index], :constraints => { :format => 'html' }
+  resources :authors, only: [:show, :index, :destroy], :constraints => { :format => 'html' }
+  resources :categories, only: [:show, :index, :destroy], :constraints => { :format => 'html' }
 end

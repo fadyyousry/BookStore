@@ -25,39 +25,9 @@
     <% end %>
   </div>
 
-  <div id="authors_field" class="field">
-    <template id="author_field_template">
-      <div class="removable_field">
-        <input type="text" name="authors[][name]" id="author_name"/>
-        <input type="button" value="X" class="delete_item" />
-      </div>
-    </template>
-    <%= label :authors, :name, "Authors"%>
-      <% book.authors.each do |value| %>
-        <div class="removable_field">
-          <%= text_field "author", "name", value:"#{value[:name]}", name: "authors[][name]" %>
-          <input type="button" value="X" class="delete_item" />
-        </div>
-      <% end %>
-  </div>
-  <input type="button" value="New Author" id="add_author" />
+  <%= render 'addable_field', list: book.authors, singular: "author", plural: "authors"%>
 
-  <div id="categories_field" class="field">
-    <template id="category_field_template">
-      <div class="removable_field">
-        <input type="text" name="categories[][name]" id="category_name"/>
-        <input type="button" value="X" class="delete_item" />
-      </div>
-    </template>
-    <%= label :categories, :name, "Categories"%>
-      <% book.categories.each do |value| %>
-        <div class="removable_field">
-          <%= text_field "category", "name", value:"#{value[:name]}", name: "categories[][name]" %>
-          <input type="button" value="X" class="delete_item" />
-        </div>
-      <% end %>
-  </div>
-  <input type="button" value="New Category" id="add_category" />
+  <%= render 'addable_field', list: book.categories, singular: "category", plural: "categories"%>
 
   <div class="field">
     <%= form.label :published_date %>
