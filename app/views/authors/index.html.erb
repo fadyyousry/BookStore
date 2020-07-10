@@ -4,6 +4,7 @@
   <thead>
     <tr>
       <th>Name</th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
@@ -11,6 +12,8 @@
     <% @authors.each do |author| %>
       <tr>
         <td><%= author.name %></td>
+        <td><%= link_to 'Show', author %></td>
+        <td><%= link_to 'Destroy', author, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

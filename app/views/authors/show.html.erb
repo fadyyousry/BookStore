@@ -1,0 +1,41 @@
+<h1><%= @author.name %></h1>
+
+<h2>His/Her Books</h2>
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Publisher</th>
+      <th>Published date</th>
+      <th>Description</th>
+      <th>Isbn</th>
+      <th>Page count</th>
+      <th>Image link</th>
+      <th>Language</th>
+      <th>Is PDF</th>
+      <th>quantity</th>
+      <th>Price</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @books.each do |book| %>
+      <tr>
+        <td><%= book.title %></td>
+        <td><%= book.publisher_name %></td>
+        <td><%= book.published_date %></td>
+        <td><% book.description %></td>
+        <td><%= book.isbn %></td>
+        <td><%= book.page_count %></td>
+        <td><%= image_tag book.image_link %></td>
+        <td><%= book.language %></td>
+        <td><%= book.is_pdf %></td>
+        <td><%= book.quantity %></td>
+        <td><%= book.price %></td>
+        <td><%= link_to 'Show', book %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
