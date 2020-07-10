@@ -85,9 +85,9 @@ class BooksController < ApplicationController
     end
 
     def create_publisher
-      @publisher = Publisher.find_or_initialize_by(publisher_params)
-      if @publisher.save
-          @book.publisher = @publisher
+      publisher = Publisher.find_or_initialize_by(publisher_params)
+      if publisher.save
+          @book.publisher = publisher
       end
     end
 
