@@ -34,7 +34,7 @@
         <td><%= book.is_pdf %></td>
         <td><%= book.quantity %></td>
         <td><%= book.price %></td>
-        <td><%= link_to 'Show', book %></td>
+        <td><%= link_to t(:show, scope: [:default]), book %></td>
       </tr>
     <% end %>
   </tbody>

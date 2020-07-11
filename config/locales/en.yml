@@ -1,6 +1,12 @@
 en:
   main:
     title: "Book Store"
+  default:
+    show: "Show"
+    destroy: "Destroy"
+    edit: "Edit"
+    back: "Back"
+    error: "error"
   home:
     about:
       title: "About bookstore,"
@@ -22,4 +28,23 @@ en:
       email: "Enter Your Email"
       password: "Enter Your Password"
       confirm_password: "Confirm Your Password"
+  book:
+    massages:
+      successdul_create: "Book was successfully created."
+      successful_update: "Book was successfully updated."
+      successful_destroy:  "Book was successfully destroyed."
+    view:
+      add_book: "Add Book"
+      new_book: "New Book"
+      create_book: "Create Book"
+      new_categorey: "New Category"
+      new_author: "New Author"
+  author:
+    massages:
+      successful_destroy:  "Author was successfully destroyed."
+
+  category:
+    massages:
+      successful_destroy:  "Category was successfully destroyed."
+
 

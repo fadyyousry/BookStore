@@ -1,7 +1,7 @@
 <%= form_with(model: book, local: true) do |form| %>
   <% if book.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(book.errors.count, "error") %> prohibited this book from being saved:</h2>
+      <h2><%= pluralize(book.errors.count, t(:error, scope: [:default])) %></h2>
 
       <ul>
         <% book.errors.full_messages.each do |message| %>
@@ -25,9 +25,11 @@
     <% end %>
   </div>
 
-  <%= render 'addable_field', list: book.authors, singular: "author", plural: "authors"%>
+  <%= render 'addable_field', list: book.authors,
+     singular: "author", plural: "authors", button_name: t(:new_author, scope: [:book, :view]) %>
 
-  <%= render 'addable_field', list: book.categories, singular: "category", plural: "categories"%>
+  <%= render 'addable_field', list: book.categories,
+     singular: "category", plural: "categories", button_name: t(:new_category, scope: [:book, :view]) %>
 
   <div class="field">
     <%= form.label :published_date %>
