@@ -3,7 +3,6 @@ $(document).ready (function() {
     var $items = $('.nav-main li.nav-parent');
 
     function expand(li) {
-        console.log("here");
         li.children('ul.nav-children').slideDown('fast', function () {
             li.addClass('nav-expanded');
             $(this).css('display', '');
