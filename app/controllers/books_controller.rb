@@ -17,9 +17,9 @@ class BooksController < ApplicationController
 
   def create
     @book = Book.new(book_params)
-    create_publisher
-    create_authors
-    create_categories
+    @book.create_publisher(publisher_params)
+    @book.create_authors(authors_list)
+    @book.create_categories(categories_list)
 
     respond_to do |format|
       if @book.save
@@ -31,11 +31,11 @@ class BooksController < ApplicationController
   end
 
   def update
-    create_publisher
+    @book.create_publisher(publisher_params)
     @book.authors.clear
-    create_authors
+    @book.create_authors(authors_list)
     @book.categories.clear
-    create_categories
+    @book.create_categories(categories_list)
 
     respond_to do |format|
       if @book.update(book_params)
@@ -82,30 +82,5 @@ class BooksController < ApplicationController
 
     def categories_list
       category_params[:categories] || []
-    end
-
-    def create_publisher
-      publisher = Publisher.find_or_initialize_by(publisher_params)
-      if publisher.save
-          @book.publisher = publisher
-      end
-    end
-
-    def create_authors
-      authors_list.each do |values|
-        author = Author.find_or_initialize_by(values)
-        if author.save
-          @book.authors.append(author)
-        end
-      end
-    end
-
-    def create_categories
-      categories_list.each do |values|
-        category = Category.find_or_initialize_by(values)
-        if category.save
-          @book.categories.append(category)
-        end
-      end
     end
 end
