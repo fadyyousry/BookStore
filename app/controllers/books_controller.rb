@@ -23,7 +23,7 @@ class BooksController < ApplicationController
 
     respond_to do |format|
       if @book.save
-        format.html { redirect_to @book, notice: t(:successful_create, scope: [:book, :massages]) }
+        format.html { redirect_to @book, notice: t(:successful_create, scope: [:book, :messages]) }
       else
         format.html { render :new }
       end
@@ -39,7 +39,7 @@ class BooksController < ApplicationController
 
     respond_to do |format|
       if @book.update(book_params)
-        format.html { redirect_to @book, notice: t(:successful_update, scope: [:book, :massages]) }
+        format.html { redirect_to @book, notice: t(:successful_update, scope: [:book, :messages]) }
       else
         format.html { render :edit }
       end
@@ -49,7 +49,7 @@ class BooksController < ApplicationController
   def destroy
     @book.destroy
     respond_to do |format|
-      format.html { redirect_to books_url, notice: t(:successful_destroy, scope: [:book, :massages]) }
+      format.html { redirect_to books_url, notice: t(:successful_destroy, scope: [:book, :messages]) }
     end
   end
 

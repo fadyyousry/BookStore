@@ -7,6 +7,8 @@ en:
     edit: "Edit"
     back: "Back"
     error: "error"
+  messages:
+    ensure: "Are you sure?"
   home:
     about:
       title: "About bookstore,"
@@ -29,7 +31,7 @@ en:
       password: "Enter Your Password"
       confirm_password: "Confirm Your Password"
   book:
-    massages:
+    messages:
       successdul_create: "Book was successfully created."
       successful_update: "Book was successfully updated."
       successful_destroy:  "Book was successfully destroyed."
@@ -40,11 +42,11 @@ en:
       new_categorey: "New Category"
       new_author: "New Author"
   author:
-    massages:
+    messages:
       successful_destroy:  "Author was successfully destroyed."
 
   category:
-    massages:
+    messages:
       successful_destroy:  "Category was successfully destroyed."
 
 

@@ -12,7 +12,7 @@ class AuthorsController < ApplicationController
     def destroy
       @author.destroy
       respond_to do |format|
-        format.html { redirect_to authors_url, notice: t(:successful_destroy, scope: [:author, :massages]) }
+        format.html { redirect_to authors_url, notice: t(:successful_destroy, scope: [:author, :messages]) }
       end
     end
 
