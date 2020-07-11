@@ -4,16 +4,16 @@
 
     <form autocomplete="off">
       <div class="autocomplete" id="search_google_book">
-        <input id="search_google_book_input" type="text" name="mybook" placeholder="Book">
-        <button id="search_google_book_submit" type="button">Add Book</button>
+        <%= text_field_tag "search_google_book", nil, id: "search_google_book_input", placeholder: "Book" %>
+        <%= button_tag t(:add_book, scope: [:book, :view]), :type => 'button', id: "search_google_book_submit"%>
       </div>
     </form>
 
-    <h1>New Book</h1>
+    <h1><%= t(:new_book, scope: [:book, :view]) %></h1>
 
     <%= render 'form', book: @book %>
 
-    <%= link_to 'Back', books_path %>
+    <%= link_to t(:back, scope: [:default]), books_path %>
   </div>
 
 </section>

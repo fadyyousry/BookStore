@@ -32,9 +32,9 @@
         <td><%= book.is_pdf %></td>
         <td><%= book.quantity %></td>
         <td><%= book.price %></td>
-        <td><%= link_to 'Show', book %></td>
-        <td><%= link_to 'Edit', edit_book_path(book) %></td>
-        <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to t(:show, scope: [:default]), book %></td>
+        <td><%= link_to t(:edit, scope: [:default]), edit_book_path(book) %></td>
+        <td><%= link_to t(:destroy, scope: [:default]), book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -42,4 +42,4 @@
 
 <br>
 
-<%= link_to 'New Book', new_book_path %>
+<%= link_to t(:new_book, scope: [:book, :view]), new_book_path %>

@@ -80,7 +80,7 @@ $(document).on ("turbolinks:load", function() {
     });
 
     $('#authors_field, #categories_field')
-    .delegate('input.delete_item', 'click', function() {
+    .delegate('.delete_item', 'click', function() {
         $(this).parent().remove();
     });
 });
