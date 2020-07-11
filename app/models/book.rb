@@ -20,4 +20,29 @@ class Book < ApplicationRecord
     publisher.name if publisher
   end
 
+  def create_publisher publisher_hash
+    publisher = Publisher.find_or_initialize_by(publisher_hash)
+    if publisher.save
+      self.publisher = publisher
+    end
+  end
+
+  def create_authors authors_list
+    authors_list.each do |values|
+      author = Author.find_or_initialize_by(values)
+      if author.save
+        self.authors.append(author)
+      end
+    end
+  end
+
+  def create_categories categories_list
+    categories_list.each do |values|
+      category = Category.find_or_initialize_by(values)
+      if category.save
+        self.categories.append(category)
+      end
+    end
+  end
+
 end
