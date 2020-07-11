@@ -5,7 +5,11 @@ class Ability
 
   def initialize(user)
     user.present? ?
-      send(user.type) : customer
+      send(user.type.downcase) : guest
+  end
+
+  def guest
+
   end
 
   def customer
