@@ -17,9 +17,17 @@
   </div>
 
   <div class="field">
-    <%= form.label :publisher_id %>
-    <%= form.text_field :publisher_id %>
+    <%= label :publisher, :name, "Publisher"%>
+    <% if book.publisher.present? %>
+      <%= text_field :publisher, :name, value: book.publisher.name %>
+    <% else %>
+      <%= text_field :publisher, :name %>
+    <% end %>
   </div>
+
+  <%= render 'addable_field', list: book.authors, singular: "author", plural: "authors"%>
+
+  <%= render 'addable_field', list: book.categories, singular: "category", plural: "categories"%>
 
   <div class="field">
     <%= form.label :published_date %>
