@@ -1,11 +1,11 @@
-# README
+# Online Book Store
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+An online book store to allow small book stores as well as large ones to offer their book stock online. It also helps Book worms and casual readers to find their next book to read.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version: 
+```ruby 2.7.1```
 
 * System dependencies
 
@@ -21,4 +21,3 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
