@@ -19,6 +19,7 @@ en:
   login:
     title: "My Account / Login"
     login_button: "Log In"
+    logout: 'Log out'
     placeholder:
       email: "Enter your Email"
       password: "Enter your password"
