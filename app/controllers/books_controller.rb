@@ -1,18 +1,12 @@
 class BooksController < ApplicationController
-  before_action :set_book, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   def index
     @books = Book.all
   end
 
-  def show
-  end
-
   def new
     @book = Book.new
-  end
-
-  def edit
   end
 
   def create
@@ -54,10 +48,6 @@ class BooksController < ApplicationController
   end
 
   private
-    def set_book
-      @book = Book.find(params[:id])
-    end
-
     def book_params
       params.require(:book).permit(:title, :publisher_id, :published_date,
          :description, :isbn, :page_count, :image_link, :language, :is_pdf,
