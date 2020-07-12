@@ -9,6 +9,7 @@ en:
     error: "Error"
     forms: "Forms"
     search: "Search"
+    dashboard: "Dashboard"
     publisher:
       name: "Publisher"
     author:

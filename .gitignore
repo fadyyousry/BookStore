@@ -42,5 +42,4 @@ yarn-debug.log*
 /.idea/
 /.history
 /test
-/Gemfile.lock
 /yarn.lock

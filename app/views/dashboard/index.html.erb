@@ -5,7 +5,7 @@
     <%= render partial: 'shared/admin/sidebar' %>
 
     <section role="main" class="content-body">
-      <%= render partial: 'shared/admin/page_header' %>
+      <%= render partial: 'shared/admin/page_header', locals: { title: t('default.dashboard') } %>
     </section>
   </div>
 
