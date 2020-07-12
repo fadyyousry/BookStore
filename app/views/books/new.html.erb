@@ -1,19 +1,35 @@
-<section class="static about-sec">
+<section class="body">
 
-  <div class="container">
+  <%= render partial: 'shared/admin/navbar' %>
+  <div class="inner-wrapper">
+    <%= render partial: 'shared/admin/sidebar' %>
 
-    <form autocomplete="off">
-      <div class="autocomplete" id="search_google_book">
-        <%= text_field_tag "search_google_book", nil, id: "search_google_book_input", placeholder: "Book" %>
-        <%= button_tag t(:add_book, scope: [:book, :view]), :type => 'button', id: "search_google_book_submit"%>
-      </div>
-    </form>
+    <section role="main" class="content-body">
 
-    <h1><%= t(:new_book, scope: [:book, :view]) %></h1>
+      <%= render layout: 'shared/admin/page_header', locals: { title: t('book.view.new_book') } do %>
+      <form autocomplete="off" class="form-horizontal form-bordered">
+        <div class="form-group">
+          <%= label_tag nil, t('default.search'), class: "col-md-3 control-label" %>
+          <div class="col-md-6">
+            <div class="input-group input-search">
+              <div class="autocomplete" id=search_google_book>
+                <%= text_field_tag "search_google_book", nil, class: "form-control",id: "search_google_book_input", placeholder: t('default.search') %>
+                <span class="input-group-btn">
+                  <%= button_tag t('book.view.add_book'),
+                      :type => 'button', id: "search_google_book_submit", class:"btn btn-default" do %>
+                  <i class="fa fa-search"></i>
+                  <% end %>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group"></div>
+      </form>
+      <%= render 'form', book: @book %>
+      <% end %>
 
-    <%= render 'form', book: @book %>
-
-    <%= link_to t(:back, scope: [:default]), books_path %>
+    </section>
   </div>
 
 </section>

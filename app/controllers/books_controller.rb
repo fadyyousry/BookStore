@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+  layout 'admin'
   load_and_authorize_resource
 
   def index
@@ -12,8 +13,8 @@ class BooksController < ApplicationController
   def create
     @book = Book.new(book_params)
     @book.create_publisher(publisher_params)
-    @book.create_authors(authors_list)
-    @book.create_categories(categories_list)
+    @book.create_authors(author_params)
+    @book.create_categories(category_params)
 
     respond_to do |format|
       if @book.save
@@ -27,9 +28,9 @@ class BooksController < ApplicationController
   def update
     @book.create_publisher(publisher_params)
     @book.authors.clear
-    @book.create_authors(authors_list)
+    @book.create_authors(author_params)
     @book.categories.clear
-    @book.create_categories(categories_list)
+    @book.create_categories(category_params)
 
     respond_to do |format|
       if @book.update(book_params)
@@ -59,18 +60,10 @@ class BooksController < ApplicationController
     end
 
     def author_params
-      params.permit(authors:[:name])
+      params.require(:authors).permit(:names)
     end
 
     def category_params
-      params.permit(categories:[:name])
-    end
-
-    def authors_list
-      author_params[:authors] || []
-    end
-
-    def categories_list
-      category_params[:categories] || []
+      params.require(:categories).permit(:names)
     end
 end

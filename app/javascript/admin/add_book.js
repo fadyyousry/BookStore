@@ -1,4 +1,4 @@
-$(document).on ("turbolinks:load", function() {
+$(function() {
     var mybook;
 
     document.addEventListener("click", function(e) {
@@ -13,7 +13,7 @@ $(document).on ("turbolinks:load", function() {
         a = document.createElement("DIV");
         a.setAttribute("id", this.id + "autocomplete-list");
         a.setAttribute("class", "autocomplete-items");
-        this.parentNode.appendChild(a);
+        this.parentNode.parentNode.appendChild(a);
 
         var $title = $(this).val().replace(/\s+/g, '+');
 
@@ -41,6 +41,7 @@ $(document).on ("turbolinks:load", function() {
                 mybook = books.items[Number($(this).find('input').val())];
 
                 $(".autocomplete-items").remove();
+                autofillBookData(mybook.volumeInfo);
             });
             searchResults.appendChild(bookResultsDiv);
         });
@@ -59,28 +60,14 @@ $(document).on ("turbolinks:load", function() {
         $('#book_page_count').val(bookDataObject.pageCount);
         $('#book_image_link').val(bookDataObject.imageLinks.thumbnail);
         $('#book_language').val(bookDataObject.language);
+        $("#authors-input").tagsinput('removeAll');
         bookDataObject.authors.forEach(author => {
-            $authorDiv = $($("#author_field_template").html());
-            $("#authors_field").append($authorDiv);
-            $authorDiv.find('#author_name').val(author);
+            $("#authors-input").tagsinput('add', author);
+            
         });
+        $("#categories-input").tagsinput('removeAll');
         bookDataObject.categories.forEach(category => {
-            $categoryDiv = $($("#category_field_template").html());
-            $("#categories_field").append($categoryDiv);
-            $categoryDiv.find('#category_name').val(category);
+            $("#categories-input").tagsinput('add', category);
         });
     }
-
-    $("#add_author").click(function(){
-        $("#authors_field").append($("#author_field_template").html());
-    });
-
-    $("#add_category").click(function(){
-        $("#categories_field").append($("#category_field_template").html());
-    });
-
-    $('#authors_field, #categories_field')
-    .delegate('.delete_item', 'click', function() {
-        $(this).parent().remove();
-    });
 });

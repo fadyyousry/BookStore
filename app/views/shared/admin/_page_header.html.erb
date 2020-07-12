@@ -1,5 +1,5 @@
 <header class="page-header">
-  <h2>Dashboard</h2>
+  <h2><%= title %></h2>
 
   <div class="right-wrapper pull-right">
     <ol class="breadcrumbs">
@@ -8,7 +8,18 @@
           <i class="fa fa-home"></i>
         </a>
       </li>
-      <li><span>Dashboard</span></li>
+      <li><span><%= title %></span></li>
     </ol>
   </div>
 </header>
+
+<div class="row">
+  <div class="col-lg-12">
+    <section class="panel">
+      <div class="panel-body">
+        <%= yield %>
+      </div>
+    </section>
+
+  </div>
+</div>

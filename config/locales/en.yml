@@ -6,7 +6,20 @@ en:
     destroy: "Destroy"
     edit: "Edit"
     back: "Back"
-    error: "error"
+    error: "Error"
+    forms: "Forms"
+    search: "Search"
+    dashboard: "Dashboard"
+    publisher:
+      name: "Publisher"
+    author:
+      name:
+        one: "Author"
+        other: "Authors"
+    category:
+      name:
+        one: "Category"
+        other: "Cartgories"
     messages:
       ensure: "Are you sure?"
     error_messages:
@@ -42,6 +55,7 @@ en:
       add_book: "Add Book"
       new_book: "New Book"
       create_book: "Create Book"
+      editing_book: "Editing Book"
       new_categorey: "New Category"
       new_author: "New Author"
   author:

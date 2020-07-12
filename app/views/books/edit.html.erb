@@ -1,6 +1,19 @@
-<h1>Editing Book</h1>
+<section class="body">
 
-<%= render 'form', book: @book %>
-
-<%= link_to 'Show', @book %> |
-<%= link_to 'Back', books_path %>
+    <%= render partial: 'shared/admin/navbar' %>
+    <div class="inner-wrapper">
+      <%= render partial: 'shared/admin/sidebar' %>
+  
+      <section role="main" class="content-body">
+  
+        <%= render layout: 'shared/admin/page_header', locals: { title: t('book.view.editing_book') } do %>
+            <%= render 'form', book: @book %>
+            <%= link_to 'Show', @book %> |
+            <%= link_to 'Back', books_path %>
+        <% end %>
+        
+      </section>
+      
+    </div>
+  
+  </section>
