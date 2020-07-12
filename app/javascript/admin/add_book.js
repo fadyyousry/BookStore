@@ -60,27 +60,11 @@ $(function() {
         $('#book_image_link').val(bookDataObject.imageLinks.thumbnail);
         $('#book_language').val(bookDataObject.language);
         bookDataObject.authors.forEach(author => {
-            $authorDiv = $($("#author_field_template").html());
-            $("#authors_field").append($authorDiv);
-            $authorDiv.find('#author_name').val(author);
+            $("#authors-input").tagsinput('add', author);
+            
         });
         bookDataObject.categories.forEach(category => {
-            $categoryDiv = $($("#category_field_template").html());
-            $("#categories_field").append($categoryDiv);
-            $categoryDiv.find('#category_name').val(category);
+            $("#authors-input").tagsinput('add', category);
         });
     }
-
-    $("#add_author").click(function(){
-        $("#authors_field").append($("#author_field_template").html());
-    });
-
-    $("#add_category").click(function(){
-        $("#categories_field").append($("#category_field_template").html());
-    });
-
-    $('#authors_field, #categories_field')
-    .delegate('.delete_item', 'click', function() {
-        $(this).parent().remove();
-    });
 });
