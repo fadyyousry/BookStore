@@ -1,82 +1,110 @@
-<%= form_with(model: book, local: true) do |form| %>
-  <% if book.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(book.errors.count, t(:error, scope: [:default])) %></h2>
+<%= form_with(model: book, local: true, class: "form-horizontal form-bordered",
+                html: { autocomplete: "off" } ) do |form| %>
+<% if book.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(book.errors.count, t(:error, scope: [:default])) %></h2>
 
-      <ul>
-        <% book.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <ul>
+    <% book.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+<div class="form-group">
+  <%= form.label :title, class: "col-md-3 control-label"%>
+  <div class="col-md-6">
+    <%= form.text_field :title, class: "form-control" %>
   </div>
+</div>
 
-  <div class="field">
-    <%= label :publisher, :name, "Publisher"%>
+<div class="form-group">
+  <%= label_tag "publisher_name", t('default.publisher.name'), class: "col-md-3 control-label" %>
+  <div class="col-md-6">
     <% if book.publisher.present? %>
-      <%= text_field :publisher, :name, value: book.publisher.name %>
+    <%= text_field_tag "publisher[name]", book.publisher.name, class: "form-control"%>
     <% else %>
-      <%= text_field :publisher, :name %>
+    <%= text_field_tag "publisher[name]", nil, class: "form-control" %>
     <% end %>
   </div>
+</div>
 
-  <%= render 'addable_field', list: book.authors,
-     singular: "author", plural: "authors", button_name: t(:new_author, scope: [:book, :view]) %>
+<%= render 'addable_field', list: book.authors,
+     singular: "author", plural: "authors", model_name: t('default.author.name.other') %>
 
-  <%= render 'addable_field', list: book.categories,
-     singular: "category", plural: "categories", button_name: t(:new_category, scope: [:book, :view]) %>
+<%= render 'addable_field', list: book.categories,
+     singular: "category", plural: "categories", model_name: t('default.category.name.other') %>
 
-  <div class="field">
-    <%= form.label :published_date %>
-    <%= form.date_field :published_date %>
+<div class="form-group">
+  <%= form.label :published_date, class: "col-md-3 control-label" %>
+  <div class="col-md-6">
+    <%= form.date_field :published_date, class: "form-control" %>
   </div>
+</div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
+<div class="form-group">
+  <%= form.label :description, class: "col-md-3 control-label" %>
+  <div class="col-md-6">
+    <%= form.text_area :description, class: "form-control" %>
   </div>
+</div>
 
-  <div class="field">
-    <%= form.label :isbn %>
-    <%= form.text_field :isbn %>
+<div class="form-group">
+  <%= form.label :isbn, class: "col-md-3 control-label" %>
+  <div class="col-md-6">
+    <%= form.text_field :isbn, class: "form-control" %>
   </div>
+</div>
 
-  <div class="field">
-    <%= form.label :page_count %>
-    <%= form.number_field :page_count %>
+<div class="form-group">
+  <%= form.label :page_count, class: "col-md-3 control-label" %>
+  <div class="col-md-6">
+    <%= form.number_field :page_count, class: "form-control" %>
   </div>
+</div>
 
-  <div class="field">
-    <%= form.label :image_link %>
-    <%= form.text_field :image_link %>
+<div class="form-group">
+  <%= form.label :image_link, class: "col-md-3 control-label" %>
+  <div class="col-md-6">
+    <%= form.text_field :image_link, class: "form-control" %>
   </div>
+</div>
 
-  <div class="field">
-    <%= form.label :language %>
-    <%= form.text_field :language %>
+<div class="form-group">
+  <%= form.label :language, class: "col-md-3 control-label" %>
+  <div class="col-md-6">
+    <%= form.text_field :language, class: "form-control" %>
   </div>
+</div>
 
-  <div class="field">
-    <%= form.label :is_pdf %>
-    <%= form.check_box :is_pdf %>
+<div class="form-group">
+  <%= form.label :is_pdf, class: "col-md-3 control-label" %>
+  <div class="col-md-9">
+    <div class="switch switch-primary">
+      <%= form.check_box :is_pdf, "data-plugin-ios-switch" => "" %>
+    </div>
   </div>
+</div>
 
-  <div class="field">
-    <%= form.label :quantity %>
-    <%= form.number_field :quantity %>
+<div class="form-group">
+  <%= form.label :quantity, class: "col-md-3 control-label" %>
+  <div class="col-md-6">
+    <%= form.number_field :quantity, class: "form-control" %>
   </div>
+</div>
 
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.text_field :price %>
+<div class="form-group">
+  <%= form.label :price, class: "col-md-3 control-label" %>
+  <div class="col-md-6">
+    <%= form.text_field :price, class: "form-control" %>
   </div>
+</div>
 
-  <div class="actions">
-    <%= form.submit %>
+<div class="form-group">
+  <div class= "col-md-3"></div>
+  <div class="col-md-6">
+    <%= form.submit class: "mb-xs mt-xs mr-xs btn btn-primary btn-lg btn-block" %>
   </div>
+</div>
 <% end %>

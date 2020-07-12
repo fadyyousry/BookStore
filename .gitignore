@@ -40,3 +40,7 @@
 yarn-debug.log*
 .yarn-integrity
 /.idea/
+/.history
+/test
+/Gemfile.lock
+/yarn.lock

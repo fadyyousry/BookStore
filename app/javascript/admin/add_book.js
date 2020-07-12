@@ -1,4 +1,4 @@
-$(document).on ("turbolinks:load", function() {
+$(function() {
     var mybook;
 
     document.addEventListener("click", function(e) {
@@ -13,7 +13,7 @@ $(document).on ("turbolinks:load", function() {
         a = document.createElement("DIV");
         a.setAttribute("id", this.id + "autocomplete-list");
         a.setAttribute("class", "autocomplete-items");
-        this.parentNode.appendChild(a);
+        this.parentNode.parentNode.appendChild(a);
 
         var $title = $(this).val().replace(/\s+/g, '+');
 

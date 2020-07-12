@@ -5,7 +5,7 @@
         <%= button_tag "X", :type => 'button', class: "delete_item" %>
       </div>
     <% end %>
-    <%= label_tag "#{plural}_names","#{plural.capitalize}"%>
+    <%= label_tag "#{plural}_names", model_name %>
       <% list.each do |value| %>
         <div class="removable_field">
           <%= text_field_tag "#{plural}[][name]", "#{value[:name]}" %>
@@ -13,4 +13,4 @@
         </div>
       <% end %>
 <% end %>
-<%= button_tag button_name, :type => 'button', id: "add_#{singular}"%>
+<%= button_tag "New #{model_name}", :type => 'button', id: "add_#{singular}"%>
