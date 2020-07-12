@@ -41,6 +41,7 @@ $(function() {
                 mybook = books.items[Number($(this).find('input').val())];
 
                 $(".autocomplete-items").remove();
+                autofillBookData(mybook.volumeInfo);
             });
             searchResults.appendChild(bookResultsDiv);
         });
@@ -59,12 +60,14 @@ $(function() {
         $('#book_page_count').val(bookDataObject.pageCount);
         $('#book_image_link').val(bookDataObject.imageLinks.thumbnail);
         $('#book_language').val(bookDataObject.language);
+        $("#authors-input").tagsinput('removeAll');
         bookDataObject.authors.forEach(author => {
             $("#authors-input").tagsinput('add', author);
             
         });
+        $("#categories-input").tagsinput('removeAll');
         bookDataObject.categories.forEach(category => {
-            $("#authors-input").tagsinput('add', category);
+            $("#categories-input").tagsinput('add', category);
         });
     }
 });
