@@ -52,6 +52,7 @@ en:
       add_book: "Add Book"
       new_book: "New Book"
       create_book: "Create Book"
+      editing_book: "Editing Book"
       new_categorey: "New Category"
       new_author: "New Author"
   author:
