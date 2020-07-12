@@ -1,23 +1,18 @@
 class CategoriesController < ApplicationController
-    before_action :set_category, only: [:show, :destroy]
+  load_and_authorize_resource
 
-    def index
-      @categories = Category.all
-    end
+  def index
+    @categories = Category.all
+  end
 
-    def show
-      @books = @category.books
-    end
+  def show
+    @books = @category.books
+  end
 
-    def destroy
-      @category.destroy
-      respond_to do |format|
-        format.html { redirect_to categories_url, notice: t(:successful_destroy, scope: [:category, :messages]) }
-      end
+  def destroy
+    @category.destroy
+    respond_to do |format|
+      format.html { redirect_to categories_url, notice: t(:successful_destroy, scope: [:category, :messages]) }
     end
-
-    private
-    def set_category
-      @category = Category.find(params[:id])
-    end
+  end
 end

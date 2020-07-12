@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   get '/admin', to: 'dashboard#index'
 
-  resources :books, :constraints => { :format => 'html' }
-  resources :authors, only: [:show, :index, :destroy], :constraints => { :format => 'html' }
-  resources :categories, only: [:show, :index, :destroy], :constraints => { :format => 'html' }
+  resources :books
+  resources :authors, only: [:show, :index, :destroy]
+  resources :categories, only: [:show, :index, :destroy]
 end

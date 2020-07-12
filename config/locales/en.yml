@@ -9,6 +9,8 @@ en:
     error: "error"
     messages:
       ensure: "Are you sure?"
+    error_messages:
+      not_authorized: "You are not authorized to perform this action"
   home:
     about:
       title: "About bookstore,"
@@ -33,7 +35,7 @@ en:
       confirm_password: "Confirm Your Password"
   book:
     messages:
-      successdul_create: "Book was successfully created."
+      successful_create: "Book was successfully created."
       successful_update: "Book was successfully updated."
       successful_destroy:  "Book was successfully destroyed."
     view:
