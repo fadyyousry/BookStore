@@ -1,12 +1,12 @@
 <header class="page-header">
   <h2><%= title %></h2>
 
-  <div class="right-wrapper pull-right">
+  <div class="right-wrapper pull-right mr-lg">
     <ol class="breadcrumbs">
       <li>
-        <a href="#">
+        <%= link_to admin_path do %>
           <i class="fa fa-home"></i>
-        </a>
+        <% end %>
       </li>
       <li><span><%= title %></span></li>
     </ol>
@@ -20,6 +20,5 @@
         <%= yield %>
       </div>
     </section>
-
   </div>
 </div>
