@@ -8,8 +8,13 @@ en:
     back: "Back"
     error: "Error"
     forms: "Forms"
+    tables: "Tables"
     search: "Search"
     dashboard: "Dashboard"
+    book:
+      name:
+        one: "Book"
+        other: "Books"
     publisher:
       name: "Publisher"
     author:
@@ -56,6 +61,7 @@ en:
       new_book: "New Book"
       create_book: "Create Book"
       editing_book: "Editing Book"
+      book_table: "Book Tables"
       new_categorey: "New Category"
       new_author: "New Author"
   author:

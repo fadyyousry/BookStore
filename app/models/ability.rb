@@ -20,7 +20,6 @@ class Ability
   end
 
   def admin
-    can :dashboard
     can :manage, Book
     can :manage, Author
     can :manage, Category
