@@ -41,5 +41,4 @@ yarn-debug.log*
 .yarn-integrity
 /.idea/
 /.history
-/test
 /yarn.lock
