@@ -1,8 +1,10 @@
+import $ from 'jquery';
+global.$ = jQuery;
 
 window.theme = {};
 
 // Skeleton
-(function(theme, $) {
+$(document).ready (function(theme){
 
     'use strict';
 
@@ -266,10 +268,10 @@ window.theme = {};
         Skeleton: Skeleton
     });
 
-}).apply(this, [ window.theme, jQuery ]);
+});
 
 // Base
-(function(theme, $) {
+$(document).ready(function(theme){
 
     'use strict';
 
@@ -277,12 +279,12 @@ window.theme = {};
 
     theme.Skeleton.initialize();
 
-}).apply(this, [ window.theme, jQuery ]);
+});
 
 window.theme = {};
 
 // Mailbox
-(function(theme, $) {
+$(document).ready (function(theme){
 
     theme = theme || {};
 
@@ -453,10 +455,10 @@ window.theme = {};
         });
     }
 
-}).apply(this, [ window.theme, jQuery ]);
+});
 
 // Lock Screen
-(function( $ ) {
+$(document).ready(function(){
 
     'use strict';
 
@@ -608,10 +610,10 @@ window.theme = {};
         LockScreen.initialize();
     });
 
-}).apply(this, [ jQuery ]);
+});
 
 // Panels
-(function( $ ) {
+$(document).ready(function(){
 
     $(function() {
         $('.panel')
@@ -665,10 +667,10 @@ window.theme = {};
             });
     });
 
-})( jQuery );
+});
 
 // Bootstrap Toggle
-(function( $ ) {
+$(document).ready (function(){
 
     'use strict';
 
@@ -713,11 +715,10 @@ window.theme = {};
         });
     });
 
-}).apply( this, [ jQuery ]);
+});
 
 // Form to Object
-(function( $ ) {
-
+$(document).ready (function(){
     'use strict';
 
     $.fn.formToObject = function() {
@@ -750,10 +751,10 @@ window.theme = {};
         return objectData;
     };
 
-})( jQuery );
+});
 
 // Codemirror
-(function(theme, $) {
+$(document).ready(function(theme){
 
     theme = theme || {};
 
@@ -824,10 +825,10 @@ window.theme = {};
         });
     }
 
-}).apply(this, [ window.theme, jQuery ]);
+});
 
 // Colorpicker
-(function(theme, $) {
+$(document).ready(function(theme){
 
     theme = theme || {};
 
@@ -894,10 +895,10 @@ window.theme = {};
         });
     }
 
-}).apply(this, [ window.theme, jQuery ]);
+});
 
 // Datepicker
-(function(theme, $) {
+$(document).ready(function(theme){
 
     theme = theme || {};
 
@@ -975,10 +976,10 @@ window.theme = {};
         });
     }
 
-}).apply(this, [ window.theme, jQuery ]);
+});
 
 // iosSwitcher
-(function(theme, $) {
+$(document).ready(function(theme){
 
     theme = theme || {};
 
@@ -1040,10 +1041,10 @@ window.theme = {};
         });
     }
 
-}).apply(this, [ window.theme, jQuery ]);
+});
 
 // Markdown
-(function(theme, $) {
+$(document).ready(function(theme){
 
     theme = theme || {};
 
@@ -1111,10 +1112,10 @@ window.theme = {};
         });
     }
 
-}).apply(this, [ window.theme, jQuery ]);
+});
 
 // Masked Input
-(function(theme, $) {
+$(document).ready(function(theme){
 
     theme = theme || {};
 
@@ -1181,10 +1182,10 @@ window.theme = {};
         });
     }
 
-}).apply(this, [ window.theme, jQuery ]);
+});
 
 // MaxLength
-(function(theme, $) {
+$(document).ready(function(theme){
 
     theme = theme || {};
 
@@ -1255,10 +1256,10 @@ window.theme = {};
         });
     }
 
-}).apply(this, [ window.theme, jQuery ]);
+});
 
 // MultiSelect
-(function(theme, $) {
+$(document).ready(function(theme){
 
     theme = theme || {};
 
@@ -1328,10 +1329,10 @@ window.theme = {};
         });
     }
 
-}).apply(this, [ window.theme, jQuery ]);
+});
 
 // Select2
-(function(theme, $) {
+$(document).ready(function(theme){
 
     theme = theme || {};
 
@@ -1398,10 +1399,10 @@ window.theme = {};
         });
     }
 
-}).apply(this, [ window.theme, jQuery ]);
+});
 
 // Spinner
-(function(theme, $) {
+$(document).ready(function(theme){
 
     theme = theme || {};
 
@@ -1468,10 +1469,10 @@ window.theme = {};
         });
     }
 
-}).apply(this, [ window.theme, jQuery ]);
+});
 
 // SummerNote
-(function(theme, $) {
+$(document).ready(function(theme){
 
     theme = theme || {};
 
@@ -1544,10 +1545,10 @@ window.theme = {};
         });
     }
 
-}).apply(this, [ window.theme, jQuery ]);
+});
 
 // TextArea AutoSize
-(function(theme, $) {
+$(document).ready(function(theme){
 
     theme = theme || {};
 
@@ -1615,10 +1616,10 @@ window.theme = {};
         });
     }
 
-}).apply(this, [ window.theme, jQuery ]);
+});
 
 // TimePicker
-(function(theme, $) {
+$(document).ready(function(theme){
 
     theme = theme || {};
 
@@ -1686,10 +1687,10 @@ window.theme = {};
         });
     }
 
-}).apply(this, [ window.theme, jQuery ]);
+});
 
 // Map Builder
-(function( theme, $ ) {
+$(document).ready(function(theme){
 
     'use strict';
 
@@ -2612,10 +2613,10 @@ window.theme = {};
         });
     });
 
-}).apply(this, [ window.theme, jQuery ]);
+});
 
 // Animate
-(function(theme, $) {
+$(document).ready(function(theme){
 
     theme = theme || {};
 
@@ -2715,10 +2716,10 @@ window.theme = {};
         });
     };
 
-}).apply(this, [ window.theme, jQuery ]);
+});
 
 // Carousel
-(function(theme, $) {
+$(document).ready(function(theme){
 
     theme = theme || {};
 
@@ -2793,10 +2794,10 @@ window.theme = {};
         });
     }
 
-}).apply(this, [ window.theme, jQuery ]);
+});
 
 // Chart Circular
-(function(theme, $) {
+$(document).ready(function(theme){
 
     theme = theme || {};
 
@@ -2913,11 +2914,10 @@ window.theme = {};
         });
     }
 
-}).apply(this, [ window.theme, jQuery ]);
+});
 
 // Lightbox
-(function(theme, $) {
-
+$(document).ready(function(theme){
     theme = theme || {};
 
     var instanceName = '__lightbox';
@@ -2998,11 +2998,10 @@ window.theme = {};
         });
     }
 
-}).apply(this, [ window.theme, jQuery ]);
+});
 
 // Portlets
-(function(theme, $) {
-
+$(document).ready(function(theme){
     theme = theme || {};
 
     var instanceName = '__portlet',
@@ -3196,11 +3195,10 @@ window.theme = {};
         });
     }
 
-}).apply(this, [ window.theme, jQuery ]);
+});
 
 // Slider
-(function(theme, $) {
-
+$(document).ready(function(theme){
     theme = theme || {};
 
     var instanceName = '__slider';
@@ -3294,10 +3292,10 @@ window.theme = {};
         });
     }
 
-}).apply(this, [ window.theme, jQuery ]);
+});
 
 // Toggle
-(function(theme, $) {
+$(document).ready(function(theme){
 
     theme = theme || {};
 
@@ -3461,11 +3459,10 @@ window.theme = {};
         });
     }
 
-}).apply(this, [ window.theme, jQuery ]);
+});
 
 // Widget - Todo
-(function(theme, $) {
-
+$(document).ready(function(theme){
     theme = theme || {};
 
     var instanceName = '__widgetTodoList';
@@ -3574,11 +3571,10 @@ window.theme = {};
         });
     }
 
-}).apply(this, [ window.theme, jQuery ]);
+});
 
 // Widget - Toggle
-(function(theme, $) {
-
+$(document).ready(function(theme){
     theme = theme || {};
 
     var instanceName = '__widgetToggleExpand';
@@ -3668,11 +3664,10 @@ window.theme = {};
         });
     }
 
-}).apply(this, [ window.theme, jQuery ]);
+});
 
 // Word Rotate
-(function(theme, $) {
-
+$(document).ready(function(theme){
     theme = theme || {};
 
     var instanceName = '__wordRotate';
@@ -3775,11 +3770,10 @@ window.theme = {};
         });
     }
 
-}).apply(this, [ window.theme, jQuery ]);
+});
 
 // Data Tables - Config
-(function($) {
-
+$(document).ready(function(theme){
     'use strict';
 
     // we overwrite initialize of all datatables here
@@ -3823,10 +3817,10 @@ window.theme = {};
 
     }
 
-}).apply( this, [ jQuery ]);
+});
 
 // Notifications - Config
-(function($) {
+$(document).ready(function(theme){
 
     'use strict';
 
@@ -3858,4 +3852,4 @@ window.theme = {};
         });
     }
 
-}).apply(this, [jQuery]);
+});
