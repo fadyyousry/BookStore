@@ -11,12 +11,16 @@
           <div class="panel panel-accordion">
             <div class="panel-heading">
               <h4 class="panel-title">
-                <%= link_to "#collapse#{i}", "data-toggle":"collapse", "data-parent":"#accordion" do %>
-                  <%= category.name %>
+                <%= link_to "#collapse#{i}", "data-toggle":"collapse",
+                 "data-parent":"#accordion", class: "btn btn-light" do %>
+                  <b><%= category.name %></b>
                 <% end %>
+                <%= link_to t('default.destroy'), manager_category_path(category.id),
+                method: :delete, class: "btn btn-danger pull-right",
+                data: { confirm: t('default.messages.ensure') }  %>
               </h4>
             </div>
-            <%= content_tag :div, id: "collapse#{i}", class: "accordion-body collapse in" do %>
+            <%= content_tag :div, id: "collapse#{i}", class: "accordion-body collapse" do %>
               <div class="panel-body">
                 <div class="row">
                   <% category.books.each do |book| %>
