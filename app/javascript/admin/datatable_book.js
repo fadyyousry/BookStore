@@ -3,78 +3,78 @@ global.$ = jQuery;
 
 $(document).ready(function() {
 
-	'use strict';
+    'use strict';
 
-	var datatableInit = function() {
-		var $table = $('#datatable-book');
+    var datatableInit = function() {
+        var $table = $('#datatable-book');
 
-		// format function for row details
-		var fnFormatDetails = function( datatable, tr ) {
-			var data = datatable.fnGetData( tr );
-			return tr.querySelector("#table_hidden_data").innerHTML;
-		};
+        // format function for row details
+        var fnFormatDetails = function( datatable, tr ) {
+            var data = datatable.fnGetData( tr );
+            return tr.querySelector("#table_hidden_data").innerHTML;
+        };
 
-		// insert the expand/collapse column
-		var th = document.createElement( 'th' );
-		var td = document.createElement( 'td' );
-		td.innerHTML = '<i data-toggle class="fa fa-plus-square-o text-primary h5 m-none" style="cursor: pointer;"></i>';
-		td.className = "text-center";
+        // insert the expand/collapse column
+        var th = document.createElement( 'th' );
+        var td = document.createElement( 'td' );
+        td.innerHTML = '<i data-toggle class="fa fa-plus-square-o text-primary h5 m-none" style="cursor: pointer;"></i>';
+        td.className = "text-center";
 
-		$table
-			.find( 'thead tr' ).each(function() {
-				this.insertBefore( th, this.childNodes[0] );
-			});
+        $table
+            .find( 'thead tr' ).each(function() {
+                this.insertBefore( th, this.childNodes[0] );
+            });
 
-		$table
-			.find( 'tbody tr' ).each(function() {
-				this.insertBefore(  td.cloneNode( true ), this.childNodes[0] );
-			});
+        $table
+            .find( 'tbody tr' ).each(function() {
+                this.insertBefore(  td.cloneNode( true ), this.childNodes[0] );
+            });
 
-		// initialize
-		var datatable = $table.dataTable({
-			aoColumnDefs: [{
-					bSortable: false,
-					aTargets: [ 0 ]
-				},
-				{
-					"targets": [ 1 ],
-					"visible": false
-				},
-				{
-					"targets": [ 2 ],
-					"visible": false
-				},
-				{
-					"targets": [ 3 ],
-					"visible": false
-				},
-				{
-					"targets": [ 4 ],
-					"visible": false
-				}
-			],
-			aaSorting: [
-				[1, 'asc']
-			]
-		});
+        // initialize
+        var datatable = $table.dataTable({
+            aoColumnDefs: [{
+                    bSortable: false,
+                    aTargets: [ 0 ]
+                },
+                {
+                    "targets": [ 1 ],
+                    "visible": false
+                },
+                {
+                    "targets": [ 2 ],
+                    "visible": false
+                },
+                {
+                    "targets": [ 3 ],
+                    "visible": false
+                },
+                {
+                    "targets": [ 4 ],
+                    "visible": false
+                }
+            ],
+            aaSorting: [
+                [1, 'asc']
+            ]
+        });
 
-		// add a listener
-		$table.on('click', 'i[data-toggle]', function() {
-			var $this = $(this),
-				tr = $(this).closest( 'tr' ).get(0);
+        // add a listener
+        $table.on('click', 'i[data-toggle]', function() {
+            var $this = $(this),
+                tr = $(this).closest( 'tr' ).get(0);
 
-			if ( datatable.fnIsOpen(tr) ) {
-				$this.removeClass( 'fa-minus-square-o' ).addClass( 'fa-plus-square-o' );
-				datatable.fnClose( tr );
-			} else {
-				$this.removeClass( 'fa-plus-square-o' ).addClass( 'fa-minus-square-o' );
-				datatable.fnOpen( tr, fnFormatDetails( datatable, tr), 'details' );
-			}
-		});
-	};
+            if ( datatable.fnIsOpen(tr) ) {
+                $this.removeClass( 'fa-minus-square-o' ).addClass( 'fa-plus-square-o' );
+                datatable.fnClose( tr );
+            } else {
+                $this.removeClass( 'fa-plus-square-o' ).addClass( 'fa-minus-square-o' );
+                datatable.fnOpen( tr, fnFormatDetails( datatable, tr), 'details' );
+            }
+        });
+    };
 
-	$(function() {
-		datatableInit();
-	});
+    $(function() {
+        datatableInit();
+    });
 
 });
