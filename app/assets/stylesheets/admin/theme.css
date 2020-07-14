@@ -49,7 +49,7 @@ a:active {
 /* Layout Base - Inner Wrapper */
 .inner-wrapper {
     display: table;
-    min-height: 100vh;
+    height: 100vh;
     padding-top: 60px;
     table-layout: fixed;
     overflow: hidden;

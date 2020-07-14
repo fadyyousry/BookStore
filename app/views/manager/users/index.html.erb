@@ -1,0 +1,24 @@
+<section role="main" class="content-body">
+  <%= render layout: 'shared/admin/page_header', locals: {title: t('default.book.name.other')} do %>
+    <table class="table table-bordered table-striped mb-none" id="datatable-user">
+      <thead>
+      <tr>
+        <th><%= User.human_attribute_name(:email) %></th>
+        <th><%= User.human_attribute_name(:type) %></th>
+        <th><%= User.human_attribute_name(:created_at) %></th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @users.each do |user| %>
+        <tr class="gradeX">
+          <td><%= user.email %></td>
+          <td><%= user.type %></td>
+          <td><%= user.created_at %></td>
+          <td><%= render partial: 'shared/admin/table_actions', locals: {user_id: user.id} %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</section>

@@ -1,12 +1,3 @@
-<section class="body">
-
-  <%= render partial: 'shared/admin/navbar' %>
-  <div class="inner-wrapper">
-    <%= render partial: 'shared/admin/sidebar' %>
-
-    <section role="main" class="content-body">
-      <%= render partial: 'shared/admin/page_header', locals: { title: t('default.dashboard') } %>
-    </section>
-  </div>
-
+<section role="main" class="content-body">
+  <%= render partial: 'shared/admin/page_header', locals: {title: t('default.dashboard')} %>
 </section>

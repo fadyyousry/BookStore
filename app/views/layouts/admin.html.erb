@@ -6,7 +6,7 @@
   <%= csp_meta_tag %>
 
   <!-- Mobile Metas -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 
   <!-- Web Fonts  -->
   <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Shadows+Into+Light" rel="stylesheet" type="text/css">
@@ -16,6 +16,12 @@
 </head>
 
 <body>
-<%= yield %>
+<section class="body">
+  <%= render partial: 'shared/admin/navbar' %>
+  <div class="inner-wrapper">
+    <%= render partial: 'shared/admin/sidebar' %>
+    <%= yield %>
+  </div>
+</section>
 </body>
 </html>

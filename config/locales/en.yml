@@ -27,7 +27,7 @@ en:
     category:
       name:
         one: "Category"
-        other: "Cartgories"
+        other: "Categories"
     messages:
       ensure: "Are you sure?"
     error_messages:
