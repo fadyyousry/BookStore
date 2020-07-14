@@ -42,8 +42,7 @@ $(document).ready(function() {
 				},
 				{
 					"targets": [ 2 ],
-					"visible": false,
-					"searchable": false
+					"visible": false
 				},
 				{
 					"targets": [ 3 ],
@@ -51,10 +50,6 @@ $(document).ready(function() {
 				},
 				{
 					"targets": [ 4 ],
-					"visible": false
-				},
-				{
-					"targets": [ 5 ],
 					"visible": false
 				}
 			],

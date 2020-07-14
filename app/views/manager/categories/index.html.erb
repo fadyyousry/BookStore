@@ -1,0 +1,42 @@
+<section class="body">
+
+  <%= render partial: 'shared/admin/navbar' %>
+  <div class="inner-wrapper">
+    <%= render partial: 'shared/admin/sidebar' %>
+
+    <section role="main" class="content-body">
+      
+      <%= render layout: 'shared/admin/page_header', locals: { title: t('default.category.name.other') } do %>
+        <% @categories.each_with_index do |category, i| %>
+          <div class="panel panel-accordion">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <%= link_to "#collapse#{i}", "data-toggle":"collapse", "data-parent":"#accordion" do %>
+                  <%= category.name %>
+                <% end %>
+              </h4>
+            </div>
+            <%= content_tag :div, id: "collapse#{i}", class: "accordion-body collapse in" do %>
+              <div class="panel-body">
+                <div class="row">
+                  <% category.books.each do |book| %>
+                    <%= link_to manager_book_path(book.id) do %>
+                      <div class="col-sm-6 col-md-2">
+                        <div class="thumbnail">
+                          <%= image_tag book.image_link, class: "card-img-top" %>
+                          <div class="caption">
+                            <h5><%= book.title %></h5>
+                          </div>
+                        </div>
+                      </div>
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
+            <%end %>
+          </div>
+        <% end %>
+      <% end %>
+    </section>
+  </div>
+</section>
