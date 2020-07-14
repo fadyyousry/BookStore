@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   namespace :manager do
     resources :books
+    resources :users
     resources :authors, only: [:index, :destroy]
     resources :categories, only: [:index, :destroy]
     root 'dashboard#index'

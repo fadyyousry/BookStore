@@ -4,8 +4,9 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    user.present? ?
-      send(user.type.downcase) : guest
+    @user = user
+    @user.present? ?
+      send(@user.type.downcase) : guest
   end
 
   def guest
@@ -25,5 +26,7 @@ class Ability
     can :manage, Category
     can :manage, Publisher
     can :manage, User
+
+    cannot :destroy, User, id: @user.id
   end
 end

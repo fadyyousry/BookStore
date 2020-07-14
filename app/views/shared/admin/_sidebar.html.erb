@@ -14,13 +14,25 @@
             <%= link_to root_path do %>
               <i class="fa fa-home" aria-hidden="true"></i>
               <span><%= t('default.home') %></span>
-          <% end %>
+            <% end %>
           </li>
           <li>
             <%= link_to manager_root_path do %>
               <i class="fa fa-dashboard" aria-hidden="true"></i>
               <span><%= t('default.dashboard') %></span>
-          <% end %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to manager_books_path do %>
+              <i class="fa fa-book" aria-hidden="true"></i>
+              <span><%= t('activerecord.models.book.other') %></span>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to manager_users_path do %>
+              <i class="fa fa-users" aria-hidden="true"></i>
+              <span><%= t('activerecord.models.user.other') %></span>
+            <% end %>
           </li>
           <li class="nav-parent">
             <a>
