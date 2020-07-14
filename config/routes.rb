@@ -3,8 +3,6 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: {sessions: 'sessions', registrations: 'registrations'}
 
-  get '/admin', to: 'dashboard#index'
-
   resources :books, only: [:show, :index]
   resources :authors, only: [:show, :index]
   resources :categories, only: [:show, :index]
@@ -13,6 +11,7 @@ Rails.application.routes.draw do
     resources :books
     resources :authors, only: [:index, :destroy]
     resources :categories, only: [:index, :destroy]
+    root 'dashboard#index'
   end
 
 end
