@@ -19,13 +19,6 @@
               <span><%= t('default.dashboard') %></span>
           <% end %>
           </li>
-          <li>
-            <a href="#">
-              <span class="pull-right label label-primary">182</span>
-              <i class="fa fa-envelope" aria-hidden="true"></i>
-              <span>Mailbox</span>
-            </a>
-          </li>
 
           <li class="nav-parent">
             <a>
@@ -34,7 +27,7 @@
             </a>
             <ul class="nav nav-children">
               <li>
-                <%= link_to t('book.view.new_book'), new_book_path %>
+                <%= link_to t('book.view.new_book'), new_manager_book_path %>
               </li>
               <li>
                 <a href="#">
@@ -50,7 +43,7 @@
             </a>
             <ul class="nav nav-children">
               <li>
-                <%= link_to t('book.view.book_table'), books_path %>
+                <%= link_to t('book.view.books_table'), manager_books_path %>
               </li>
               <li>
                 <a href="#">

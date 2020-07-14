@@ -10,6 +10,7 @@ en:
     forms: "Forms"
     tables: "Tables"
     search: "Search"
+    image: "Image"
     dashboard: "Dashboard"
     book:
       name:
@@ -61,7 +62,7 @@ en:
       new_book: "New Book"
       create_book: "Create Book"
       editing_book: "Editing Book"
-      book_table: "Book Tables"
+      books_table: "Books Table"
       new_categorey: "New Category"
       new_author: "New Author"
   author:
