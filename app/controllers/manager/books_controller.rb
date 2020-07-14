@@ -64,6 +64,4 @@ module Manager
         params.require(:categories).permit(:names)
       end
   end
-  
-
 end
