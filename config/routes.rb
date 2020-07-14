@@ -6,11 +6,13 @@ Rails.application.routes.draw do
   get '/admin', to: 'dashboard#index'
 
   resources :books, only: [:show, :index]
-  resources :authors, only: [:show, :index, :destroy]
-  resources :categories, only: [:show, :index, :destroy]
+  resources :authors, only: [:show, :index]
+  resources :categories, only: [:show, :index]
 
   namespace :manager do
     resources :books
+    resources :authors, only: [:index, :destroy]
+    resources :categories, only: [:index, :destroy]
   end
 
 end

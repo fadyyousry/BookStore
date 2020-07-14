@@ -11,6 +11,8 @@ en:
     tables: "Tables"
     search: "Search"
     image: "Image"
+    home: "Home"
+    navigation: "Navigation"
     dashboard: "Dashboard"
     book:
       name:
@@ -63,6 +65,8 @@ en:
       create_book: "Create Book"
       editing_book: "Editing Book"
       books_table: "Books Table"
+      authors_table: "Authors Table"
+      categories_table: "Categories Table"
       new_categorey: "New Category"
       new_author: "New Author"
   author:
