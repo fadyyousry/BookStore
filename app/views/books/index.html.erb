@@ -1,46 +1,28 @@
-<section class="body">
-
-  <%= render partial: 'shared/admin/navbar' %>
-  <div class="inner-wrapper">
-    <%= render partial: 'shared/admin/sidebar' %>
-
-    <section role="main" class="content-body">
-
-      <%= render layout: 'shared/admin/page_header', locals: { title: t('default.book.name.other') } do %>
-      <table class="table table-bordered table-striped mb-none" id="datatable-details">
-        <thead>
-          <tr>
-            <th><%= Book.human_attribute_name(:title) %></th>
-            <th><%= Book.human_attribute_name(:isbn) %></th>
-            <th><%= Book.human_attribute_name(:published_date) %></th>
-            <th><%= Book.human_attribute_name(:page_count) %></th>
-            <th><%= Book.human_attribute_name(:language) %></th>
-            <th><%= Book.human_attribute_name(:is_pdf) %></th>
-            <th><%= Book.human_attribute_name(:quantity) %></th>
-            <th><%= Book.human_attribute_name(:price) %></th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @books.each do |book| %>
-            <tr class="gradeX">
-              <td><%= book.title %></td>
-              <td><%= book.isbn %></td>
-              <td><%= book.published_date %></td>
-              <td><%= book.page_count %></td>
-              <td><%= book.language %></td>
-              <td><%= book.is_pdf %></td>
-              <td><%= book.quantity %></td>
-              <td><%= book.price %></td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-      <%= link_to t('book.view.new_book'), new_book_path %>
-        
+<table class="table table-bordered table-striped mb-none" id="datatable-book">
+    <thead>
+      <tr>
+        <th><%= Book.human_attribute_name(:title) %></th>
+        <th><%= Book.human_attribute_name(:isbn) %></th>
+        <th><%= Book.human_attribute_name(:published_date) %></th>
+        <th><%= Book.human_attribute_name(:page_count) %></th>
+        <th><%= Book.human_attribute_name(:language) %></th>
+        <th><%= Book.human_attribute_name(:is_pdf) %></th>
+        <th><%= Book.human_attribute_name(:quantity) %></th>
+        <th><%= Book.human_attribute_name(:price) %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @books.each do |book| %>
+        <tr class="gradeX">
+          <td><%= book.title %></td>
+          <td><%= book.isbn %></td>
+          <td><%= book.published_date %></td>
+          <td><%= book.page_count %></td>
+          <td><%= book.language %></td>
+          <td><%= book.is_pdf %></td>
+          <td><%= book.quantity %></td>
+          <td><%= book.price %></td>
+        </tr>
       <% end %>
-      
-    </section>
-    
-  </div>
-
-</section>
+    </tbody>
+  </table>

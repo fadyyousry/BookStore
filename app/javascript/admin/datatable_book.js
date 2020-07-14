@@ -11,23 +11,7 @@ $(document).ready(function() {
 		// format function for row details
 		var fnFormatDetails = function( datatable, tr ) {
 			var data = datatable.fnGetData( tr );
-
-			return [
-				'<table class="table mb-none">',
-					'<tr class="b-top-none">',
-						'<td><label class="mb-none">Rendering engine:</label></td>',
-						'<td>' + data[1]+ ' ' + data[4] + '</td>',
-					'</tr>',
-					'<tr>',
-						'<td><label class="mb-none">Link to source:</label></td>',
-						'<td>Could provide a link here</td>',
-					'</tr>',
-					'<tr>',
-						'<td><label class="mb-none">Extra info:</label></td>',
-						'<td>And any further details here (images etc)</td>',
-					'</tr>',
-				'</div>'
-			].join('');
+			return tr.querySelector("#table_hidden_data").innerHTML;
 		};
 
 		// insert the expand/collapse column
@@ -49,9 +33,31 @@ $(document).ready(function() {
 		// initialize
 		var datatable = $table.dataTable({
 			aoColumnDefs: [{
-				bSortable: false,
-				aTargets: [ 0 ]
-			}],
+					bSortable: false,
+					aTargets: [ 0 ]
+				},
+				{
+					"targets": [ 1 ],
+					"visible": false
+				},
+				{
+					"targets": [ 2 ],
+					"visible": false,
+					"searchable": false
+				},
+				{
+					"targets": [ 3 ],
+					"visible": false
+				},
+				{
+					"targets": [ 4 ],
+					"visible": false
+				},
+				{
+					"targets": [ 5 ],
+					"visible": false
+				}
+			],
 			aaSorting: [
 				[1, 'asc']
 			]

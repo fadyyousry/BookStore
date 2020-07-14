@@ -13,8 +13,6 @@
       <tr>
         <td><%= author.name %></td>
         <td><%= link_to t(:show, scope: [:default]), author %></td>
-        <td><%= link_to t(:destroy, scope: [:default]), author, method: :delete,
-         data: { confirm: t(:ensure, scope: [:default, :messages]) } %></td>
       </tr>
     <% end %>
   </tbody>

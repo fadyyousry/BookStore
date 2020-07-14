@@ -13,8 +13,6 @@
       <tr>
         <td><%= category.name %></td>
         <td><%= link_to t(:show, scope: [:default]), category %></td>
-        <td><%= link_to t(:destroy, scope: [:default]), category, method: :delete,
-         data: { confirm: t(:ensure, scope: [:default, :messages]) } %></td>
       </tr>
     <% end %>
   </tbody>
