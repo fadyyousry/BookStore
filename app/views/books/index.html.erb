@@ -1,28 +1,23 @@
-<table class="table table-bordered table-striped mb-none" id="datatable-book">
-    <thead>
-      <tr>
-        <th><%= Book.human_attribute_name(:title) %></th>
-        <th><%= Book.human_attribute_name(:isbn) %></th>
-        <th><%= Book.human_attribute_name(:published_date) %></th>
-        <th><%= Book.human_attribute_name(:page_count) %></th>
-        <th><%= Book.human_attribute_name(:language) %></th>
-        <th><%= Book.human_attribute_name(:is_pdf) %></th>
-        <th><%= Book.human_attribute_name(:quantity) %></th>
-        <th><%= Book.human_attribute_name(:price) %></th>
-      </tr>
-    </thead>
-    <tbody>
+<section class="recomended-sec">
+  <div class="container">
+    <div class="row">
       <% @books.each do |book| %>
-        <tr class="gradeX">
-          <td><%= book.title %></td>
-          <td><%= book.isbn %></td>
-          <td><%= book.published_date %></td>
-          <td><%= book.page_count %></td>
-          <td><%= book.language %></td>
-          <td><%= book.is_pdf %></td>
-          <td><%= book.quantity %></td>
-          <td><%= book.price %></td>
-        </tr>
+        <div class="col-lg-3 col-md-6 mb-4">
+          <div class="item">
+            <%= image_tag book.image_link, size: Book::IMAGE_SIZE , alt: "img" %>
+            <h3><%= book.title %></h3>
+            <h6>
+              <span class="price">$<%= book.price %></span> /
+               <%= link_to t('default.buy_now'), '#'%></h6>
+            <div class="hover">
+              <%= link_to book do%>
+                <span><i class="fa fa-long-arrow-right" aria-hidden="true"></i></span>
+              <%end%>
+            </div>
+          </div>
+        </div>
       <% end %>
-    </tbody>
-  </table>
+    </div>
+  </div>
+</section>
+  

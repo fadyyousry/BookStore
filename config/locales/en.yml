@@ -12,6 +12,8 @@ en:
     search: "Search"
     image: "Image"
     home: "Home"
+    buy_now: "Buy Now"
+    add_to_card: "Add To cart"
     navigation: "Navigation"
     dashboard: "Dashboard"
     book:

@@ -10,6 +10,8 @@ class Book < ApplicationRecord
 
   validate :check_length
 
+  IMAGE_SIZE = "141x218"
+
   def check_length
     unless isbn.size == 10 or isbn.size == 13
       errors.add(:isbn, "length must be 10 or 13")
