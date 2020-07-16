@@ -15,13 +15,11 @@
       </li>
       <li id="authors_list" class="navbar-item dropdown has-megamenu">
         <%= link_to t('default.author.name.other'), authors_path,
-         class: "nav-link dropdown-toggle", "data-toggle":"dropdown",
-         'aria-expanded':"false", remote: true %>
+         class: "nav-link dropdown-toggle", "data-toggle":"dropdown", remote: true %>
       </li>
       <li id="categories_list" class="navbar-item dropdown has-megamenu">
         <%= link_to t('default.category.name.other'), categories_path,
-         class: "nav-link dropdown-toggle", "data-toggle":"dropdown", 
-         'aria-expanded':"false", remote: true %> 
+         class: "nav-link dropdown-toggle", "data-toggle":"dropdown", remote: true %> 
       </li>
       <li class="navbar-item">
         <% if user_signed_in? %>

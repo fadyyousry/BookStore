@@ -4,3 +4,15 @@
     .navbar .megamenu{left:0; right:0; width:100%; padding:20px;  }
     .navbar .nav-link{ padding-top:1rem; padding-bottom:1rem; }
 }
+
+.megamenu {
+    border: none;
+    background-color: ivory;
+}
+
+.megamenu a:hover,
+.megamenu a:focus {
+  text-decoration: none;
+  color: white!important;
+  background-color: #faba68;
+}

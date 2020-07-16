@@ -2,22 +2,3 @@ categories = $('#categories_list div')
 if (categories.length == 0) {
     $('#categories_list').append("<%= j render 'shared/megamenu', list: @categories %>");
 }
-
-isShow = $('#categories_list a').attr("aria-expanded");
-if (isShow == 'true') {
-    hide();
-}
-else {
-    show();
-}
-
-function hide() {
-    $('#categories_list div, #categories_list a').removeClass("show");
-    $('#categories_list a').attr("aria-expanded", false);
-}
-
-function show() {
-    $('#categories_list div, #categories_list a').addClass("show");
-    $('#categories_list a').attr("aria-expanded", true);
-}
-

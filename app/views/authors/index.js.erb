@@ -2,21 +2,3 @@ authors = $('#authors_list div')
 if (authors.length == 0) {
     $('#authors_list').append("<%= j render 'shared/megamenu', list: @authors %>");
 }
-
-isShow = $('#authors_list a').attr("aria-expanded");
-if (isShow == 'true') {
-    hide();
-}
-else {
-    show();
-}
-
-function hide() {
-    $('#authors_list div, #authors_list a').removeClass("show");
-    $('#authors_list a').attr("aria-expanded", false);
-}
-
-function show() {
-    $('#authors_list div, #authors_list a').addClass("show");
-    $('#authors_list a').attr("aria-expanded", true);
-}
