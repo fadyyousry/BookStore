@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).on('turbolinks:load', function() {
     $("#authors_list a")[0].click()
     $("#categories_list a")[0].click();
 

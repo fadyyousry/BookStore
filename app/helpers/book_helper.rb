@@ -3,7 +3,7 @@ module BookHelper
         list.pluck(:name).join(', ')
     end
 
-    def human_boolean(boolean)
-        boolean ? 'Yes' : 'No'
+    def human_boolean(flag)
+        flag ? t('default.yes') : t('default.no')
     end
 end
