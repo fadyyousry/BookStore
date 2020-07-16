@@ -2,6 +2,8 @@ class Book < ApplicationRecord
   belongs_to :publisher, optional: true
   has_and_belongs_to_many :authors, -> { distinct }
   has_and_belongs_to_many :categories, -> { distinct }
+  before_update :cascade
+  before_destroy :cascade
 
   validates :title, presence: true
   validates :price, presence: true

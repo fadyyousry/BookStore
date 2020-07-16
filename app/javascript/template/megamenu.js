@@ -1,7 +1,4 @@
 $(document).on('turbolinks:load', function() {
-    $("#authors_list a")[0].click()
-    $("#categories_list a")[0].click();
-
     $(".dropdown").hover(
         function() { $('.dropdown-menu', this).stop().fadeIn(500);
         },

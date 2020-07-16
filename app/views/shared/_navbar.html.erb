@@ -14,12 +14,14 @@
         <%= link_to t('default.shop'), books_path, class: "nav-link" %>
       </li>
       <li id="authors_list" class="navbar-item dropdown has-megamenu">
-        <%= link_to t('default.author.name.other'), authors_path,
-         class: "nav-link dropdown-toggle", "data-toggle":"dropdown", remote: true %>
+        <%= link_to t('default.author.name.other'), '#',
+         class: "nav-link dropdown-toggle", "data-toggle":"dropdown"%>
+         <%= render 'shared/megamenu', list: @authors %>
       </li>
       <li id="categories_list" class="navbar-item dropdown has-megamenu">
-        <%= link_to t('default.category.name.other'), categories_path,
-         class: "nav-link dropdown-toggle", "data-toggle":"dropdown", remote: true %> 
+        <%= link_to t('default.category.name.other'), '#',
+         class: "nav-link dropdown-toggle", "data-toggle":"dropdown"%>
+         <%= render 'shared/megamenu', list: @categories %>
       </li>
       <li class="navbar-item">
         <% if user_signed_in? %>
