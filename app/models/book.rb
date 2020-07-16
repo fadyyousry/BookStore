@@ -47,4 +47,17 @@ class Book < ApplicationRecord
     end
   end
 
+  def cascade
+    authors.each do |author|
+      if author.books.size == 1
+        author.destroy
+      end
+    end
+    categories.each do |category|
+      if category.books.size == 1
+        category.destroy
+      end
+    end
+  end
+
 end

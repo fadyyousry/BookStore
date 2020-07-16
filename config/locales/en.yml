@@ -12,6 +12,7 @@ en:
     search: "Search"
     image: "Image"
     home: "Home"
+    shop: "Shop"
     buy_now: "Buy Now"
     add_to_card: "Add To cart"
     navigation: "Navigation"
@@ -29,7 +30,7 @@ en:
     category:
       name:
         one: "Category"
-        other: "Cartgories"
+        other: "Categories"
     messages:
       ensure: "Are you sure?"
     error_messages:

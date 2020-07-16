@@ -7,14 +7,21 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto">
-      <li class="navbar-item active">
-        <%= link_to "Home", root_path, class: "nav-link" %>
+      <li class="navbar-item">
+        <%= link_to t('default.home'), root_path, class: "nav-link" %>
       </li>
       <li class="navbar-item">
-        <%= link_to "Shop", books_path, class: "nav-link" %>
+        <%= link_to t('default.shop'), books_path, class: "nav-link" %>
       </li>
-      <li class="navbar-item">
-        <%= link_to "About", "#", class: "nav-link" %>
+      <li id="authors_list" class="navbar-item dropdown has-megamenu">
+        <%= link_to t('default.author.name.other'), authors_path,
+         class: "nav-link dropdown-toggle", "data-toggle":"dropdown",
+         'aria-expanded':"false", remote: true %>
+      </li>
+      <li id="categories_list" class="navbar-item dropdown has-megamenu">
+        <%= link_to t('default.category.name.other'), categories_path,
+         class: "nav-link dropdown-toggle", "data-toggle":"dropdown", 
+         'aria-expanded':"false", remote: true %> 
       </li>
       <li class="navbar-item">
         <% if user_signed_in? %>

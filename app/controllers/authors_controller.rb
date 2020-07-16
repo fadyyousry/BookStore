@@ -1,11 +1,11 @@
 class AuthorsController < ApplicationController
-  load_and_authorize_resource
   layout 'application'
+  load_and_authorize_resource
+
   def index
     @authors = Author.all
-  end
-
-  def show
-    @books = @author.books
+    respond_to do |format|
+      format.js
+    end
   end
 end

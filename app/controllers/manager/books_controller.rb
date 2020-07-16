@@ -26,6 +26,7 @@ module Manager
     end
   
     def update
+      @book.cascade
       @book.create_publisher(publisher_params)
       @book.authors.clear
       @book.create_authors(author_params)
@@ -41,6 +42,7 @@ module Manager
     end
   
     def destroy
+      @book.cascade
       @book.destroy
       redirect_to manager_books_url, notice: t('book.messages.successful_destroy') 
     end

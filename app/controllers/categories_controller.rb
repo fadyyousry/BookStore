@@ -4,9 +4,8 @@ class CategoriesController < ApplicationController
 
   def index
     @categories = Category.all
-  end
-
-  def show
-    @books = @category.books
+    respond_to do |format|
+      format.js
+    end
   end
 end
