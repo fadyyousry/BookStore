@@ -1,58 +1,82 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @book.title %>
-</p>
-
-<p>
-  <strong>Publisher:</strong>
-  <%= @book.publisher_id %>
-</p>
-
-<p>
-  <strong>Published date:</strong>
-  <%= @book.published_date %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @book.description %>
-</p>
-
-<p>
-  <strong>Isbn:</strong>
-  <%= @book.isbn %>
-</p>
-
-<p>
-  <strong>Page count:</strong>
-  <%= @book.page_count %>
-</p>
-
-<p>
-  <strong>Image link:</strong>
-  <%= @book.image_link %>
-</p>
-
-<p>
-  <strong>Language:</strong>
-  <%= @book.language %>
-</p>
-
-<p>
-  <strong>Is PDF:</strong>
-  <%= @book.is_pdf %>
-</p>
-
-<p>
-  <strong>Quantity:</strong>
-  <%= @book.quantity %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @book.price %>
-</p>
-
-<%= link_to 'Back', books_path %>
+<div class="breadcrumb">
+    <div class="container">
+        <%= link_to t('default.home'), books_path, class: "breadcrumb-item" %>
+        <span class="breadcrumb-item active"><%= @book.title %></span>
+    </div>
+</div>
+<section class="product-sec">
+    <div class="container">
+        <h1><%= @book.title %></h1>
+        <div class="row">
+            <div class="col-md-6 slider-sec">
+                <!-- main slider carousel -->
+                <div id="myCarousel" class="carousel slide">
+                    <!-- main slider carousel items -->
+                    <div class="carousel-inner">
+                        <div class="active item carousel-item" data-slide-number="0">
+                            <%= image_tag @book.image_link, size: "360x571", alt: "img" ,class: "img-fluid" %>
+                        </div>
+                        <div class="item carousel-item" data-slide-number="1">
+                            <%= image_tag "product2.jpg", size: "360x571", alt: "img" , class:"img-fluid" %>
+                        </div>
+                        <div class="item carousel-item" data-slide-number="2">
+                            <%= image_tag "product3.jpg", size: "360x571", alt: "img" , class:"img-fluid" %>
+                        </div>
+                    </div>
+                    <!-- main slider carousel nav controls -->
+                    <ul class="carousel-indicators list-inline">
+                        <li class="active list-inline-item ">
+                            <a id="carousel-selector-0" class="selected" data-slide-to="0" data-target="#myCarousel">
+                                <%= image_tag @book.image_link,class: "img-fluid" %>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a id="carousel-selector-1" data-slide-to="1" data-target="#myCarousel">
+                                <%= image_tag "product2.jpg", class:"img-fluid" %>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a id="carousel-selector-2" data-slide-to="2" data-target="#myCarousel">
+                                <%= image_tag "product3.jpg", class:"img-fluid" %>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!--/main slider carousel-->
+            </div>
+            <div class="col-md-6 slider-content">
+                <p>
+                    <div><small class="text-muted"><%= csv_names(@book.authors)%></small></div>
+                    <div><small class="text-muted"><%= csv_names(@book.categories)%></small></div>
+                </p>
+                <p><%= @book.description %></p>
+                <p>
+                    <div><small class="text-muted"><%= @book.published_date %></small></div>
+                    <div><small class="text-muted"><%= @book.publisher_name %></small></div>
+                </p>
+                <ul>
+                    <li>
+                        <span class="name"><%= Book.human_attribute_name(:page_count) %></span><span class="clm">:</span>
+                        <span class="value"><%= @book.page_count %></span>
+                    </li>
+                    <li>
+                        <span class="name"><%= Book.human_attribute_name(:language) %></span><span class="clm">:</span>
+                        <span class="value"><%= @book.language %></span>
+                    </li>
+                    <li>
+                        <span class="name"><%= Book.human_attribute_name(:is_pdf) %></span><span class="clm">:</span>
+                        <span class="value"><%= human_boolean(@book.is_pdf) %></span>
+                    </li>
+                    <li>
+                        <span class="name"><%= Book.human_attribute_name(:price) %></span><span class="clm">:</span>
+                        <span class="value final">$<%= @book.price %></span>
+                    </li>
+                </ul>
+                <div class="btn-sec">
+                    <button class="btn "><%= t('default.add_to_cart')%></button>
+                    <button class="btn black"><%= t('defualt.buy_new')%></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -3,6 +3,7 @@ module Manager
     layout 'admin'
 
     def index
+      authorize! :create, Book
     end
   end
 end

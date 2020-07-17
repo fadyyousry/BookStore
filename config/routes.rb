@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {sessions: 'sessions', registrations: 'registrations'}
 
   resources :books, only: [:show, :index]
-  resources :authors, only: [:show, :index]
-  resources :categories, only: [:show, :index]
+  resources :authors, only: [:show]
+  resources :categories, only: [:show]
 
   namespace :manager do
     resources :books

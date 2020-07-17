@@ -12,8 +12,13 @@ en:
     search: "Search"
     image: "Image"
     home: "Home"
-    navigation: "Navigation"
+    shop: "Shop"
+    buy_now: "Buy Now"
     dashboard: "Dashboard"
+    yes: "Yes"
+    no: "No" 
+    add_to_card: "Add To cart"
+    navigation: "Navigation"
     book:
       name:
         one: "Book"
@@ -83,7 +88,7 @@ en:
     success:
       create: "%{model} was successfully created."
       update: "%{model} was successfully updated."
-      destroy:  "%{model} was successfully destroyed."
+      destroy: "%{model} was successfully destroyed."
   breadcrumbs:
     new: "New %{model}"
     edit: "Edit %{model}"

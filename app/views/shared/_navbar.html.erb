@@ -7,18 +7,26 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto">
-      <li class="navbar-item active">
-        <%= link_to "Home", root_path, class: "nav-link" %>
-      </li>
       <li class="navbar-item">
-        <% if current_user_admin? %>
-          <%= link_to "Dashboard", manager_root_url, class: "nav-link" %>
-        <% else %>
-          <%= link_to "Shop", "#", class: "nav-link" %>
-        <% end %>
+        <%= link_to t('default.home'), root_path, class: "nav-link" %>
       </li>
+      <% if current_user_admin? %>
+        <li class="navbar-item">
+          <%= link_to t('default.dashboard'), manager_root_url, class: "nav-link" %>
+        </li>
+      <% end %>
       <li class="navbar-item">
-        <%= link_to "About", "#", class: "nav-link" %>
+        <%= link_to t('default.shop'), books_path, class: "nav-link" %>
+      </li>
+      <li id="authors_list" class="navbar-item dropdown has-megamenu">
+        <%= link_to t('default.author.name.other'), '#',
+         class: "nav-link dropdown-toggle", "data-toggle":"dropdown"%>
+         <%= render 'shared/megamenu', list: Author.all %>
+      </li>
+      <li id="categories_list" class="navbar-item dropdown has-megamenu">
+        <%= link_to t('default.category.name.other'), '#',
+         class: "nav-link dropdown-toggle", "data-toggle":"dropdown"%>
+         <%= render 'shared/megamenu', list: Category.all %>
       </li>
       <li class="navbar-item">
         <% if user_signed_in? %>

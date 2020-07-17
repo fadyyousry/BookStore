@@ -1,0 +1,11 @@
+<div class="dropdown-menu megamenu" role="menu">
+    <div class="row">
+        <% list.in_groups(4, false) do |column| %>
+        <div class="col-md-3">
+            <% column.each do |item| %>
+            <%= link_to item.name, item, class: "nav-link"%>
+            <%end%>
+        </div>
+        <% end %>
+    </div>
+</div>

@@ -1,11 +1,8 @@
 class AuthorsController < ApplicationController
-  load_and_authorize_resource
   layout 'application'
-  def index
-    @authors = Author.all
-  end
+  load_and_authorize_resource
 
   def show
-    @books = @author.books
+    @books = @author.books.order(:title).page(params[:page])
   end
 end
