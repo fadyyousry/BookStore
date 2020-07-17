@@ -1,3 +1,4 @@
+<% title t('breadcrumbs.edit', model: Book.name) %>
 <%= render 'form', book: @book %>
-<%= link_to t('default.back'), manager_books_path %>
+<%= link_to t('default.show'), manager_book_path(@book.id) %> 
 
