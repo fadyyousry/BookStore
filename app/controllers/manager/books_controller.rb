@@ -12,7 +12,6 @@ module Manager
       @book.create_publisher(publisher_params)
       @book.create_authors(author_params)
       @book.create_categories(category_params)
-  
       if @book.save
         redirect_to manager_book_path(@book.id), notice: t('book.messages.successful_create')
       else
@@ -21,13 +20,10 @@ module Manager
       
     end
   
-    def update
+    def update      
       @book.create_publisher(publisher_params)
-      @book.authors.clear
       @book.create_authors(author_params)
-      @book.categories.clear
       @book.create_categories(category_params)
-  
       if @book.update(book_params)
         redirect_to manager_book_path(@book.id), notice: t('book.messages.successful_update')
       else
