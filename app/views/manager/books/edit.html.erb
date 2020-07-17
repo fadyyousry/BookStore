@@ -1,19 +1,4 @@
-<section class="body">
+<%= render 'form', book: @book %>
+  <%= link_to t('default.show'), manager_book_path(@book.id) %> |
+  <%= link_to t('default.back'), manager_books_path %>
 
-    <%= render partial: 'shared/admin/navbar' %>
-    <div class="inner-wrapper">
-      <%= render partial: 'shared/admin/sidebar' %>
-  
-      <section role="main" class="content-body">
-  
-        <%= render layout: 'shared/admin/page_header', locals: { title: t('book.view.editing_book') } do %>
-            <%= render 'form', book: @book %>
-            <%= link_to t('default.show'), manager_book_path(@book.id) %> |
-            <%= link_to t('default.back'), manager_books_path %>
-        <% end %>
-        
-      </section>
-      
-    </div>
-  
-  </section>

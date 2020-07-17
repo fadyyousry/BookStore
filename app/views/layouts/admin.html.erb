@@ -20,7 +20,12 @@
   <%= render partial: 'shared/admin/navbar' %>
   <div class="inner-wrapper">
     <%= render partial: 'shared/admin/sidebar' %>
-    <%= yield %>
+    <section role="main" class="content-body">
+      <%= render layout: 'shared/admin/page_header', locals: {title: t('activerecord.models.user.other')} do %>
+        <%= render partial: 'shared/flash' %>
+        <%= yield %>
+      <% end %>
+    </section>
   </div>
 </section>
 </body>
