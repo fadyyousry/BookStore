@@ -21,12 +21,12 @@
       <li id="authors_list" class="navbar-item dropdown has-megamenu">
         <%= link_to t('activerecord.models.author.other'), '#',
          class: "nav-link dropdown-toggle", "data-toggle":"dropdown"%>
-         <%= render 'shared/megamenu', list: Author.all %>
+         <%= render 'shared/megamenu', list: @authors %>
       </li>
       <li id="categories_list" class="navbar-item dropdown has-megamenu">
         <%= link_to t('activerecord.models.category.other'), '#',
          class: "nav-link dropdown-toggle", "data-toggle":"dropdown"%>
-         <%= render 'shared/megamenu', list: Category.all %>
+         <%= render 'shared/megamenu', list: @categories %>
       </li>
       <li class="navbar-item">
         <% if user_signed_in? %>

@@ -13,7 +13,7 @@ module Manager
       @book.create_authors(author_params)
       @book.create_categories(category_params)
       if @book.save
-        redirect_to manager_books_path, notice: t('book.messages.successful_create')
+        redirect_to manager_books_path, notice: t("messages.success.create", model: @book.class.name)
       else
         render :new
       end
@@ -25,7 +25,7 @@ module Manager
       @book.create_authors(author_params)
       @book.create_categories(category_params)
       if @book.update(book_params)
-        redirect_to manager_books_path, notice: t('book.messages.successful_update')
+        redirect_to manager_books_path, notice: t("messages.success.update", model: @book.class.name)
       else
         render :edit
       end
@@ -34,7 +34,7 @@ module Manager
   
     def destroy
       @book.destroy
-      redirect_to manager_books_url, notice: t('book.messages.successful_destroy') 
+      redirect_to manager_books_url, notice: t("messages.success.destroy", model: @book.class.name)
     end
   
     private

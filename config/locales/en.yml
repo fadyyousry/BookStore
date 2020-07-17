@@ -22,7 +22,7 @@ en:
     messages:
       ensure: "Are you sure?"
     error_messages:
-      not_authorized: "You are not authorized to perform this action"
+      not_authorized: "You are not authorized to perform this action"   
     actions:
       new: "New"
   home:
@@ -48,10 +48,6 @@ en:
       password: "Enter Your Password"
       confirm_password: "Confirm Your Password"
   book:
-    messages:
-      successful_create: "Book was successfully created."
-      successful_update: "Book was successfully updated."
-      successful_destroy:  "Book was successfully destroyed."
     view:
       add_book: "Add Book"
       new_book: "New Book"
@@ -59,19 +55,12 @@ en:
       editing_book: "Editing Book"
       new_categorey: "New Category"
       new_author: "New Author"
-  author:
-    messages:
-      successful_destroy:  "Author was successfully destroyed."
-
-  category:
-    messages:
-      successful_destroy:  "Category was successfully destroyed."
 
   messages:
     success:
       create: "%{model} was successfully created."
       update: "%{model} was successfully updated."
-      destroy: "%{model} was successfully destroyed."
+      destroy: "%{model} was successfully destroyed."      
   breadcrumbs:
     new: "New %{model}"
     edit: "Edit %{model}"

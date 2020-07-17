@@ -9,7 +9,7 @@ module Manager
 
     def destroy
       @category.destroy 
-      redirect_to manager_categories_url, notice: t('category.messages.successful_destroy')
+      redirect_to manager_categories_url, notice:  t("messages.success.destroy", model: @category.class.name)
     end
   end
 end
