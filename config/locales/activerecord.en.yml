@@ -1,0 +1,10 @@
+en:
+  activerecord:
+    models:
+      user:
+        one: "User"
+        other: "Users"
+      book:
+        one: "Book"
+        other: "Books"
+    attributes:

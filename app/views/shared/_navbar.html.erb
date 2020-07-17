@@ -10,6 +10,11 @@
       <li class="navbar-item">
         <%= link_to t('default.home'), root_path, class: "nav-link" %>
       </li>
+      <% if current_user_admin? %>
+        <li class="navbar-item">
+          <%= link_to t('default.dashboard'), manager_root_url, class: "nav-link" %>
+        </li>
+      <% end %>
       <li class="navbar-item">
         <%= link_to t('default.shop'), books_path, class: "nav-link" %>
       </li>

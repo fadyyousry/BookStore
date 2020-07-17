@@ -10,6 +10,6 @@ module DashboardRedirect
   end
 
   def user_dashboard(user)
-    user.admin? ? admin_path : root_path
+    user.admin? ? manager_root_path : root_path
   end
 end

@@ -1,46 +1,33 @@
-<section class="body">
-
-  <%= render partial: 'shared/admin/navbar' %>
-  <div class="inner-wrapper">
-    <%= render partial: 'shared/admin/sidebar' %>
-
-    <section role="main" class="content-body">
-
-      <%= render layout: 'shared/admin/page_header', locals: { title: t('default.author.name.other') } do %>
-        <% @authors.each_with_index do |author, i| %>
-          <div class="panel panel-accordion">
-            <div class="panel-heading">
-              <h4 class="panel-title">
-                <%= link_to "#collapse#{i}", "data-toggle":"collapse",
-                 "data-parent":"#accordion", class: "btn btn-light" do %>
-                    <b><%= author.name %></b>
-                <% end %>
-                <%= link_to t('default.destroy'), manager_author_path(author.id),
-                method: :delete, class: "btn btn-danger pull-right",
-                data: { confirm: t('default.messages.ensure') }  %>
-              </h4>
-            </div>
-            <%= content_tag :div, id: "collapse#{i}", class: "accordion-body collapse" do %>
-              <div class="panel-body">
-                <div class="row">
-                  <% author.books.each do |book| %>
-                    <%= link_to manager_book_path(book.id) do %>
-                      <div class="col-sm-6 col-md-2">
-                        <div class="thumbnail">
-                          <%= image_tag book.image_link, class: "card-img-top" %>
-                          <div class="caption">
-                            <h5><%= book.title %></h5>
-                          </div>
-                        </div>
-                      </div>
-                    <% end %>
-                  <% end %>
-                </div>
+<% @authors.each_with_index do |author, i| %>
+  <div class="panel panel-accordion">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <%= link_to "#collapse#{i}", "data-toggle":"collapse",
+            "data-parent":"#accordion", class: "btn btn-light" do %>
+        <b><%= author.name %></b>
+<% end %>
+<%= link_to t('default.destroy'), manager_author_path(author.id),
+            method: :delete, class: "btn btn-danger pull-right",
+            data: {confirm: t('default.messages.ensure')} %>
+</h4>
+</div>
+<%= content_tag :div, id: "collapse#{i}", class: "accordion-body collapse" do %>
+  <div class="panel-body">
+    <div class="row">
+      <% author.books.each do |book| %>
+        <%= link_to manager_book_path(book.id) do %>
+          <div class="col-sm-6 col-md-2">
+            <div class="thumbnail">
+              <%= image_tag book.image_link, class: "card-img-top" %>
+              <div class="caption">
+                <h5><%= book.title %></h5>
               </div>
-            <%end %>
+            </div>
           </div>
         <% end %>
       <% end %>
-    </section>
+    </div>
   </div>
-</section>
+<% end %>
+</div>
+<% end %>
