@@ -1,4 +1,4 @@
-module SearchMenus
+module MenuDataPreload
     extend ActiveSupport::Concern
     included do
         before_action :authors_index, :categories_index
@@ -9,6 +9,6 @@ module SearchMenus
     end
 
     def categories_index
-        @categories =Category.all
+        @categories = Category.all
     end
 end

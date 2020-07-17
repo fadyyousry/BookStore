@@ -16,22 +16,7 @@
             <% end %>
           </div>
         </td>
-        <template id="table_hidden_data">
-          <table class="table mb-none">
-          <div class="row">
-            <% author.books.each do |book| %>
-                <div class="col-sm-6 col-md-2">
-                  <div class="thumbnail">
-                    <%= image_tag book.image_link, class: "card-img-top" %>
-                    <div class="caption">
-                      <h5><%= book.title %></h5>
-                    </div>
-                  </div>
-                </div>
-            <% end %>
-          </div>
-        </div>
-        </template>
+        <%= render 'shared/admin/table_details', list: author.books %>
       </tr>
     <% end %>
   </tbody>

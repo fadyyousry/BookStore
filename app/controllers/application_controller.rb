@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   include DashboardRedirect
   include ErrorHandler
-  include SearchMenus
+  include MenuDataPreload
+  include SearchInitializer
 end
