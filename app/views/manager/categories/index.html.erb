@@ -1,33 +1,38 @@
-<% @categories.each_with_index do |category, i| %>
-  <div class="panel panel-accordion">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <%= link_to "#collapse#{i}", "data-toggle":"collapse",
-            "data-parent":"#accordion", class: "btn btn-light" do %>
-        <b><%= category.name %></b>
-<% end %>
-<%= link_to t('default.destroy'), manager_category_path(category.id),
-            method: :delete, class: "btn btn-danger pull-right",
-            data: {confirm: t('default.messages.ensure')} %>
-</h4>
-</div>
-<%= content_tag :div, id: "collapse#{i}", class: "accordion-body collapse" do %>
-  <div class="panel-body">
-    <div class="row">
-      <% category.books.each do |book| %>
-        <%= link_to manager_book_path(book.id) do %>
-          <div class="col-sm-6 col-md-2">
-            <div class="thumbnail">
-              <%= image_tag book.image_link, class: "card-img-top" %>
-              <div class="caption">
-                <h5><%= book.title %></h5>
-              </div>
-            </div>
+<table class="table table-bordered table-striped mb-none table-with-details">
+  <thead>
+  <tr>
+    <th><%= Category.human_attribute_name(:name) %></th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+    <% @categories.each do |category| %>
+      <tr class="gradeX">
+        <td><%= category.name %></td>
+        <td>
+          <div class="center">
+            <%= link_to manager_category_path(category.id), method: :delete do %>
+              <i class="fa fa-times" aria-hidden="true"></i>
+            <% end %>
           </div>
-        <% end %>
-      <% end %>
-    </div>
-  </div>
-<% end %>
-</div>
-<% end %>
+        </td>
+        <template id="table_hidden_data">
+          <table class="table mb-none">
+          <div class="row">
+            <% category.books.each do |book| %>
+                <div class="col-sm-6 col-md-2">
+                  <div class="thumbnail">
+                    <%= image_tag book.image_link, class: "card-img-top" %>
+                    <div class="caption">
+                      <h5><%= book.title %></h5>
+                    </div>
+                  </div>
+                </div>
+            <% end %>
+          </div>
+        </div>
+        </template>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

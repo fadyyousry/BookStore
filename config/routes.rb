@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :categories, only: [:show]
 
   namespace :manager do
-    resources :books
+    resources :books, except: [:show]
     resources :users
     resources :authors, only: [:index, :destroy]
     resources :categories, only: [:index, :destroy]

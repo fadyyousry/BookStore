@@ -1,5 +1,5 @@
 <div class="form-group">
-  <%= label_tag plural, t("default.#{singular}.name.other"), class: "col-md-3 control-label" %>
+  <%= label_tag plural, t("activerecord.models.#{singular}.other"), class: "col-md-3 control-label" %>
   <div class="col-md-6">
     <%= text_field_tag "#{plural}[names]", csv_names(list),
      {id: "#{plural}-input", 'data-role' => "tagsinput",

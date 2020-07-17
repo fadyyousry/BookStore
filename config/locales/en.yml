@@ -19,20 +19,6 @@ en:
     no: "No" 
     add_to_card: "Add To cart"
     navigation: "Navigation"
-    book:
-      name:
-        one: "Book"
-        other: "Books"
-    publisher:
-      name: "Publisher"
-    author:
-      name:
-        one: "Author"
-        other: "Authors"
-    category:
-      name:
-        one: "Category"
-        other: "Categories"
     messages:
       ensure: "Are you sure?"
     error_messages:
@@ -71,9 +57,6 @@ en:
       new_book: "New Book"
       create_book: "Create Book"
       editing_book: "Editing Book"
-      books_table: "Books Table"
-      authors_table: "Authors Table"
-      categories_table: "Categories Table"
       new_categorey: "New Category"
       new_author: "New Author"
   author:

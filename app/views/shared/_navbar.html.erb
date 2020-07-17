@@ -19,12 +19,12 @@
         <%= link_to t('default.shop'), books_path, class: "nav-link" %>
       </li>
       <li id="authors_list" class="navbar-item dropdown has-megamenu">
-        <%= link_to t('default.author.name.other'), '#',
+        <%= link_to t('activerecord.models.author.other'), '#',
          class: "nav-link dropdown-toggle", "data-toggle":"dropdown"%>
          <%= render 'shared/megamenu', list: Author.all %>
       </li>
       <li id="categories_list" class="navbar-item dropdown has-megamenu">
-        <%= link_to t('default.category.name.other'), '#',
+        <%= link_to t('activerecord.models.category.other'), '#',
          class: "nav-link dropdown-toggle", "data-toggle":"dropdown"%>
          <%= render 'shared/megamenu', list: Category.all %>
       </li>

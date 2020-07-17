@@ -13,7 +13,7 @@ module Manager
       @book.create_authors(author_params)
       @book.create_categories(category_params)
       if @book.save
-        redirect_to manager_book_path(@book.id), notice: t('book.messages.successful_create')
+        redirect_to manager_books_path, notice: t('book.messages.successful_create')
       else
         render :new
       end
@@ -25,7 +25,7 @@ module Manager
       @book.create_authors(author_params)
       @book.create_categories(category_params)
       if @book.update(book_params)
-        redirect_to manager_book_path(@book.id), notice: t('book.messages.successful_update')
+        redirect_to manager_books_path, notice: t('book.messages.successful_update')
       else
         render :edit
       end
