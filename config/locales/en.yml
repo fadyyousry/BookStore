@@ -53,6 +53,7 @@ en:
     placeholder:
       email: "Enter your Email"
       password: "Enter your password"
+      search_book: "Search here..."
   registeration:
     title: "My Account / Register"
     signup_button: "Sign Up"

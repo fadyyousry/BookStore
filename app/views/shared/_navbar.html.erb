@@ -20,12 +20,12 @@
       </li>
       <li id="authors_list" class="navbar-item dropdown has-megamenu">
         <%= link_to t('default.author.name.other'), '#',
-         class: "nav-link dropdown-toggle", "data-toggle":"dropdown"%>
+         class: "nav-link dropdown-toggle", :"data-toggle" => "dropdown"%>
          <%= render 'shared/megamenu', list: Author.all %>
       </li>
       <li id="categories_list" class="navbar-item dropdown has-megamenu">
         <%= link_to t('default.category.name.other'), '#',
-         class: "nav-link dropdown-toggle", "data-toggle":"dropdown"%>
+         class: "nav-link dropdown-toggle", :"data-toggle" => "dropdown"%>
          <%= render 'shared/megamenu', list: Category.all %>
       </li>
       <li class="navbar-item">
@@ -41,9 +41,6 @@
         <i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
       <span class="quntity">3</span>
     </div>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search here..." aria-label="Search">
-      <span class="fa fa-search"></span>
-    </form>
+    <%= render partial: 'shared/search_form' %>
   </div>
 </nav>
