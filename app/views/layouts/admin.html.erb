@@ -5,13 +5,8 @@
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
-  <!-- Basic -->
-  <meta charset="UTF-8">
-
-  <meta name="keywords" content="HTML5 Admin Template" />
-
   <!-- Mobile Metas -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 
   <!-- Web Fonts  -->
   <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Shadows+Into+Light" rel="stylesheet" type="text/css">
@@ -21,6 +16,17 @@
 </head>
 
 <body>
-<%= yield %>
+<section class="body">
+  <%= render partial: 'shared/admin/navbar' %>
+  <div class="inner-wrapper">
+    <%= render partial: 'shared/admin/sidebar' %>
+    <section role="main" class="content-body">
+      <%= render layout: 'shared/admin/page_header', locals: {title: t('activerecord.models.user.other')} do %>
+        <%= render partial: 'shared/flash' %>
+        <%= yield %>
+      <% end %>
+    </section>
+  </div>
+</section>
 </body>
 </html>
