@@ -25,14 +25,10 @@
       <td><%= book.quantity %></td>
       <td><%= book.price %></td>
       <td>
-        <div class="center">
-          <%= link_to edit_manager_book_path(book.id) do %>
-            <i class="fa fa-pencil" aria-hidden="true"></i>
-          <% end %>
-          <%= link_to manager_book_path(book.id), method: :delete do %>
-            <i class="fa fa-times" aria-hidden="true"></i>
-          <% end %>
-        </div>
+        <%= render partial: 'shared/admin/table_actions',
+                    locals: {edit_path: :edit_manager_book_path,
+                              delete_path: :manager_book_path,
+                              item_id: book.id} %>
       </td>
       <template id="table_hidden_data">
         <table class="table mb-none">
