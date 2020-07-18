@@ -74,7 +74,7 @@
                 </ul>
                 <div class="btn-sec">
                     <button class="btn "><%= t('default.add_to_cart')%></button>
-                    <button class="btn black"><%= t('defualt.buy_new')%></button>
+                    <%= render 'bills/form', book_id: @book.id %>
                 </div>
             </div>
         </div>

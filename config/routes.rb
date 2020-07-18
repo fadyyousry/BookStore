@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :books, only: [:show, :index]
   resources :authors, only: [:show]
   resources :categories, only: [:show]
+  resources :bills, only: [:new, :create]
 
   namespace :manager do
     resources :books, except: [:show]

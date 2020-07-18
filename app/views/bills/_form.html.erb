@@ -1,0 +1,4 @@
+<%= form_tag bills_path, id: "billing-create-payment-method", class: "d-inline" do %>
+    <%= hidden_field_tag "book", "#{book_id}" %>
+    <%= link_to t('defualt.buy_new'), new_bill_path, remote: true, class: "btn black" %>
+<% end %>
