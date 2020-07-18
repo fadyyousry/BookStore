@@ -7,4 +7,13 @@ en:
       book:
         one: "Book"
         other: "Books"
+      author:
+        one: "Author"
+        other: "Authors"
+      category:
+        one: "Category"
+        other: "Categories"
+      publisher:
+        one: "Publisher"
+        other: "Publishers"
     attributes:

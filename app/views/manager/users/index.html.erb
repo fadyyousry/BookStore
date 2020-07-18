@@ -15,7 +15,10 @@
       <td><%= user.email %></td>
       <td><%= user.type %></td>
       <td><%= user.created_at %></td>
-      <td><%= render partial: 'shared/admin/table_actions', locals: {user_id: user.id} %></td>
+      <td><%= render partial: 'shared/admin/table_actions',
+                      locals: {edit_path: :edit_manager_user_path,
+                                delete_path: :manager_user_path,
+                                item_id: user.id} %></td>
     </tr>
   <% end %>
   </tbody>
