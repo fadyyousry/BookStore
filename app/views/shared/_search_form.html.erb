@@ -1,0 +1,4 @@
+<%= search_form_for @q, class: "form-inline my-2 my-lg-0" do |f| %>
+  <%= f.search_field :title_cont, placeholder: t("login.placeholder.search_book"), class: "form-control mr-sm-2" %>
+  <span class="fa fa-search"></span>
+<% end %>

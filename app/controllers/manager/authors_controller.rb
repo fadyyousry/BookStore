@@ -9,7 +9,7 @@ module Manager
 
     def destroy
       @author.destroy 
-      redirect_to manager_authors_url, notice: t('author.messages.successful_destroy')
+      redirect_to manager_authors_url, notice:  t("messages.success.destroy", model: @author.class.name)
     end
   end
 end

@@ -3,7 +3,8 @@ class BooksController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @books = Book.order(:title).page params[:page]
+    @q = Book.ransack(params[:q])
+    @books = @q.result.order(:title).page(params[:page])
   end
 
 end

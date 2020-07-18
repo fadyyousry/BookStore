@@ -20,13 +20,13 @@
       </li>
       <li id="authors_list" class="navbar-item dropdown has-megamenu">
         <%= link_to t('activerecord.models.author.other'), '#',
-         class: "nav-link dropdown-toggle", "data-toggle":"dropdown"%>
-         <%= render 'shared/megamenu', list: Author.all %>
+         class: "nav-link dropdown-toggle", :"data-toggle" => "dropdown"%>
+         <%= render 'shared/megamenu', list: @authors %>
       </li>
       <li id="categories_list" class="navbar-item dropdown has-megamenu">
         <%= link_to t('activerecord.models.category.other'), '#',
-         class: "nav-link dropdown-toggle", "data-toggle":"dropdown"%>
-         <%= render 'shared/megamenu', list: Category.all %>
+         class: "nav-link dropdown-toggle", :"data-toggle" => "dropdown"%>
+         <%= render 'shared/megamenu', list: @categories %>
       </li>
       <li class="navbar-item">
         <% if user_signed_in? %>
@@ -41,9 +41,6 @@
         <i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
       <span class="quntity">3</span>
     </div>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search here..." aria-label="Search">
-      <span class="fa fa-search"></span>
-    </form>
+    <%= render partial: 'shared/search_form' %>
   </div>
 </nav>

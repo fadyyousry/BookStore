@@ -39,6 +39,7 @@ en:
     placeholder:
       email: "Enter your Email"
       password: "Enter your password"
+      search_book: "Search here..."
   registeration:
     title: "My Account / Register"
     signup_button: "Sign Up"
@@ -48,10 +49,6 @@ en:
       password: "Enter Your Password"
       confirm_password: "Confirm Your Password"
   book:
-    messages:
-      successful_create: "Book was successfully created."
-      successful_update: "Book was successfully updated."
-      successful_destroy:  "Book was successfully destroyed."
     view:
       add_book: "Add Book"
       new_book: "New Book"
@@ -59,13 +56,6 @@ en:
       editing_book: "Editing Book"
       new_categorey: "New Category"
       new_author: "New Author"
-  author:
-    messages:
-      successful_destroy:  "Author was successfully destroyed."
-
-  category:
-    messages:
-      successful_destroy:  "Category was successfully destroyed."
 
   messages:
     success:
