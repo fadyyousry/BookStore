@@ -13,7 +13,7 @@ en:
     image: "Image"
     home: "Home"
     shop: "Shop"
-    buy_now: "Buy Now"
+    checkout: "Checkout"
     dashboard: "Dashboard"
     yes: "Yes"
     no: "No" 
@@ -21,8 +21,10 @@ en:
     navigation: "Navigation"
     messages:
       ensure: "Are you sure?"
+      add_to_cart: "The book added to your cart"
     error_messages:
-      not_authorized: "You are not authorized to perform this action"
+      not_authorized: "You are not authorized to perform this action."
+      cannot_add_to_cart: "Sorry, you can't add this book for purchase to the cart."
     actions:
       new: "New"
   home:

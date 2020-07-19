@@ -56,7 +56,8 @@
                 </p>
                 <ul>
                     <li>
-                        <span class="name"><%= Book.human_attribute_name(:page_count) %></span><span class="clm">:</span>
+                        <span class="name"><%= Book.human_attribute_name(:page_count) %></span><span
+                            class="clm">:</span>
                         <span class="value"><%= @book.page_count %></span>
                     </li>
                     <li>
@@ -72,10 +73,15 @@
                         <span class="value final">$<%= @book.price %></span>
                     </li>
                 </ul>
+                <% unless current_user_admin? %>
                 <div class="btn-sec">
-                    <button class="btn "><%= t('default.add_to_cart')%></button>
-                    <%= render 'bills/form', book: @book.id %>
+                    <% if current_user_customer? %>
+                    <%= link_to t('default.add_to_cart'), add_to_cart_path(@book.id), class: "btn" %>
+                    <% else %>
+                    <%= link_to t('default.add_to_cart'), new_user_session_path, class: "btn" %>
+                    <% end %>
                 </div>
+                <% end %>
             </div>
         </div>
     </div>
