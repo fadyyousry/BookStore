@@ -16,4 +16,5 @@ Rails.application.routes.draw do
     root 'dashboard#index'
   end
 
+  mount StripeEvent::Engine, at: '/stripe_webhooks'
 end

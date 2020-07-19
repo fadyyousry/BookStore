@@ -32,7 +32,7 @@ class BillsController < ApplicationController
         @product = Stripe::Product.create({
                     name: @book.title,
                     images: [@book.image_link],
-                    description: @book.description
+                    description: "Description: " + @book.description
                   })
         @book.update(product_id: @product.id)
       else

@@ -59,3 +59,4 @@ gem 'kaminari'
 gem "breadcrumbs_on_rails"
 gem 'ransack', github: 'activerecord-hackery/ransack'
 gem 'stripe'
+gem 'stripe_event'
