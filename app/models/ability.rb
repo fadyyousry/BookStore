@@ -14,10 +14,12 @@ class Ability
     can :read, Author
     can :read, Category
     can :read, Publisher
+    can :read, Review
   end
 
   def customer
     guest
+    can :create, Review
   end
 
   def admin
@@ -26,6 +28,7 @@ class Ability
     can :manage, Category
     can :manage, Publisher
     can :manage, User
+    can :read, Review
 
     cannot :destroy, User, id: @user.id
   end

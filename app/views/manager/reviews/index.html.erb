@@ -1,0 +1,20 @@
+<table class="table table-bordered table-striped mb-none" id="datatable-reviews">
+  <thead>
+  <tr>
+    <th><%= User.human_attribute_name(:user) %></th>
+    <th><%= User.human_attribute_name(:book) %></th>
+    <th><%= User.human_attribute_name(:comment) %></th>
+    <th><%= User.human_attribute_name(:rating) %></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @reviews.each do |review| %>
+    <tr class="gradeX">
+      <td><%= review.user.email %></td>
+      <td><%= review.book.title %></td>
+      <td><%= review.comment %></td>
+      <td><%= review.rating %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

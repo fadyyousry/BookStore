@@ -1,0 +1,9 @@
+<section class="static about-sec">
+  <div class="container">
+    <h1>Reviews</h1>
+    <% if can? :create, Review and has_no_reviews?(current_user, @book) %>
+      <%= render partial: 'add_review' %>
+    <% end %>
+    <%= render partial: 'reviews_list' %>
+  </div>
+</section>
