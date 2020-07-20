@@ -7,6 +7,10 @@ module ApplicationHelper
     current_user.present? && current_user.customer?
   end
 
+  def cart_size
+    current_user.sales.where(status: "In Progress").size
+  end
+
   def title(page_title)
     content_for :title, page_title.to_s
   end

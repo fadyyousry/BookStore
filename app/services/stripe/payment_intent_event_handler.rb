@@ -16,7 +16,8 @@ module Stripe
         end
 
         def handle_payment_intent_succeeded(event)
-            
+            user = User.find_by(customer_id: event[:data][:object][:customer])
+            user.sales.where(status: 'In Progress').update_all(status: 'Completed')
         end
     end
 end

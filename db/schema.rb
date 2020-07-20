@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_19_213329) do
+ActiveRecord::Schema.define(version: 2020_07_20_122838) do
 
   create_table "authors", force: :cascade do |t|
     t.string "name"
@@ -66,7 +66,7 @@ ActiveRecord::Schema.define(version: 2020_07_19_213329) do
     t.integer "user_id", null: false
     t.integer "book_id", null: false
     t.datetime "payment_time"
-    t.string "stats"
+    t.string "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["book_id"], name: "index_sales_on_book_id"
@@ -82,6 +82,7 @@ ActiveRecord::Schema.define(version: 2020_07_19_213329) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "type"
+    t.string "customer_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

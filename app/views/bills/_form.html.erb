@@ -2,7 +2,7 @@
             id: "checkout-button" do %>
     <div class="card-box bg-green">
         <div class="inner">
-            <h3> <%= current_user.books.sum(:price) %> </h3>
+            <h3> <%= total_price %> </h3>
             <p> Total price </p>
         </div>
         <div class="icon">

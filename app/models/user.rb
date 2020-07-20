@@ -9,11 +9,18 @@ class User < ApplicationRecord
   enum status: [ :in_progress, :completed ]
   attribute :type, default: 'Customer'
 
+  before_create :create_customer
+
   def admin?
     type == "Admin"
   end
 
   def customer?
     type == "Customer"
+  end
+
+  def create_customer
+    customer = Stripe::Customer.create()
+    self.customer_id = customer.id
   end
 end

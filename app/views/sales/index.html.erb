@@ -30,7 +30,7 @@
             <%= paginate @sales %>
         </div>
         <div class="col-md-2">
-            <%= render 'bills/form', sales: @sales %>
+            <%= render 'bills/form', sales: @sales.pluck(:id), total_price: total_price %>
         </div>
     </div>
 </div>
