@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   attribute :type, default: 'Customer'
 
+  has_many :reviews, dependent: :destroy
+
   def admin?
     type == "Admin"
   end

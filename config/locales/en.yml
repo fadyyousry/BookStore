@@ -66,7 +66,7 @@ en:
     messages:
       successful_create: "Book was successfully created."
       successful_update: "Book was successfully updated."
-      successful_destroy:  "Book was successfully destroyed."
+      successful_destroy: "Book was successfully destroyed."
     view:
       add_book: "Add Book"
       new_book: "New Book"
@@ -93,3 +93,9 @@ en:
   breadcrumbs:
     new: "New %{model}"
     edit: "Edit %{model}"
+  reviews:
+    placeholder:
+      comment: "Enter your review"
+      rating: "Enter your rating"
+    actions:
+      save: "Save"
