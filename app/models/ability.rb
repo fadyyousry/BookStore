@@ -18,6 +18,8 @@ class Ability
 
   def customer
     guest
+    can :manage, Sale, user_id: @user.id
+    cannot :destroy, Sale, status: "Complete"
   end
 
   def admin
@@ -26,6 +28,7 @@ class Ability
     can :manage, Category
     can :manage, Publisher
     can :manage, User
+    can :read, Sale
 
     cannot :destroy, User, id: @user.id
   end

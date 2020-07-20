@@ -1,2 +1,12 @@
-<%= link_to t('defualt.checkout'), new_bill_path(book: book), remote: true,
- id: "checkout-button", class: "btn black" %>
+<%= link_to bill_path(sales: sales), method: :post, remote: true, class: "btn btn-widget",
+            id: "checkout-button" do %>
+    <div class="card-box bg-green">
+        <div class="inner">
+            <h3> <%= current_user.books.sum(:price) %> </h3>
+            <p> Total price </p>
+        </div>
+        <div class="icon">
+            <i class="fa fa-money" aria-hidden="true"></i>
+        </div>
+    </div>
+<% end %>

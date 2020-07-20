@@ -76,7 +76,8 @@
                 <% unless current_user_admin? %>
                 <div class="btn-sec">
                     <% if current_user_customer? %>
-                    <%= link_to t('default.add_to_cart'), add_to_cart_path(@book.id), class: "btn" %>
+                    <%= link_to t('default.add_to_cart'), sales_path(book_id: @book.id),
+                        method: :post, class: "btn" %>
                     <% else %>
                     <%= link_to t('default.add_to_cart'), new_user_session_path, class: "btn" %>
                     <% end %>

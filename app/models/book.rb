@@ -2,8 +2,8 @@ class Book < ApplicationRecord
   paginates_per 12
   
   belongs_to :publisher, optional: true
-  has_many :in_cart
-  has_many :users, through: :in_cart
+  has_many :sales
+  has_many :users, through: :sales
   has_and_belongs_to_many :authors, -> { distinct }
   has_and_belongs_to_many :categories, -> { distinct }
   

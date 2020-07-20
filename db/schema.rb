@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_19_152158) do
+ActiveRecord::Schema.define(version: 2020_07_19_213329) do
 
   create_table "authors", force: :cascade do |t|
     t.string "name"
@@ -56,21 +56,21 @@ ActiveRecord::Schema.define(version: 2020_07_19_152158) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "in_carts", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "book_id", null: false
-    t.datetime "payment_time"
-    t.string "status"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["book_id"], name: "index_in_carts_on_book_id"
-    t.index ["user_id"], name: "index_in_carts_on_user_id"
-  end
-
   create_table "publishers", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "sales", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "book_id", null: false
+    t.datetime "payment_time"
+    t.string "stats"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["book_id"], name: "index_sales_on_book_id"
+    t.index ["user_id"], name: "index_sales_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -91,6 +91,6 @@ ActiveRecord::Schema.define(version: 2020_07_19_152158) do
   add_foreign_key "books", "publishers"
   add_foreign_key "books_categories", "books"
   add_foreign_key "books_categories", "categories"
-  add_foreign_key "in_carts", "books"
-  add_foreign_key "in_carts", "users"
+  add_foreign_key "sales", "books"
+  add_foreign_key "sales", "users"
 end
