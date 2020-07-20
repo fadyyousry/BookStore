@@ -1,10 +1,7 @@
-<table class="table table-bordered table-striped mb-none" id="datatable-book">
+<% title t('activerecord.models.book.other') %>
+<table class="table table-bordered table-striped mb-none table-with-details">
   <thead>
   <tr>
-    <th><%= Book.human_attribute_name(:description) %></th>
-    <th><%= Publisher.model_name.human %></th>
-    <th><%= t('default.author.name.other') %></th>
-    <th><%= t('default.category.name.other') %></th>
     <th><%= Book.human_attribute_name(:title) %></th>
     <th><%= Book.human_attribute_name(:isbn) %></th>
     <th><%= Book.human_attribute_name(:published_date) %></th>
@@ -13,15 +10,12 @@
     <th><%= Book.human_attribute_name(:is_pdf) %></th>
     <th><%= Book.human_attribute_name(:quantity) %></th>
     <th><%= Book.human_attribute_name(:price) %></th>
+    <th></th>
   </tr>
   </thead>
   <tbody>
   <% @books.each do |book| %>
     <tr class="gradeX">
-      <td><%= book.description %></td>
-      <td><%= book.publisher_name %></td>
-      <td><%= csv_names(book.authors) %></td>
-      <td><%= csv_names(book.categories) %></td>
       <td><%= book.title %></td>
       <td><%= book.isbn %></td>
       <td><%= book.published_date %></td>
@@ -30,9 +24,14 @@
       <td><%= book.is_pdf %></td>
       <td><%= book.quantity %></td>
       <td><%= book.price %></td>
+      <td>
+        <%= render partial: 'shared/admin/table_actions',
+                    locals: {edit_path: :edit_manager_book_path,
+                              delete_path: :manager_book_path,
+                              item_id: book.id} %>
+      </td>
       <template id="table_hidden_data">
         <table class="table mb-none">
-          <div class="card mb-6">
             <div class="row no-gutters">
               <div class="col-md-2">
                 <%= image_tag book.image_link, class: "card-img" %>
@@ -44,23 +43,13 @@
                   <p class="card-text"><%= book.description %></p>
                   <p class="card-text"><small class="text-muted"><%= csv_names(book.categories) %></small></p>
                   <p class="card-text"><small class="text-muted"><%= book.publisher_name %></small></p>
-                  <div class="btn-group">
-                    <%= link_to t('default.show'), manager_book_path(book.id),
-                                class: "btn btn-info" %>
-                    <%= link_to t('default.edit'), edit_manager_book_path(book.id),
-                                class: "btn btn-primary" %>
-                    <%= link_to t('default.destroy'), manager_book_path(book.id),
-                                method: :delete, class: "btn btn-danger",
-                                data: {confirm: t('default.messages.ensure')} %>
-                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          </div>
+        </div>
       </template>
     </tr>
   <% end %>
   </tbody>
 </table>
-<%= link_to t('book.view.new_book'), new_manager_book_path %>
+<%= link_to t('book.view.new_book'), new_manager_book_path, class: "btn btn-primary" %>

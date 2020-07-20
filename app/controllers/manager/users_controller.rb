@@ -3,6 +3,9 @@ module Manager
     layout 'admin'
     load_and_authorize_resource
 
+    add_breadcrumb I18n.t('default.dashboard'), :manager_root_path
+    add_breadcrumb I18n.t('activerecord.models.user.other'), :manager_users_path
+
     def create
       if @user.save
         redirect_to manager_users_path, notice: t("messages.success.create", model: @user.class.name)

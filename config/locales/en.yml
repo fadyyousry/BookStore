@@ -19,20 +19,6 @@ en:
     no: "No" 
     add_to_card: "Add To cart"
     navigation: "Navigation"
-    book:
-      name:
-        one: "Book"
-        other: "Books"
-    publisher:
-      name: "Publisher"
-    author:
-      name:
-        one: "Author"
-        other: "Authors"
-    category:
-      name:
-        one: "Category"
-        other: "Categories"
     messages:
       ensure: "Are you sure?"
     error_messages:
@@ -63,27 +49,13 @@ en:
       password: "Enter Your Password"
       confirm_password: "Confirm Your Password"
   book:
-    messages:
-      successful_create: "Book was successfully created."
-      successful_update: "Book was successfully updated."
-      successful_destroy: "Book was successfully destroyed."
     view:
       add_book: "Add Book"
       new_book: "New Book"
       create_book: "Create Book"
       editing_book: "Editing Book"
-      books_table: "Books Table"
-      authors_table: "Authors Table"
-      categories_table: "Categories Table"
       new_categorey: "New Category"
       new_author: "New Author"
-  author:
-    messages:
-      successful_destroy:  "Author was successfully destroyed."
-
-  category:
-    messages:
-      successful_destroy:  "Category was successfully destroyed."
 
   messages:
     success:

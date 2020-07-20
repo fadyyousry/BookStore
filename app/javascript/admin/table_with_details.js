@@ -6,11 +6,10 @@ $(document).ready(function() {
     'use strict';
 
     var datatableInit = function() {
-        var $table = $('#datatable-book');
+        var $table = $('.table-with-details');
 
         // format function for row details
         var fnFormatDetails = function( datatable, tr ) {
-            var data = datatable.fnGetData( tr );
             return tr.querySelector("#table_hidden_data").innerHTML;
         };
 
@@ -36,22 +35,6 @@ $(document).ready(function() {
                     bSortable: false,
                     aTargets: [ 0 ]
                 },
-                {
-                    "targets": [ 1 ],
-                    "visible": false
-                },
-                {
-                    "targets": [ 2 ],
-                    "visible": false
-                },
-                {
-                    "targets": [ 3 ],
-                    "visible": false
-                },
-                {
-                    "targets": [ 4 ],
-                    "visible": false
-                }
             ],
             aaSorting: [
                 [1, 'asc']

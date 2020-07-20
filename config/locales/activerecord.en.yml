@@ -10,4 +10,13 @@ en:
       review:
         one: "Review"
         other: "Reviews"
+      author:
+        one: "Author"
+        other: "Authors"
+      category:
+        one: "Category"
+        other: "Categories"
+      publisher:
+        one: "Publisher"
+        other: "Publishers"
     attributes:

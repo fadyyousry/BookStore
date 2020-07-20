@@ -4,6 +4,9 @@
     <div class="sidebar-title">
       <%= t('default.navigation') %>
     </div>
+    <div class="sidebar-toggle hidden-xs" data-toggle-class="sidebar-left-collapsed" data-target="html" data-fire-event="sidebar-left-toggle">
+      <i class="fa fa-bars" aria-label="Toggle sidebar"></i>
+    </div>
   </div>
 
   <div class="nano">
@@ -40,45 +43,18 @@
               <span><%= t('activerecord.models.review.other') %></span>
             <% end %>
           </li>
-          <li class="nav-parent">
-            <a>
+          <li>
+            <%= link_to manager_authors_path do %>
+              <i class="fa fa-comment-o" aria-hidden="true"></i>
+              <span><%= t('activerecord.models.author.other') %></span>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to manager_categories_path do %>
               <i class="fa fa-list-alt" aria-hidden="true"></i>
-              <span><%= t 'default.forms' %></span>
-            </a>
-            <ul class="nav nav-children">
-              <li>
-                <%= link_to t('book.view.new_book'), new_manager_book_path %>
-              </li>
-              <li>
-                <a href="#">
-                  New User
-                </a>
-              </li>
-            </ul>
+              <span><%= t('activerecord.models.category.other') %></span>
+            <% end %>
           </li>
-          <li class="nav-parent">
-            <a>
-              <i class="fa fa-table" aria-hidden="true"></i>
-              <span><%= t 'default.tables' %></span>
-            </a>
-            <ul class="nav nav-children">
-              <li>
-                <%= link_to t('book.view.books_table'), manager_books_path %>
-              </li>
-              <li>
-                <%= link_to t('book.view.authors_table'), manager_authors_path %>
-              </li>
-              <li>
-                <%= link_to t('book.view.categories_table'), manager_categories_path %>
-              </li>
-              <li>
-                <a href="#">
-                  User Tables
-                </a>
-              </li>
-            </ul>
-          </li>
-
         </ul>
       </nav>
 </aside>
