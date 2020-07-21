@@ -7,9 +7,7 @@ class SalesController < ApplicationController
     end
     
     def create
-      @sale = Sale.new (sale_params)
-      @sale.user_id = current_user.id
-      @sale.save
+      @sale = current_user.sales.new(sale_params)
       if @sale.save
           redirect_to book_path(book_id), notice: t("default.messages.added_to_cart")
       else

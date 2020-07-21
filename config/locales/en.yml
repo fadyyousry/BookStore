@@ -15,6 +15,7 @@ en:
     home: "Home"
     shop: "Shop"
     cart: "Cart"
+    total_price: "Total price "
     shop_books: "shop books"
     subscriptions: "subscriptions"
     checkout: "Checkout"
@@ -27,6 +28,7 @@ en:
       ensure: "Are you sure?"
       added_to_cart: "The book added to your cart"
       removed_from_cart: "The book removed from your cart"
+      no_item: "Your cart has no books to checkout"
     error_messages:
       not_authorized: "You are not authorized to perform this action."
       cannot_add_to_cart: "Sorry, you can't add this book for purchase to the cart."
@@ -70,6 +72,9 @@ en:
       create: "%{model} was successfully created."
       update: "%{model} was successfully updated."
       destroy: "%{model} was successfully destroyed."
+    fail:
+      destroy: "This %{model} can't be destroyed."
+      connection_failed: "Failed to connect to Stripe"
   breadcrumbs:
     new: "New %{model}"
     edit: "Edit %{model}"

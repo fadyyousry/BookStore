@@ -7,8 +7,7 @@
     <th><%= Book.human_attribute_name(:published_date) %></th>
     <th><%= Book.human_attribute_name(:page_count) %></th>
     <th><%= Book.human_attribute_name(:language) %></th>
-    <th><%= Book.human_attribute_name(:is_pdf) %></th>
-    <th><%= Book.human_attribute_name(:quantity) %></th>
+    <th><%= Book.human_attribute_name(:product_id) %></th>
     <th><%= Book.human_attribute_name(:price) %></th>
     <th></th>
   </tr>
@@ -21,8 +20,7 @@
       <td><%= book.published_date %></td>
       <td><%= book.page_count %></td>
       <td><%= book.language %></td>
-      <td><%= book.is_pdf %></td>
-      <td><%= book.quantity %></td>
+      <td><%= book.product_id %></td>
       <td><%= book.price %></td>
       <td>
         <%= render partial: 'shared/admin/table_actions',

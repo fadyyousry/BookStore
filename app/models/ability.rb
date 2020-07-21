@@ -11,6 +11,7 @@ class Ability
 
   def guest
     can :read, Book
+    cannot :read, Book, product_id: nil
     can :read, Author
     can :read, Category
     can :read, Publisher
@@ -18,8 +19,10 @@ class Ability
 
   def customer
     guest
-    can :manage, Sale, user_id: @user.id
-    cannot :destroy, Sale, status: "Complete"
+    unless @user.customer_id.nil?
+      can :manage, Sale, user_id: @user.id
+      cannot :destroy, Sale, status: "Complete"
+    end
   end
 
   def admin

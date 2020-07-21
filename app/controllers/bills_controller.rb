@@ -1,5 +1,6 @@
 class BillsController < ApplicationController
-
+  before_action :authorize_checkout, :new
+  
   def new
     begin
       @session = Stripe::Checkout::Session.create({
@@ -12,38 +13,40 @@ class BillsController < ApplicationController
       })
     rescue => e
       Rails.logger.debug e.message
+      redirect_to sales_url, notice: t('default.messages.no_item')
     end
     respond_to do |format|
       format.js
     end
   end
-
+  
   private
-    def sales_ids
-      params.require(:sales)
+    def products_params
+      params.require(:products).map {|product| product.permit(:product_id, :price)}
     end
-
-    def get_books
-      books = []
-      sales_ids.each do |id|
-        book = Book.find(Sale.find(id).book_id)
-        books.append(book)
-      end
-      books
+    
+    def authorize_checkout
+      authorize! :create, Sale
     end
-
+    
     def get_line_items
-      line_items = []
-      get_books.each do |book|
-        item = Hash.new
-        item[:price_data] = Hash.new
-        item[:price_data][:product] = book.product_id
-        item[:price_data][:unit_amount] = (book.price * 100).to_i
-        item[:price_data][:currency] = 'usd'
-        item[:quantity] = 1
-        line_items.append(item)
-      end
-      line_items
+      products_params.map do |product|
+        create_item product
+        end
+    end
+
+    def create_item product
+      item = Hash.new
+      item[:price_data] = Hash.new
+      item[:price_data][:product] = product[:product_id]
+      item[:price_data][:unit_amount] = price_in_cents(product[:price])
+      item[:price_data][:currency] = 'usd'
+      item[:quantity] = 1
+      item
+    end
+
+    def price_in_cents price
+      (price.to_f * 100).to_i
     end
 
 end

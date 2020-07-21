@@ -14,7 +14,6 @@ class Book < ApplicationRecord
   validates :price, presence: true
   validates :description, presence: true
   validates :image_link, presence: true ,:format => URI::regexp(%w(http https))
-  
   validates :isbn, uniqueness:  true
   validate :check_length
 
@@ -80,11 +79,15 @@ class Book < ApplicationRecord
     end
 
     def create_product
-      product = Stripe::Product.create({
-                  name: title,
-                  images: [image_link],
-                  description: description
-                })
-      self.product_id = product.id
+      begin
+        product = Stripe::Product.create({
+                    name: title,
+                    images: [image_link],
+                    description: description
+                  })
+        self.product_id = product.id
+      rescue => e
+        Rails.logger.debug e.message
+      end
     end
 end
