@@ -3,7 +3,7 @@ class SalesController < ApplicationController
     load_and_authorize_resource
 
     def index
-      @sales = @sales.where(status: "In Progress").page(params[:page])
+      @sales = @sales.in_progress.page(params[:page])
     end
     
     def create

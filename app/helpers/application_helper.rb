@@ -8,7 +8,7 @@ module ApplicationHelper
   end
 
   def cart_size
-    current_user.sales.where(status: "In Progress").size
+    current_user.sales.in_progress.size
   end
 
   def title(page_title)

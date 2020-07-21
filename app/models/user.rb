@@ -10,10 +10,6 @@ class User < ApplicationRecord
 
   before_create :create_customer
 
-  def in_cart_books
-    sales.join(:books).where(status: "In Progress")
-  end
-
   def admin?
     type == "Admin"
   end

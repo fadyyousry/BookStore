@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_20_122838) do
+ActiveRecord::Schema.define(version: 2020_07_21_190759) do
 
   create_table "authors", force: :cascade do |t|
     t.string "name"
@@ -63,10 +63,10 @@ ActiveRecord::Schema.define(version: 2020_07_20_122838) do
   end
 
   create_table "sales", force: :cascade do |t|
-    t.integer "user_id", null: false
+    t.integer "user_id"
     t.integer "book_id", null: false
     t.datetime "payment_time"
-    t.string "status"
+    t.integer "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["book_id"], name: "index_sales_on_book_id"
