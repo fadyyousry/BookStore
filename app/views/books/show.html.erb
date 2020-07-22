@@ -56,29 +56,25 @@
         </p>
         <ul>
           <li>
-            <span class="value"><%= @book.page_count %></span>
             <span class="name"><%= Book.human_attribute_name(:page_count) %></span><span class="clm">:</span>
+            <span class="value"><%= @book.page_count %></span>
           </li>
           <li>
             <span class="name"><%= Book.human_attribute_name(:language) %></span><span class="clm">:</span>
             <span class="value"><%= @book.language %></span>
           </li>
           <li>
-        </ul>
-          </li>
-            <span class="value final">$<%= @book.price %></span>
             <span class="name"><%= Book.human_attribute_name(:price) %></span><span class="clm">:</span>
-          <li>
+            <span class="value final"><%= human_price(@book.price) %></span>
           </li>
-            <span class="name"><%= Book.human_attribute_name(:is_pdf) %></span><span class="clm">:</span>
-            <span class="value"><%= human_boolean(@book.is_pdf) %></span>
+        </ul>
         <% unless current_user_admin? %>
         <div class="btn-sec">
           <% if current_user_customer? %>
-          <%= link_to t('default.add_to_cart'), sales_path(book_id: @book.id),
+          <%= link_to buy_book_button_name, sales_path(book_id: @book.id),
                         method: :post, class: "btn" %>
           <% else %>
-          <%= link_to t('default.add_to_cart'), new_user_session_path, class: "btn" %>
+          <%= link_to buy_book_button_name, new_user_session_path, class: "btn" %>
           <% end %>
         </div>
         <% end %>
