@@ -1,0 +1,21 @@
+<table class="table table-bordered table-striped mb-none" id="datatable-reviews">
+    <thead>
+    <tr>
+      <th><%= Sale.human_attribute_name(:user) %></th>
+      <th><%= Sale.human_attribute_name(:book) %></th>
+      <th><%= Sale.human_attribute_name(:status) %></th>
+      <th><%= Sale.human_attribute_name(:payment_time) %></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @sales.each do |sale| %>
+      <tr class="gradeX">
+        <td><%= sale.user.email %></td>
+        <td><%= sale.book.title %></td>
+        <td><%= sale.status %></td>
+        <td><%= sale.payment_time %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+  

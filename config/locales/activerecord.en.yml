@@ -19,4 +19,7 @@ en:
       publisher:
         one: "Publisher"
         other: "Publishers"
+      sale:
+        one: "Sale"
+        other: "Sales"
     attributes:
