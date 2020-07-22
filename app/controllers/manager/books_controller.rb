@@ -44,7 +44,7 @@ module Manager
       begin
         @book.destroy
         redirect_to manager_books_url, notice: t("messages.success.destroy", model: @book.class.name)
-      rescue 
+      rescue ActiveRecord::InvalidForeignKey
         redirect_to manager_books_url, alert: t("messages.fail.destroy", model: @book.class.name)
       end
     end

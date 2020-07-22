@@ -62,5 +62,5 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   # webhook
-  config.hosts << Rails.application.credentials.stripe[Rails.env.to_sym][:webhook]
+  config.hosts << ENV["WEBHOOK"]
 end

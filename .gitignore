@@ -42,5 +42,4 @@ yarn-debug.log*
 /.idea/
 /.history
 /yarn.lock
-/config/master.key
 /config/credentials.yml.enc
