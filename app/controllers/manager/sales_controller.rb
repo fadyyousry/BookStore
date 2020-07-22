@@ -4,7 +4,7 @@ module Manager
     load_and_authorize_resource
 
     def index
-      @sales = Sale.all
+      @sales = Sale.all.order(:payment_time).reverse
     end
   end
 end
