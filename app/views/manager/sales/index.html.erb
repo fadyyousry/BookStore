@@ -10,8 +10,8 @@
     <tbody>
     <% @sales.each do |sale| %>
       <tr class="gradeX">
-        <td><%= sale.user.email %></td>
-        <td><%= sale.book.title %></td>
+        <td><%= sale.user.email if sale.user.present? %></td>
+        <td><%= sale.book.title if sale.book.present? %></td>
         <td><%= sale.status %></td>
         <td><%= sale.payment_time %></td>
       </tr>
