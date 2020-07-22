@@ -9,7 +9,13 @@ class SalesController < ApplicationController
     def create
       @sale = current_user.sales.new(sale_params)
       if @sale.save
-          redirect_to book_path(book_id), notice: t("default.messages.added_to_cart")
+          if @sale.book.price == 0
+            @sale.completed!
+            flash[:notice] = t('default.messages.added_to_profile')
+          else
+            flash[:notice] = t("default.messages.added_to_cart")
+          end
+          redirect_to book_path(book_id)
       else
           redirect_to book_path(book_id), alert: t("default.error_messages.cannot_add_to_cart")
       end

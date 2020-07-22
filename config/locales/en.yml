@@ -23,11 +23,13 @@ en:
     yes: "Yes"
     no: "No" 
     add_to_card: "Add To cart"
+    own_it: "Own it now!"
     navigation: "Navigation"
     messages:
       ensure: "Are you sure?"
-      added_to_cart: "The book added to your cart"
-      removed_from_cart: "The book removed from your cart"
+      added_to_cart: "The book has been added to your cart"
+      added_to_profile: "The book has been added to your profile"
+      removed_from_cart: "The book has been removed from your cart"
       no_item: "Your cart has no books to checkout"
     error_messages:
       not_authorized: "You are not authorized to perform this action."
