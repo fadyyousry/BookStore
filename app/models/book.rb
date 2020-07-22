@@ -3,18 +3,20 @@ class Book < ApplicationRecord
 
   belongs_to :publisher, optional: true
   has_many :reviews, dependent: :destroy
+  has_many :sales
+  has_many :users, through: :sales
   has_and_belongs_to_many :authors, -> { distinct }
   has_and_belongs_to_many :categories, -> { distinct }
-
+  
+  before_create :create_product
   before_destroy :cascade
 
   validates :title, presence: true
   validates :price, presence: true
-  validates :isbn, uniqueness:  true
+  validates :description, presence: true
   validates :image_link, presence: true ,:format => URI::regexp(%w(http https))
+  validates :isbn, uniqueness:  true
   validate :check_length
-
-  IMAGE_SIZE = "141x218"
 
   def check_length
     unless isbn.size == 10 or isbn.size == 13
@@ -74,6 +76,19 @@ class Book < ApplicationRecord
         if category.books.size == 1
           category.destroy
         end
+      end
+    end
+
+    def create_product
+      begin
+        product = Stripe::Product.create({
+                    name: title,
+                    images: [image_link],
+                    description: description
+                  })
+        self.product_id = product.id
+      rescue => e
+        Rails.logger.debug e.message
       end
     end
 end

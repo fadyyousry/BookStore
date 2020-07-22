@@ -8,7 +8,12 @@ module Manager
 
     def create
       if @user.save
-        redirect_to manager_users_path, notice: t("messages.success.create", model: @user.class.name)
+        if @user.customer_id.nil?
+          flash[:alert] = t('messages.fail.connection_failed')
+        else
+          flash[:notice] = t("messages.success.create", model: @user.class.name)
+        end
+        redirect_to manager_users_path
       else
         render 'new'
       end
@@ -24,6 +29,7 @@ module Manager
 
     def destroy
       @user.destroy!
+      redirect_to manager_users_url, notice: t("messages.success.destroy", model: @user.class.name)
     end
 
     private

@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-10">
+            <table class="table table-sm table-hover table-bordered text-center">
+                <thead>
+                    <tr>
+                        <th><%= Book.human_attribute_name(:title) %></th>
+                        <th><%= Book.human_attribute_name(:isbn).upcase %></th>
+                        <th><%= Book.human_attribute_name(:price) %></th>
+                        <th><%= t('default.remove') %></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @sales.each do |sale| %>
+                    <tr>
+                        <td><%= sale.book.title %></td>
+                        <td><%= sale.book.isbn %></td>
+                        <td><%= sale.book.price %></td>
+                        <td>
+                            <div class="center">
+                                <%= link_to sale_path(sale), method: :delete do %>
+                                <i class="fa fa-times remove square" aria-hidden="true"></i>
+                                <% end %>
+                            </div>
+                        </td>
+                    </tr>
+                    <% end %>
+                </tbody>
+            </table>
+            <%= paginate @sales %>
+        </div>
+        <div class="col-md-2">
+            <%= render 'bills/form', products: extract_products_params, total_price: total_price %>
+        </div>
+    </div>
+</div>

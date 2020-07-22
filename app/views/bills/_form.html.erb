@@ -1,0 +1,10 @@
+<%= link_to bill_path(products: products), method: :post,
+ remote: true, class: "btn black", id: "checkout-button" do %>
+<div class="card-box bg-green">
+    <div class="inner">
+        <h3> <%= total_price %> </h3>
+        <p><%= t('default.total_price')%></p>
+        <h3><%= t('default.checkout') %></h3>
+    </div>
+</div>
+<% end %>

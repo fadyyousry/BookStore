@@ -16,7 +16,12 @@ module Manager
       @book.create_authors(author_params)
       @book.create_categories(category_params)
       if @book.save
-        redirect_to manager_books_path, notice: t("messages.success.create", model: @book.class.name)
+        if @book.product_id.nil?
+          flash[:alert] = t('messages.fail.connection_failed')
+        else
+          flash[:notice] =  t("messages.success.create", model: @book.class.name)
+        end
+        redirect_to manager_books_path
       else
         render :new
       end
@@ -36,8 +41,12 @@ module Manager
     end
   
     def destroy
-      @book.destroy
-      redirect_to manager_books_url, notice: t("messages.success.destroy", model: @book.class.name)
+      begin
+        @book.destroy
+        redirect_to manager_books_url, notice: t("messages.success.destroy", model: @book.class.name)
+      rescue ActiveRecord::InvalidForeignKey
+        redirect_to manager_books_url, alert: t("messages.fail.destroy", model: @book.class.name)
+      end
     end
   
     private

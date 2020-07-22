@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   resources :authors, only: [:show]
   resources :categories, only: [:show]
   resources :reviews, only: [:create]
+  resources :sales, only: [:index, :create, :destroy]
+  post '/bills/new', to: 'bills#new', as: :bill
 
   namespace :manager do
     resources :books, except: [:show]
@@ -17,4 +19,5 @@ Rails.application.routes.draw do
     root 'dashboard#index'
   end
 
+  mount StripeEvent::Engine, at: '/stripe_webhooks'
 end

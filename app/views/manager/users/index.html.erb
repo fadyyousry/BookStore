@@ -5,6 +5,7 @@
   <tr>
     <th><%= User.human_attribute_name(:email) %></th>
     <th><%= User.human_attribute_name(:type) %></th>
+    <th><%= User.human_attribute_name(:customer_id) %></th>
     <th><%= User.human_attribute_name(:created_at) %></th>
     <th></th>
   </tr>
@@ -14,6 +15,7 @@
     <tr class="gradeX">
       <td><%= user.email %></td>
       <td><%= user.type %></td>
+      <td><%= user.customer_id %></td>
       <td><%= user.created_at %></td>
       <td><%= render partial: 'shared/admin/table_actions',
                       locals: {edit_path: :edit_manager_user_path,

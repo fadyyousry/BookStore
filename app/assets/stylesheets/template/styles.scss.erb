@@ -86,10 +86,18 @@ section {
   .black:hover {
     background: transparent;
     color: #252525; }
+.remove {
+  background: #dc3545;
+  border: 2px solid #dc3545;
+  color: white;
+  padding: 3px; }
+  .remove:hover {
+    background: transparent;
+    color: #dc3545; }
 
 img {
   max-width: 100%; }
-
+  
 /* modules */
 /* layouts */
 header .header-top {
@@ -159,7 +167,7 @@ header .cart {
   margin-right: 10px;
   position: relative;
   margin-top: 2px !important; }
-  header .cart .quntity {
+  header .cart .quantity {
     font-size: 9px;
     position: absolute;
     top: -3px;
@@ -236,6 +244,7 @@ header .cart {
     margin-bottom: 70px; }
   .recomended-sec .item {
     border: 1px solid #d5d5d5;
+    height: 350px;
     padding: 36px 10px;
     cursor: pointer;
     position: relative; }
@@ -523,7 +532,7 @@ header .cart {
     right: 50px; }
 
 @media only screen and (max-width: 1024px) {
-  header .cart .quntity {
+  header .cart .quantity {
     font-size: 10px; }
 
   .container {

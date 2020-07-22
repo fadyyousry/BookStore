@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_17_232923) do
+ActiveRecord::Schema.define(version: 2020_07_21_190759) do
 
   create_table "authors", force: :cascade do |t|
     t.string "name"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 2020_07_17_232923) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "quantity"
     t.boolean "is_pdf"
+    t.string "product_id"
     t.index ["publisher_id"], name: "index_books_on_publisher_id"
   end
 
@@ -70,6 +71,17 @@ ActiveRecord::Schema.define(version: 2020_07_17_232923) do
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
+  create_table "sales", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "book_id", null: false
+    t.datetime "payment_time"
+    t.integer "status"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["book_id"], name: "index_sales_on_book_id"
+    t.index ["user_id"], name: "index_sales_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -79,6 +91,7 @@ ActiveRecord::Schema.define(version: 2020_07_17_232923) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "type"
+    t.string "customer_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -90,4 +103,6 @@ ActiveRecord::Schema.define(version: 2020_07_17_232923) do
   add_foreign_key "books_categories", "categories"
   add_foreign_key "reviews", "books"
   add_foreign_key "reviews", "users"
+  add_foreign_key "sales", "books"
+  add_foreign_key "sales", "users"
 end
