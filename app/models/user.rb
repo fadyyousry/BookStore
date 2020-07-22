@@ -3,10 +3,12 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+         
+  attribute :type, default: 'Customer'
+  
   has_many :sales, dependent: :nullify
   has_many :books, through: :sales 
-  
-  attribute :type, default: 'Customer'
+  has_many :reviews, dependent: :destroy
 
   before_create :create_customer
 

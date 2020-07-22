@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :books, only: [:show, :index]
   resources :authors, only: [:show]
   resources :categories, only: [:show]
+  resources :reviews, only: [:create]
   resources :sales, only: [:index, :create, :destroy]
   post '/bills/new', to: 'bills#new', as: :bill
 
@@ -14,6 +15,7 @@ Rails.application.routes.draw do
     resources :users
     resources :authors, only: [:index, :destroy]
     resources :categories, only: [:index, :destroy]
+    resources :reviews, only: [:index]
     root 'dashboard#index'
   end
 

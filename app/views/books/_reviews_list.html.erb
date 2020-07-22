@@ -1,0 +1,17 @@
+<% @book.reviews.each do |review| %>
+  <div class="card">
+    <div class="card-header">
+      <strong>
+        <%= "#{review.user.email}:" %>
+      </strong>
+    </div>
+    <div class="card-body">
+      <div>
+        <%= "#{review.comment}" %>
+      </div>
+      <strong>
+        <%= "Rating: #{review.rating}" %>
+      </strong>
+    </div>
+  </div>
+<% end %>

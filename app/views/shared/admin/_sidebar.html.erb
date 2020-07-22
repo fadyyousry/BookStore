@@ -38,6 +38,12 @@
             <% end %>
           </li>
           <li>
+            <%= link_to manager_reviews_path do %>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <span><%= t('activerecord.models.review.other') %></span>
+            <% end %>
+          </li>
+          <li>
             <%= link_to manager_authors_path do %>
               <i class="fa fa-comment-o" aria-hidden="true"></i>
               <span><%= t('activerecord.models.author.other') %></span>
@@ -49,7 +55,6 @@
               <span><%= t('activerecord.models.category.other') %></span>
             <% end %>
           </li>
-
         </ul>
       </nav>
 </aside>

@@ -7,6 +7,9 @@ en:
       book:
         one: "Book"
         other: "Books"
+      review:
+        one: "Review"
+        other: "Reviews"
       author:
         one: "Author"
         other: "Authors"

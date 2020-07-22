@@ -1,0 +1,15 @@
+<%= form_with model: Review.new do |f| %>
+  <div class="row">
+    <div class="col-md-6">
+      <%= f.text_area :comment, placeholder: t('reviews.placeholder.comment'), class: 'form-control form-control-lg' %>
+    </div>
+    <div class="col-md-3">
+      <%= f.number_field :rating, placeholder: t('reviews.placeholder.rating'), in: 1..5,
+                         class: 'form-control form-control-lg' %>
+    </div>
+  </div>
+  <%= f.hidden_field :book_id, value: @book.id %>
+  <div class="actions">
+    <%= f.submit I18n.t("reviews.actions.save"), class: "btn black" %>
+  </div>
+<% end %>

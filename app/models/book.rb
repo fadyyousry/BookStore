@@ -1,7 +1,8 @@
 class Book < ApplicationRecord
   paginates_per 12
-  
+
   belongs_to :publisher, optional: true
+  has_many :reviews, dependent: :destroy
   has_many :sales
   has_many :users, through: :sales
   has_and_belongs_to_many :authors, -> { distinct }

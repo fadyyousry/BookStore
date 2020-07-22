@@ -62,6 +62,15 @@ ActiveRecord::Schema.define(version: 2020_07_21_190759) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.string "comment"
+    t.decimal "rating"
+    t.integer "user_id", null: false
+    t.integer "book_id", null: false
+    t.index ["book_id"], name: "index_reviews_on_book_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
   create_table "sales", force: :cascade do |t|
     t.integer "user_id"
     t.integer "book_id", null: false
@@ -92,6 +101,8 @@ ActiveRecord::Schema.define(version: 2020_07_21_190759) do
   add_foreign_key "books", "publishers"
   add_foreign_key "books_categories", "books"
   add_foreign_key "books_categories", "categories"
+  add_foreign_key "reviews", "books"
+  add_foreign_key "reviews", "users"
   add_foreign_key "sales", "books"
   add_foreign_key "sales", "users"
 end

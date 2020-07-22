@@ -15,10 +15,12 @@ class Ability
     can :read, Author
     can :read, Category
     can :read, Publisher
+    can :read, Review
   end
 
   def customer
     guest
+    can :create, Review
     unless @user.customer_id.nil?
       can :manage, Sale, user_id: @user.id
       cannot :destroy, Sale, status: "Complete"
@@ -31,7 +33,6 @@ class Ability
     can :manage, Category
     can :manage, Publisher
     can :manage, User
-    can :read, Sale
 
     cannot :destroy, User, id: @user.id
   end

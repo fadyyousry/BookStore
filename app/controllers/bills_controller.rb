@@ -32,7 +32,7 @@ class BillsController < ApplicationController
     def get_line_items
       products_params.map do |product|
         create_item product
-        end
+      end
     end
 
     def create_item product

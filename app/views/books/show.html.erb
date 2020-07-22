@@ -14,30 +14,30 @@
           <!-- main slider carousel items -->
           <div class="carousel-inner">
             <div class="active item carousel-item" data-slide-number="0">
-              <%= image_tag @book.image_link, size: "360x571", alt: "img" ,class: "img-fluid" %>
+              <%= image_tag @book.image_link, size: "360x571", alt: "img", class: "img-fluid" %>
             </div>
             <div class="item carousel-item" data-slide-number="1">
-              <%= image_tag "product2.jpg", size: "360x571", alt: "img" , class:"img-fluid" %>
+              <%= image_tag "product2.jpg", size: "360x571", alt: "img", class: "img-fluid" %>
             </div>
             <div class="item carousel-item" data-slide-number="2">
-              <%= image_tag "product3.jpg", size: "360x571", alt: "img" , class:"img-fluid" %>
+              <%= image_tag "product3.jpg", size: "360x571", alt: "img", class: "img-fluid" %>
             </div>
           </div>
           <!-- main slider carousel nav controls -->
           <ul class="carousel-indicators list-inline">
             <li class="active list-inline-item ">
               <a id="carousel-selector-0" class="selected" data-slide-to="0" data-target="#myCarousel">
-                <%= image_tag @book.image_link,class: "img-fluid" %>
+                <%= image_tag @book.image_link, class: "img-fluid" %>
               </a>
             </li>
             <li class="list-inline-item">
               <a id="carousel-selector-1" data-slide-to="1" data-target="#myCarousel">
-                <%= image_tag "product2.jpg", class:"img-fluid" %>
+                <%= image_tag "product2.jpg", class: "img-fluid" %>
               </a>
             </li>
             <li class="list-inline-item">
               <a id="carousel-selector-2" data-slide-to="2" data-target="#myCarousel">
-                <%= image_tag "product3.jpg", class:"img-fluid" %>
+                <%= image_tag "product3.jpg", class: "img-fluid" %>
               </a>
             </li>
           </ul>
@@ -46,32 +46,32 @@
       </div>
       <div class="col-md-6 slider-content">
         <p>
-          <div><small class="text-muted"><%= csv_names(@book.authors)%></small></div>
-          <div><small class="text-muted"><%= csv_names(@book.categories)%></small></div>
+        <div><small class="text-muted"><%= csv_names(@book.authors) %></small></div>
+        <div><small class="text-muted"><%= csv_names(@book.categories) %></small></div>
         </p>
         <p><%= @book.description %></p>
         <p>
-          <div><small class="text-muted"><%= @book.published_date %></small></div>
-          <div><small class="text-muted"><%= @book.publisher_name %></small></div>
+        <div><small class="text-muted"><%= @book.published_date %></small></div>
+        <div><small class="text-muted"><%= @book.publisher_name %></small></div>
         </p>
         <ul>
           <li>
-            <span class="name"><%= Book.human_attribute_name(:page_count) %></span><span class="clm">:</span>
             <span class="value"><%= @book.page_count %></span>
+            <span class="name"><%= Book.human_attribute_name(:page_count) %></span><span class="clm">:</span>
           </li>
           <li>
             <span class="name"><%= Book.human_attribute_name(:language) %></span><span class="clm">:</span>
             <span class="value"><%= @book.language %></span>
           </li>
           <li>
+        </ul>
+          </li>
+            <span class="value final">$<%= @book.price %></span>
+            <span class="name"><%= Book.human_attribute_name(:price) %></span><span class="clm">:</span>
+          <li>
+          </li>
             <span class="name"><%= Book.human_attribute_name(:is_pdf) %></span><span class="clm">:</span>
             <span class="value"><%= human_boolean(@book.is_pdf) %></span>
-          </li>
-          <li>
-            <span class="name"><%= Book.human_attribute_name(:price) %></span><span class="clm">:</span>
-            <span class="value final">$<%= @book.price %></span>
-          </li>
-        </ul>
         <% unless current_user_admin? %>
         <div class="btn-sec">
           <% if current_user_customer? %>
@@ -86,3 +86,4 @@
     </div>
   </div>
 </section>
+<%= render partial: 'reviews' %>

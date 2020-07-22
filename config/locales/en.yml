@@ -78,3 +78,9 @@ en:
   breadcrumbs:
     new: "New %{model}"
     edit: "Edit %{model}"
+  reviews:
+    placeholder:
+      comment: "Enter your review"
+      rating: "Enter your rating"
+    actions:
+      save: "Save"
