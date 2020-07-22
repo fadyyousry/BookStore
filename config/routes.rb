@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     resources :authors, only: [:index, :destroy]
     resources :categories, only: [:index, :destroy]
     resources :reviews, only: [:index]
+    resources :sales, only: [:index]
     root 'dashboard#index'
   end
 

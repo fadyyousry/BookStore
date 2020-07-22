@@ -3,14 +3,20 @@ class SalesController < ApplicationController
     load_and_authorize_resource
 
     def index
-      @sales = @sales.in_progress.page(params[:page])
+      if params[:cart]
+        @sales = @sales.in_progress.page(params[:page])
+        render 'cart'
+      else
+        @sales = @sales.completed.page(params[:page])
+        render 'history'
+      end
     end
     
     def create
       @sale = current_user.sales.new(sale_params)
       if @sale.save
           if @sale.book.price == 0
-            @sale.completed!
+            @sale.update({status: :completed, payment_time: Time.now})
             flash[:notice] = t('default.messages.added_to_profile')
           else
             flash[:notice] = t("default.messages.added_to_cart")

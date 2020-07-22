@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-10">
+      <table class="table table-sm table-hover table-bordered text-center">
+        <thead>
+          <tr>
+            <th><%= Book.human_attribute_name(:title) %></th>
+            <th><%= Book.human_attribute_name(:isbn).upcase %></th>
+            <th><%= Book.human_attribute_name(:price) %></th>
+            <th><%= Book.human_attribute_name(:payment_time) %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @sales.each do |sale| %>
+          <tr>
+            <td><%= sale.book.title %></td>
+            <td><%= sale.book.isbn %></td>
+            <td><%= sale.book.price %></td>
+            <td><%= sale.payment_time %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= paginate @sales %>
+    </div>
+  </div>
+</div>

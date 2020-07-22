@@ -33,7 +33,7 @@ class Ability
     can :manage, Category
     can :manage, Publisher
     can :manage, User
-
     cannot :destroy, User, id: @user.id
+    can :read, Sale
   end
 end
