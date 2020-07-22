@@ -12,11 +12,20 @@ class Book < ApplicationRecord
   before_destroy :cascade
 
   validates :title, presence: true
-  validates :price, presence: true
   validates :description, presence: true
   validates :image_link, presence: true ,:format => URI::regexp(%w(http https))
   validates :isbn, uniqueness:  true
+  validates_numericality_of :isbn
+  validates_numericality_of :price, greater_than_or_equal_to: 0
+  validates_numericality_of :page_count, greater_than: 0
   validate :check_length
+  validate :valid_date?
+
+  def valid_date?
+    if published_date.present? and published_date > Time.now 
+      errors.add(:published_date, "can't be in the future!")
+    end
+  end
 
   def check_length
     unless isbn.size == 10 or isbn.size == 13
@@ -39,7 +48,7 @@ class Book < ApplicationRecord
     cascade_authors
     self.authors.clear
     authors_params[:names].split(',').each do |value|
-      author = Author.find_or_initialize_by({name: value})
+      author = Author.find_or_initialize_by({name: value.split.join(" ")})
       if author.save
         self.authors.append(author)
       end
@@ -50,7 +59,7 @@ class Book < ApplicationRecord
     cascade_categories
     self.categories.clear
     categories_params[:names].split(',').each do |value|
-      category = Category.find_or_initialize_by({name: value})
+      category = Category.find_or_initialize_by({name: value.split.join(" ")})
       if category.save
         self.categories.append(category)
       end
