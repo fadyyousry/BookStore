@@ -14,4 +14,8 @@ module ApplicationHelper
   def title(page_title)
     content_for :title, page_title.to_s
   end
+
+  def flash_class type
+    type == "notice" ? "alert alert-success" : "alert alert-danger"
+  end
 end
