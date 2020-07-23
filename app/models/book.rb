@@ -48,7 +48,7 @@ class Book < ApplicationRecord
     cascade_authors
     self.authors.clear
     authors_params[:names].split(',').each do |value|
-      author = Author.find_or_initialize_by({name: value.split.join(" ")})
+      author = Author.find_or_initialize_by({name: human_name(value)})
       if author.save
         self.authors.append(author)
       end
@@ -59,7 +59,7 @@ class Book < ApplicationRecord
     cascade_categories
     self.categories.clear
     categories_params[:names].split(',').each do |value|
-      category = Category.find_or_initialize_by({name: value.split.join(" ")})
+      category = Category.find_or_initialize_by({name: human_name(value)})
       if category.save
         self.categories.append(category)
       end
@@ -99,5 +99,9 @@ class Book < ApplicationRecord
       rescue => e
         Rails.logger.debug e.message
       end
+    end
+
+    def human_name name
+      name.split.map(&:capitalize).join(' ')
     end
 end
