@@ -16,6 +16,12 @@ module ApplicationHelper
   end
 
   def flash_class type
-    type == "notice" ? "alert alert-success" : "alert alert-danger"
+    if type == "notice"
+      "alert alert-success"
+    elsif type == "alert" 
+      "alert alert-danger"
+    else
+      "alert alert-#{type}"
+    end
   end
 end
