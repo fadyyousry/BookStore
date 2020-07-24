@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_21_190759) do
+ActiveRecord::Schema.define(version: 2020_07_24_231815) do
 
   create_table "authors", force: :cascade do |t|
     t.string "name"
@@ -37,8 +37,6 @@ ActiveRecord::Schema.define(version: 2020_07_21_190759) do
     t.decimal "price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "quantity"
-    t.boolean "is_pdf"
     t.string "product_id"
     t.index ["publisher_id"], name: "index_books_on_publisher_id"
   end
