@@ -12,20 +12,11 @@ class Book < ApplicationRecord
   before_destroy :cascade
 
   validates :title, presence: true
+  validates :price, presence: true
   validates :description, presence: true
   validates :image_link, presence: true ,:format => URI::regexp(%w(http https))
   validates :isbn, uniqueness:  true
-  validates_numericality_of :isbn
-  validates_numericality_of :price, greater_than_or_equal_to: 0
-  validates_numericality_of :page_count, greater_than: 0
   validate :check_length
-  validate :valid_date?
-
-  def valid_date?
-    if published_date.present? and published_date > Time.now 
-      errors.add(:published_date, "can't be in the future!")
-    end
-  end
 
   def check_length
     unless isbn.size == 10 or isbn.size == 13
