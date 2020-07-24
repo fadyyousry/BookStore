@@ -1,3 +1,5 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
   root 'home#index'
 
@@ -18,6 +20,10 @@ Rails.application.routes.draw do
     resources :reviews, only: [:index]
     resources :sales, only: [:index]
     root 'dashboard#index'
+  end
+
+  authenticate :user, ->(user) { user.admin? } do
+    mount Sidekiq::Web => '/sidekiq'
   end
 
   mount StripeEvent::Engine, at: '/stripe_webhooks'

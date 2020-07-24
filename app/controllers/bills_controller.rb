@@ -11,9 +11,10 @@ class BillsController < ApplicationController
         success_url: books_url,
         cancel_url: sales_url,
       })
-    rescue => e
+    rescue Stripe::APIConnectionError => e
       Rails.logger.debug e.message
-      redirect_to sales_url, notice: t('default.messages.no_item')
+    rescue ActionController::ParameterMissing => e
+      redirect_to sales_url(cart: true), notice: t('default.messages.no_item')
     end
     respond_to do |format|
       format.js

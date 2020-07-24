@@ -16,12 +16,7 @@ module Manager
       @book.create_authors(author_params)
       @book.create_categories(category_params)
       if @book.save
-        if @book.product_id.nil?
-          flash[:alert] = t('messages.fail.connection_failed')
-        else
-          flash[:notice] =  t("messages.success.create", model: @book.class.name)
-        end
-        redirect_to manager_books_path
+        redirect_to manager_books_path, notice: t("messages.success.create", model: @book.class.name)
       else
         render :new
       end
