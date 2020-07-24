@@ -81,10 +81,10 @@ class Book < ApplicationRecord
     end
 
     def create_product
-      CreateProductWorker.perform_async self.id
+      CreateProductJob.perform_later self
     end
 
     def update_product
-      UpdateProductWorker.perform_async self.id
+      UpdateProductJob.perform_later self
     end
 end
