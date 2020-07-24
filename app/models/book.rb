@@ -12,7 +12,6 @@ class Book < ApplicationRecord
   before_destroy :cascade
 
   validates :title, presence: true
-  validates :price, presence: true
   validates :description, presence: true
   validates :image_link, presence: true ,:format => URI::regexp(%w(http https))
   validates :isbn, uniqueness:  true
