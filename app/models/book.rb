@@ -8,7 +8,8 @@ class Book < ApplicationRecord
   has_and_belongs_to_many :authors, -> { distinct }
   has_and_belongs_to_many :categories, -> { distinct }
   
-  before_create :create_product
+  after_create :create_product
+  after_update :update_product
   before_destroy :cascade
 
   validates :title, presence: true
@@ -79,16 +80,11 @@ class Book < ApplicationRecord
     end
 
     def create_product
-      begin
-        product = Stripe::Product.create({
-                    name: title,
-                    images: [image_link],
-                    description: description
-                  })
-        self.product_id = product.id
-      rescue => e
-        Rails.logger.debug e.message
-      end
+      CreateProductJob.perform_later self
+    end
+
+    def update_product
+      UpdateProductJob.perform_later self
     end
 
     def human_name name

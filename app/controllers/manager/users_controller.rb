@@ -8,12 +8,7 @@ module Manager
 
     def create
       if @user.save
-        if @user.customer_id.nil?
-          flash[:alert] = t('messages.fail.connection_failed')
-        else
-          flash[:notice] = t("messages.success.create", model: @user.class.name)
-        end
-        redirect_to manager_users_path
+        redirect_to manager_users_path, notice: t("messages.success.create", model: @user.class.name)
       else
         render 'new'
       end

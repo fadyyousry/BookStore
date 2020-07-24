@@ -29,7 +29,7 @@ class SalesController < ApplicationController
 
     def destroy
       @sale.destroy
-      redirect_to sales_url, notice: t("default.messages.removed_from_cart")
+      redirect_to sales_url(cart: true), notice: t("default.messages.removed_from_cart")
     end
 
     private

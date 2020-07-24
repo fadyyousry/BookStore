@@ -11,7 +11,7 @@
             <%= image_tag book.image_link, alt: "img" %>
             <h3><%= book.title %></h3>
             <h6>
-              <span class="price">$<%= book.price %></span> /
+              <span class="price"><%= human_price(book.price) %></span> /
               <%= link_to t('default.buy_now'), '#'%></h6>
             <div class="hover">
               <%= link_to book do%>
