@@ -22,10 +22,10 @@ class User < ApplicationRecord
   end
 
   def create_customer
-    CreateCustomerWorker.perform_async self.id
+    CreateCustomerJob.perform_later self
   end
 
   def update_customer
-    UpdateCustomerWorker.perform_async self.id
+    UpdateCustomerJob.perform_later self
   end
 end
