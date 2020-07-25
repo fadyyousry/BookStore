@@ -68,16 +68,7 @@
             <span class="value final"><%= human_price(@book.price) %></span>
           </li>
         </ul>
-        <% unless current_user_admin? %>
-        <div class="btn-sec">
-          <% if current_user_customer? %>
-          <%= link_to buy_book_button_name, sales_path(book_id: @book.id),
-                        method: :post, class: "btn" %>
-          <% else %>
-          <%= link_to buy_book_button_name, new_user_session_path, class: "btn" %>
-          <% end %>
-        </div>
-        <% end %>
+        <%= render partial: 'book_actions' %>
       </div>
     </div>
   </div>

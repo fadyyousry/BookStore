@@ -68,7 +68,7 @@ en:
       editing_book: "Editing Book"
       new_categorey: "New Category"
       new_author: "New Author"
-
+      download: "Download"
   messages:
     success:
       create: "%{model} was successfully created."

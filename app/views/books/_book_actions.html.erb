@@ -1,0 +1,13 @@
+<div class="btn-sec">
+  <% unless current_user_admin? %>
+    <% if current_user_customer? %>
+      <%= link_to buy_book_button_name, sales_path(book_id: @book.id),
+                  method: :post, class: "btn" %>
+    <% else %>
+      <%= link_to buy_book_button_name, new_user_session_path, class: "btn" %>
+    <% end %>
+  <% end %>
+  <% if current_user_own_book?(@book) %>
+    <%= link_to t("book.view.download"), rails_blob_path(@book.pdf_file, disposition: "attachment"), class: "btn" %>
+  <% end %>
+</div>

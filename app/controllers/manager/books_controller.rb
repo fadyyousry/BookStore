@@ -53,7 +53,7 @@ module Manager
       def book_params
         params.require(:book).permit(:title, :publisher_id, :published_date,
            :description, :isbn, :page_count, :image_link, :language, :is_pdf,
-           :quantity, :price)
+           :quantity, :price, :pdf_file)
       end
   
       def publisher_params
