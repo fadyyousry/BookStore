@@ -8,8 +8,9 @@ module ApplicationHelper
   end
 
   def current_user_own_book?(book)
-    current_user_admin? ||
-        (current_user_customer? && current_user.books.find_by(id: book.id) && book.pdf_file.attached?)
+    book.pdf_file.attached? &&
+      (current_user_admin? ||
+      (current_user_customer? && current_user.books.find_by(id: book.id)))
   end
 
   def cart_size
