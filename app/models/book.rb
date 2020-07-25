@@ -17,19 +17,13 @@ class Book < ApplicationRecord
   validates :description, presence: true
   validates :image_link, presence: true ,:format => URI::regexp(%w(http https))
   validates :isbn, uniqueness:  true
-  validate :check_length
+  validate :check_isbn_length
   validate :correct_document_mime_type
 
   def correct_document_mime_type
     if pdf_file.attached? && !pdf_file.content_type.in?(%w(application/pdf))
       pdf_file.purge
       errors.add(:pdf_file, 'Must be a PDF or a DOC file')
-    end
-  end
-
-  def check_length
-    unless isbn.size == 10 or isbn.size == 13
-      errors.add(:isbn, "length must be 10 or 13")
     end
   end
 
@@ -66,12 +60,18 @@ class Book < ApplicationRecord
     end
   end
 
-  def cascade
-    cascade_authors
-    cascade_categories
-  end
-
   private
+    def check_isbn_length
+      unless isbn.size == 10 or isbn.size == 13
+        errors.add(:isbn, "length must be 10 or 13")
+      end
+    end
+
+    def cascade
+      cascade_authors
+      cascade_categories
+    end
+
     def cascade_authors
       authors.each do |author|
         if author.books.size == 1
