@@ -2,6 +2,7 @@ class Book < ApplicationRecord
   paginates_per 12
 
   belongs_to :publisher, optional: true
+  has_one_attached :pdf_file
   has_many :reviews, dependent: :destroy
   has_many :sales
   has_many :users, through: :sales
@@ -17,6 +18,14 @@ class Book < ApplicationRecord
   validates :image_link, presence: true ,:format => URI::regexp(%w(http https))
   validates :isbn, uniqueness:  true
   validate :check_length
+  validate :correct_document_mime_type
+
+  def correct_document_mime_type
+    if pdf_file.attached? && !pdf_file.content_type.in?(%w(application/pdf))
+      pdf_file.purge
+      errors.add(:pdf_file, 'Must be a PDF or a DOC file')
+    end
+  end
 
   def check_length
     unless isbn.size == 10 or isbn.size == 13

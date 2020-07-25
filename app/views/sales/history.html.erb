@@ -8,6 +8,7 @@
             <th><%= Book.human_attribute_name(:isbn).upcase %></th>
             <th><%= Book.human_attribute_name(:price) %></th>
             <th><%= Book.human_attribute_name(:payment_time) %></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -17,6 +18,11 @@
             <td><%= sale.book.isbn %></td>
             <td><%= sale.book.price %></td>
             <td><%= sale.payment_time %></td>
+            <td>
+              <%= link_to book_url(sale.book.id) do %>
+                <i class="fa fa-eye" aria-hidden="true"></i>
+              <% end %>
+            </td>
           </tr>
           <% end %>
         </tbody>
