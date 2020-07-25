@@ -10,9 +10,6 @@ class User < ApplicationRecord
   has_many :books, through: :sales 
   has_many :reviews, dependent: :destroy
 
-  after_create :create_customer
-  after_update :update_customer
-
   def admin?
     type == "Admin"
   end
@@ -22,10 +19,12 @@ class User < ApplicationRecord
   end
 
   def create_customer
-    CreateCustomerJob.perform_later self
+    begin
+      customer = Stripe::Customer.create()
+      self.customer_id = customer.id
+    rescue => e
+      Rails.logger.debug e.message
+    end
   end
 
-  def update_customer
-    UpdateCustomerJob.perform_later self
-  end
 end

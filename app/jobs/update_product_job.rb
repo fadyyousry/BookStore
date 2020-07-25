@@ -1,5 +1,4 @@
 class UpdateProductJob < ApplicationJob
-  queue_as :default
 
   def perform(book)
     Stripe::Product.update(
