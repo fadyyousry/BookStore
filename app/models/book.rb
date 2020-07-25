@@ -16,13 +16,7 @@ class Book < ApplicationRecord
   validates :description, presence: true
   validates :image_link, presence: true ,:format => URI::regexp(%w(http https))
   validates :isbn, uniqueness:  true
-  validate :check_length
-
-  def check_length
-    unless isbn.size == 10 or isbn.size == 13
-      errors.add(:isbn, "length must be 10 or 13")
-    end
-  end
+  validate :check_isbn_length
 
   def publisher_name
     publisher.name if publisher
@@ -57,12 +51,18 @@ class Book < ApplicationRecord
     end
   end
 
-  def cascade
-    cascade_authors
-    cascade_categories
-  end
-
   private
+    def check_isbn_length
+      unless isbn.size == 10 or isbn.size == 13
+        errors.add(:isbn, "length must be 10 or 13")
+      end
+    end
+
+    def cascade
+      cascade_authors
+      cascade_categories
+    end
+
     def cascade_authors
       authors.each do |author|
         if author.books.size == 1
