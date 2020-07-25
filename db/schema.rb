@@ -58,8 +58,6 @@ ActiveRecord::Schema.define(version: 2020_07_23_170532) do
     t.decimal "price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "quantity"
-    t.boolean "is_pdf"
     t.string "product_id"
     t.index ["publisher_id"], name: "index_books_on_publisher_id"
   end
