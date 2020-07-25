@@ -1,3 +1,3 @@
-<%= render partial: 'shared/recommended' %>
+<%= render 'shared/book_collection', books: @new_books, title: t('home.new_books') %>
 <%= render partial: 'shared/about' %>
-<%= render partial: 'shared/book_collection'%>
+<%= render 'shared/book_collection', books: @recommends, title: t('home.recommends') %>

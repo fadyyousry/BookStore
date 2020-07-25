@@ -1,5 +1,5 @@
 class Book < ApplicationRecord
-  paginates_per 12
+  paginates_per 20
 
   belongs_to :publisher, optional: true
   has_one_attached :pdf_file
