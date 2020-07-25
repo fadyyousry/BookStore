@@ -79,6 +79,19 @@
   </div>
 
   <div class="form-group">
+    <%= form.label :pdf_file, class: "col-md-3 control-label" %>
+    <div class="col-md-6">
+      <% if @book.pdf_file.attached? %>
+        <%= @book.pdf_file.blob.filename %>
+        <%= link_to @book.pdf_file.purge do %>
+          <i class="fa fa-times" aria-hidden="true"></i>
+        <% end %>
+      <% end %>
+      <%= form.file_field :pdf_file, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
     <%= form.label :price, class: "col-md-3 control-label" %>
     <div class="col-md-6">
       <%= form.text_field :price, class: "form-control" %>
