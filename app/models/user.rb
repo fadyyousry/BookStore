@@ -25,7 +25,7 @@ class User < ApplicationRecord
 
   private
     def has_customer_id
-      if customer_id.nil?
+      if customer? && customer_id.nil?
         errors.add(:customer_id, I18n.t('messages.fail.connection_failed'))
       end
     end
