@@ -1,0 +1,65 @@
+<% title t('default.media') %>
+
+<div class="form-group">
+  <%= label_tag :address, Medium.human_attribute_name(:address), class: "col-md-3 control-label" %>
+  <div class="col-md-6">
+    <%= text_field_tag :address, @medium.address, class: "form-control", readonly: "" %>
+  </div>
+</div>
+
+<div class="form-group">
+  <%= label_tag :call, Medium.human_attribute_name(:call), class: "col-md-3 control-label" %>
+  <div class="col-md-6">
+    <%= text_field_tag :call, @medium.call, class: "form-control", readonly: "" %>
+  </div>
+</div>
+
+<div class="form-group">
+  <%= label_tag :email, Medium.human_attribute_name(:email), class: "col-md-3 control-label" %>
+  <div class="col-md-6">
+    <%= text_field_tag :email, @medium.email, class: "form-control", readonly: "" %>
+  </div>
+</div>
+
+<div class="form-group">
+  <%= label_tag :timing, Medium.human_attribute_name(:timing), class: "col-md-3 control-label" %>
+  <div class="col-md-6">
+    <%= text_area_tag :timing, @medium.timing, class: "form-control", readonly: "" %>
+  </div>
+</div>
+
+<div class="form-group">
+  <%= label_tag :facebook, Medium.human_attribute_name(:facebook), class: "col-md-3 control-label" %>
+  <div class="col-md-6">
+    <%= text_field_tag :facebook, @medium.facebook, class: "form-control", readonly: "" %>
+  </div>
+</div>
+
+<div class="form-group">
+  <%= label_tag :instagram, Medium.human_attribute_name(:instagram), class: "col-md-3 control-label" %>
+  <div class="col-md-6">
+    <%= text_field_tag :instagram, @medium.instagram, class: "form-control", readonly: "" %>
+  </div>
+</div>
+
+<div class="form-group">
+  <%= label_tag :twitter, Medium.human_attribute_name(:twitter), class: "col-md-3 control-label" %>
+  <div class="col-md-6">
+    <%= text_field_tag :twitter, @medium.twitter, class: "form-control", readonly: "" %>
+  </div>
+</div>
+
+<div class="form-group">
+  <%= label_tag :pinterest, Medium.human_attribute_name(:pinterest), class: "col-md-3 control-label" %>
+  <div class="col-md-6">
+    <%= text_field_tag :pinterest, @medium.pinterest, class: "form-control", readonly: "" %>
+  </div>
+</div>
+
+<div class="form-group">
+  <div class="col-md-3"></div>
+  <div class="col-md-6">
+    <%= link_to 'Edit', edit_manager_medium_path(@medium) ,
+    class: "mb-xs mt-xs mr-xs btn btn-primary btn-lg btn-block" %>
+  </div>
+</div>

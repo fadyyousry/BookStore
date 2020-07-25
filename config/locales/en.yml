@@ -20,6 +20,7 @@ en:
     subscriptions: "subscriptions"
     checkout: "Checkout"
     dashboard: "Dashboard"
+    media: "Media"
     yes: "Yes"
     no: "No" 
     add_to_card: "Add To cart"
@@ -47,6 +48,10 @@ en:
     new_books: "New Books"
     view_books: "View All Books"
     recommends: "highly recommendes books"
+    our_address: "Our Address"
+    call: "Call"
+    email: "Email"
+    timing: "Timing"
   login:
     title: "My Account / Login"
     login_button: "Log In"
