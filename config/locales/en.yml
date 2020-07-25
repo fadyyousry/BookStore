@@ -76,7 +76,7 @@ en:
       destroy: "%{model} was successfully destroyed."
     fail:
       destroy: "This %{model} can't be destroyed."
-      connection_failed: "Failed to connect to Stripe"
+      connection_failed: "Failed to connect with server"
   breadcrumbs:
     new: "New %{model}"
     edit: "Edit %{model}"

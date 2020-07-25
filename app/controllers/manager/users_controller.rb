@@ -7,7 +7,11 @@ module Manager
     add_breadcrumb I18n.t('activerecord.models.user.other'), :manager_users_path
 
     def create
-      if @user.save
+      @user.create_customer
+      if @user.customer_id.nil?
+        flash[:alert] = t('messages.fail.connection_failed')
+        render 'new'
+      elsif @user.save
         redirect_to manager_users_path, notice: t("messages.success.create", model: @user.class.name)
       else
         render 'new'

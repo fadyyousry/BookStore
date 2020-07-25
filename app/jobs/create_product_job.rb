@@ -1,5 +1,4 @@
 class CreateProductJob < ApplicationJob
-  queue_as :default
 
   def perform(book)
     product = Stripe::Product.create({
