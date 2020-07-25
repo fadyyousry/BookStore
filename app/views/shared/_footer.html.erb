@@ -2,19 +2,20 @@
   <div class="container">
     <div class="row">
       <div class="col-md-7">
-        <div class="address">
-          <h4>Our Address</h4>
-          <h6>The BookStore Theme, 4th Store
-            Beside that building, USA</h6>
-          <h6>Call : 800 1234 5678</h6>
-          <h6>Email : info@bookstore.com</h6>
-        </div>
-        <div class="timing">
-          <h4>Timing</h4>
-          <h6>Mon - Fri: 7am - 10pm</h6>
-          <h6>​​Saturday: 8am - 10pm</h6>
-          <h6>​Sunday: 8am - 11pm</h6>
-        </div>
+        <% if @medium.present? %>
+          <div class="address">
+            <h4><%= t('home.our_address') %></h4>
+            <h6><%= @medium.address%></h6>
+            <h6><%= t('home.call') %> : <%= @medium.call %></h6>
+            <h6><%= t('home.email') %> : <%= @medium.email %></h6>
+          </div>
+          <div class="timing">
+            <h4><%= t('home.timing') %></h4>
+            <% @medium.timing.split("\n").each do |line| %>
+              <h6><%= line %></h6>
+            <% end %>
+          </div>
+        <% end %>
       </div>
       <div class="col-md-5">
         <%= render partial: 'shared/contact_us_form'  %>
@@ -28,12 +29,30 @@
           <h5>(C) 2017. All Rights Reserved. BookStore Wordpress Theme</h5>
         </div>
         <div class="col-md-6">
-          <div class="share align-middle">
-            <span class="fb"><i class="fa fa-facebook-official"></i></span>
-            <span class="instagram"><i class="fa fa-instagram"></i></span>
-            <span class="twitter"><i class="fa fa-twitter"></i></span>
-            <span class="pinterest"><i class="fa fa-pinterest"></i></span>
-          </div>
+          <% if @medium.present? %>
+            <div class="share align-middle">
+              <span class="fb">
+                <%= link_to @medium.facebook , class: "btn link" do %>
+                  <i class="fa fa-facebook-official" aria-hidden="true"></i>
+                <% end %>
+              </span>
+              <span class="instagram">
+                <%= link_to @medium.instagram , class: "btn link" do %>
+                  <i class="fa fa-instagram"></i>
+                <% end %>
+              </span>
+              <span class="twitter">
+                <%= link_to @medium.twitter , class: "btn link" do %>
+                  <i class="fa fa-twitter"></i>
+                <% end %>
+              </span>
+              <span class="pinterest">
+                <%= link_to @medium.pinterest , class: "btn link" do %>
+                  <i class="fa fa-pinterest"></i>
+                <% end %>
+              </span>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>

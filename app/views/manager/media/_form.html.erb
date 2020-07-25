@@ -1,0 +1,76 @@
+<%= form_with(model: [:manager, medium], local: true) do |form| %>
+  <% if medium.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(medium.errors.count, t('default.error')) %></h2>
+
+      <ul>
+        <% medium.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :address, class: "col-md-3 control-label" %>
+    <div class="col-md-6">
+      <%= form.text_field :address, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :call, class: "col-md-3 control-label" %>
+    <div class="col-md-6">
+      <%= form.text_field :call, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :email, class: "col-md-3 control-label" %>
+    <div class="col-md-6">
+      <%= form.text_field :email, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :timing, class: "col-md-3 control-label" %>
+    <div class="col-md-6">
+      <%= form.text_area :timing, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :facebook, class: "col-md-3 control-label" %>
+    <div class="col-md-6">
+      <%= form.text_field :facebook, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :instagram, class: "col-md-3 control-label" %>
+    <div class="col-md-6">
+      <%= form.text_field :instagram, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :twitter, class: "col-md-3 control-label" %>
+    <div class="col-md-6">
+      <%= form.text_field :twitter, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :pinterest, class: "col-md-3 control-label" %>
+    <div class="col-md-6">
+      <%= form.text_field :pinterest, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <%= form.submit class: "mb-xs mt-xs mr-xs btn btn-primary btn-lg btn-block" %>
+    </div>
+  </div>
+<% end %>

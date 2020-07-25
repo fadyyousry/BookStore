@@ -3,4 +3,5 @@ class ApplicationController < ActionController::Base
   include ErrorHandler
   include MenuDataPreload
   include SearchInitializer
+  include MediaDataPreload
 end

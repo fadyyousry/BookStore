@@ -16,6 +16,7 @@ class Ability
     can :read, Category
     can :read, Publisher
     can :read, Review
+    can :read, Medium
   end
 
   def customer
@@ -37,5 +38,6 @@ class Ability
     can :read, Sale
     can :read, Review
     can :destroy, Review
+    can :manage, Medium
   end
 end

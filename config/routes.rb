@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :categories, only: [:show]
   resources :reviews, only: [:create]
   resources :sales, only: [:index, :create, :destroy]
+  resources :media, only: [:show]
   post '/bills/new', to: 'bills#new', as: :bill
 
   namespace :manager do
@@ -19,7 +20,8 @@ Rails.application.routes.draw do
     resources :categories, only: [:index, :destroy]
     resources :reviews, only: [:index]
     resources :sales, only: [:index]
-    root 'dashboard#index'
+    resources :media, except: [:destroy]
+    root 'media#index'
   end
 
   authenticate :user, ->(user) { user.admin? } do
