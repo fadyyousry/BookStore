@@ -34,7 +34,7 @@ en:
       no_item: "Your cart has no books to checkout"
     error_messages:
       not_authorized: "You are not authorized to perform this action."
-      cannot_add_to_cart: "Sorry, you can't add this book for purchase to the cart."
+      cannot_add_to_cart: "This book is already in your cart."
       no_items: "There are no books to buy"
     actions:
       new: "New"

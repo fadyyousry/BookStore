@@ -1,5 +1,5 @@
 <div class="btn-sec">
-  <% unless current_user_admin? %>
+  <% unless current_user_admin? || current_user_own_book?(@book) %>
     <% if current_user_customer? %>
       <%= link_to buy_book_button_name, sales_path(book_id: @book.id),
                   method: :post, class: "btn" %>
