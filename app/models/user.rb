@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_many :reviews, dependent: :destroy
 
   before_validation :create_customer, on: :create
+  after_create :send_welcome_email
 
   validate :has_customer_id
 
@@ -39,4 +40,7 @@ class User < ApplicationRecord
       end
     end
 
+    def send_welcome_email
+      UserMailer.with(user: self).welcome_email.deliver_later
+    end
 end
