@@ -7,5 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Medium.create({address: "The BookStore Theme, 4th Store Beside that building, USA",
-    call: "800 1234 5678", email: "info@bookstore.com",
-     timing: "Mon - Fri: 7am - 10pm\n​Saturday: 8am - 10pm\nSunday: 8am - 11pm"})
+    call: "80012345678", email: "info@bookstore.com",
+     timing: "Mon - Fri: 7am - 10pm\n​Saturday: 8am - 10pm\nSunday: 8am - 11pm",
+     facebook: "", instagram: "", twitter: "", pinterest: ""})

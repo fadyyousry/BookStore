@@ -26,7 +26,7 @@ class Book < ApplicationRecord
   validates_numericality_of :page_count, greater_than: 0
 
   def self.newest num
-    last(num).reverse
+    where.not(product_id: nil).last(num).reverse
   end
 
   def self.best_seller num
