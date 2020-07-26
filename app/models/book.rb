@@ -14,11 +14,16 @@ class Book < ApplicationRecord
   before_destroy :cascade
 
   validates :title, presence: true
+  validates :price, presence: true
   validates :description, presence: true
   validates :image_link, presence: true ,:format => URI::regexp(%w(http https))
   validates :isbn, uniqueness:  true
   validate :check_isbn_length
   validate :correct_document_mime_type
+  validate :valid_date?
+  validates_numericality_of :isbn
+  validates_numericality_of :price, greater_than_or_equal_to: 0
+  validates_numericality_of :page_count, greater_than: 0
 
   def correct_document_mime_type
     if pdf_file.attached? && !pdf_file.content_type.in?(%w(application/pdf))
@@ -61,6 +66,12 @@ class Book < ApplicationRecord
   end
 
   private
+    def valid_date?
+      if published_date.present? and published_date > Time.now 
+        errors.add(:published_date, "can't be in the future!")
+      end
+    end
+
     def check_isbn_length
       unless isbn.size == 10 or isbn.size == 13
         errors.add(:isbn, "length must be 10 or 13")

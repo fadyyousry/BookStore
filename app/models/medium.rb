@@ -8,5 +8,5 @@ class Medium < ApplicationRecord
   validates :instagram,:format => URI::regexp(%w(http https))
   validates :twitter,:format => URI::regexp(%w(http https))
   validates :pinterest,:format => URI::regexp(%w(http https))
-
+  validates_numericality_of :call
 end
