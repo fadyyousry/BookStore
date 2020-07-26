@@ -21,7 +21,6 @@ class Book < ApplicationRecord
   validate :check_isbn_length
   validate :correct_document_mime_type
   validate :valid_date?
-  validates_numericality_of :isbn
   validates_numericality_of :price, greater_than_or_equal_to: 0
   validates_numericality_of :page_count, greater_than: 0
 
@@ -30,7 +29,8 @@ class Book < ApplicationRecord
   end
 
   def self.best_seller num
-    left_joins(:sales).group(:id).order('COUNT(sales.id) DESC').limit(num)
+    left_joins(:sales).group(:id).where("sales.status" => :completed)
+    .order('COUNT(sales.id) DESC').limit(num)
   end
 
   def correct_document_mime_type
