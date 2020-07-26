@@ -4,12 +4,11 @@ module Manager
     load_and_authorize_resource
 
     def index
-      @medium = Medium.first
-      if @medium.nil?
-        @medium = Medium.new
-        render :new
-      else
+      @medium = Medium.first_or_initialize
+      if @medium.persisted?
         render :show
+      else
+        render :new
       end
     end
 
