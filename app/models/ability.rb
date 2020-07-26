@@ -37,7 +37,6 @@ class Ability
     cannot :destroy, User, id: @user.id
     can :read, Sale
     can :read, Review
-    can :destroy, Review
     can :manage, Medium
   end
 end

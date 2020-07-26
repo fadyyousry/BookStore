@@ -25,6 +25,14 @@ class Book < ApplicationRecord
   validates_numericality_of :price, greater_than_or_equal_to: 0
   validates_numericality_of :page_count, greater_than: 0
 
+  def self.newest num
+    last(num).reverse
+  end
+
+  def self.best_seller num
+    left_joins(:sales).group(:id).order('COUNT(sales.id) DESC').limit(num)
+  end
+
   def correct_document_mime_type
     if pdf_file.attached? && !pdf_file.content_type.in?(%w(application/pdf))
       pdf_file.purge
