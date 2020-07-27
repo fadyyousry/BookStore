@@ -10,13 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_23_170532) do
+ActiveRecord::Schema.define(version: 2020_07_25_194149) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
-    t.integer "record_id", null: false
-    t.integer "blob_id", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
     t.datetime "created_at", null: false
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
@@ -40,15 +43,15 @@ ActiveRecord::Schema.define(version: 2020_07_23_170532) do
   end
 
   create_table "authors_books", force: :cascade do |t|
-    t.integer "book_id", null: false
-    t.integer "author_id", null: false
+    t.bigint "book_id", null: false
+    t.bigint "author_id", null: false
     t.index ["author_id"], name: "index_authors_books_on_author_id"
     t.index ["book_id"], name: "index_authors_books_on_book_id"
   end
 
   create_table "books", force: :cascade do |t|
     t.string "title"
-    t.integer "publisher_id"
+    t.bigint "publisher_id"
     t.date "published_date"
     t.text "description"
     t.string "isbn"
@@ -63,14 +66,27 @@ ActiveRecord::Schema.define(version: 2020_07_23_170532) do
   end
 
   create_table "books_categories", force: :cascade do |t|
-    t.integer "book_id", null: false
-    t.integer "category_id", null: false
+    t.bigint "book_id", null: false
+    t.bigint "category_id", null: false
     t.index ["book_id"], name: "index_books_categories_on_book_id"
     t.index ["category_id"], name: "index_books_categories_on_category_id"
   end
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "media", force: :cascade do |t|
+    t.string "address"
+    t.string "call"
+    t.string "email"
+    t.text "timing"
+    t.string "facebook"
+    t.string "instagram"
+    t.string "twitter"
+    t.string "pinterest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -84,15 +100,15 @@ ActiveRecord::Schema.define(version: 2020_07_23_170532) do
   create_table "reviews", force: :cascade do |t|
     t.string "comment"
     t.decimal "rating"
-    t.integer "user_id", null: false
-    t.integer "book_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "book_id", null: false
     t.index ["book_id"], name: "index_reviews_on_book_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "sales", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "book_id", null: false
+    t.bigint "user_id"
+    t.bigint "book_id", null: false
     t.datetime "payment_time"
     t.integer "status"
     t.datetime "created_at", precision: 6, null: false

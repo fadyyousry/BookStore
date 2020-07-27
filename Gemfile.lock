@@ -134,6 +134,7 @@ GEM
     nokogiri (1.10.9)
       mini_portile2 (~> 2.4.0)
     orm_adapter (0.5.0)
+    pg (1.2.3)
     public_suffix (4.0.5)
     puma (4.3.5)
       nio4r (~> 2.0)
@@ -206,7 +207,6 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    sqlite3 (1.4.2)
     stripe (5.22.0)
     stripe_event (2.3.1)
       activesupport (>= 3.1)
@@ -254,6 +254,7 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   kaminari
   listen (~> 3.2)
+  pg (~> 1.2, >= 1.2.3)
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.2)
   ransack!
@@ -262,7 +263,6 @@ DEPENDENCIES
   sidekiq (= 6.1.1)
   spring
   spring-watcher-listen (~> 2.0.0)
-  sqlite3 (~> 1.4)
   stripe
   stripe_event
   turbolinks (~> 5)
