@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :sales, only: [:index, :create, :destroy]
   resources :media, only: [:show]
   post '/bills/new', to: 'bills#new', as: :bill
+  post '/contacts', to: 'contacts#new', as: :contact
 
   namespace :manager do
     resources :books, except: [:show]
