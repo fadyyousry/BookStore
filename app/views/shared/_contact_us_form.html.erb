@@ -2,20 +2,20 @@
   <h3>Quick Contact us</h3>
   <h6>We are now offering some good discount
     on selected books go and shop them</h6>
-  <form>
-    <div class="row">
-      <div class="col-md-6">
-        <input placeholder="Name" required>
-      </div>
-      <div class="col-md-6">
-        <input type="email" placeholder="Email" required>
+    <%= form_for :contact, url: contact_url do |f| %>
+      <div class="row">
+        <div class="col-md-6">
+          <%= f.text_field :name, placeholder: t('contacts.placeholder.name')%>
+        </div>
+        <div class="col-md-6">
+          <%= f.text_field :email, placeholder: t('contacts.placeholder.email')%>
+        </div>
+        <div class="col-md-12">
+          <%= f.text_area :message, placeholder: t('contacts.placeholder.message')%>
+        </div>
       </div>
       <div class="col-md-12">
-        <textarea placeholder="Messege"></textarea>
+        <%= f.button t("contacts.actions.save"), class: "btn black" %>
       </div>
-      <div class="col-md-12">
-        <button class="btn black">Alright, Submit</button>
-      </div>
-    </div>
-  </form>
+    <% end %>
 </div>

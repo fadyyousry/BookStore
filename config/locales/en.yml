@@ -32,6 +32,7 @@ en:
       added_to_profile: "The book has been added to your profile"
       removed_from_cart: "The book has been removed from your cart"
       no_item: "Your cart has no books to checkout"
+      thank_for_contact: "Thanks for contact with us"
     error_messages:
       not_authorized: "You are not authorized to perform this action."
       cannot_add_to_cart: "This book is already in your cart."
@@ -94,3 +95,15 @@ en:
       rating: "Enter your rating"
     actions:
       save: "Save"
+  contacts:
+    placeholder:
+      name: "Name"
+      email: "Email"
+      message: "Message"
+    actions:
+      save: "Alright, Submit"
+  emails:
+    subjects:
+      welcome: "Welcome to BookStore"
+      receipt: "Your BookStore Receipt"
+      contact: "You Have a Message From Your Website"

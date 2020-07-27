@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'admin@bookstore.com'
+  default from: ENV["ADMIN_EMAIL"]
   layout 'mailer'
 end
