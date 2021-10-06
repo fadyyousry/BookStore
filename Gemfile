@@ -61,5 +61,5 @@ gem "breadcrumbs_on_rails"
 gem 'ransack', github: 'activerecord-hackery/ransack'
 gem 'stripe'
 gem 'stripe_event'
-gem 'sidekiq', '6.1.1'
+gem 'sidekiq', '6.2.1'
 
